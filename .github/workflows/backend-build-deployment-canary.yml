@@ -45,4 +45,4 @@ jobs:
           app-name: ${{ env.AZURE_APP_NAME }}
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_60cec1f98a9e40a8ad088a7ccb91f025 }}
-          package: '${{ AZURE_WAR_PACKAGE_PATH }}'
+          package: '${{ env.AZURE_WAR_PACKAGE_PATH }}'
