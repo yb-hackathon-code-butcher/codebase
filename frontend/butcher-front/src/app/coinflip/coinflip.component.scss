@@ -1,17 +1,88 @@
-.animate-coin {
-  animation: flip 1.4s 1;
+
+$coinflip-size: 300px;
+
+.coinflip-container{
+  width: 100%;
+  margin-top: 100px;
 }
-@keyframes flip {
+
+.coinflip {
+  background-color: transparent;
+  width: $coinflip-size;
+  height: $coinflip-size;
+  perspective: 1000px;
+  margin: auto;
+
+}
+
+.coinflip-inner {
+  background-image: url("../../assets/img/cointoss.svg");
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.coin-front, .coin-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.coin-front > img, .coin-back > img{
+  height:$coinflip-size / 2;
+  margin-top: $coinflip-size/4;
+}
+.coin-back {
+  transform: rotateY(180deg);
+}
+
+.animate-coin-team1 {
+  animation: flip-team1 2s 1;
+  animation-fill-mode: forwards;
+}
+
+.animate-coin-team2 {
+  animation: flip-team2 2s 1;
+  animation-fill-mode: forwards;
+}
+
+.animate-coin-team2 .coin-front{
+  transform: rotateY(180deg);
+}
+.animate-coin-team2 .coin-back{
+  transform: rotateZ(180deg);
+}
+
+.animate-coin-team1 .coin-front{
+  transform: rotateY(180deg);
+}
+.animate-coin-team1 .coin-back{
+  transform: rotateZ(180deg);
+}
+@keyframes flip-team1 {
   0% {
-    transform: scale3d(1,1,1) rotateX(0deg);
-    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+    transform: scale3d(1,1,1) rotateX(0deg) rotateY(0);
   }
   50% {
-    transform: scale3d(2,2,2) rotateX(3600deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,.8);
+    transform: scale3d(1.5,1.5,1.5) rotateX(1800deg);
   }
   100% {
-    transform: scale3d(1,1,1) rotateX(7200deg);
-    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+    transform: scale3d(1,1,1) rotateX(3600deg) rotateY(180deg);
+  }
+}
+@keyframes flip-team2 {
+  0% {
+    transform: scale3d(1,1,1) rotateX(0deg) rotateY(0);
+  }
+  50% {
+    transform: scale3d(1.5,1.5,1.5) rotateX(1800deg);
+  }
+  100% {
+    transform: scale3d(1,1,1) rotateX(3420deg) rotateY(180deg);
   }
 }
