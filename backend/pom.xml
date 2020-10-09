@@ -21,6 +21,7 @@
   <properties>
     <!-- General configuration -->
     <java.version>11</java.version>
+    <build.finalName>butcher-back</build.finalName>
 
     <!-- Dependencies -->
     <netty-socketio-version>1.7.12</netty-socketio-version>
@@ -102,6 +103,8 @@
   </dependencies>
 
   <build>
+    <finalName>${build.finalName}</finalName>
+
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
