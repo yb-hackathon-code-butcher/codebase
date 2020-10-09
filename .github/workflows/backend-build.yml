@@ -1,0 +1,21 @@
+name: Build and test backend
+
+on:
+  [push]
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up Java version
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
+
+    - name: Build with Maven
+      run: |
+        cd ./backend
+        mvnw install
