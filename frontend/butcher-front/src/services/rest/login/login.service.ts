@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {LoginModel} from "../../model/login/login.model";
-import {environment} from "../../environments/environment";
+import {LoginModel} from "../../../model/rest/login/login.model";
+import {environment} from "../../../environments/environment";
 import {log} from "util";
 
 @Injectable({

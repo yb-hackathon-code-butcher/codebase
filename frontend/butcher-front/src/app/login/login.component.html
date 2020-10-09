@@ -1,7 +1,7 @@
 <div id="login-container">
   <div id="login-mask">
     <h1 id="login-title">Login</h1>
-    <form id="login-form">
+    <div id="login-form">
       <mat-form-field class="login-form-full-width" color="accent">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" [(ngModel)]="loginModel.password">
@@ -13,6 +13,6 @@
       <button class="login-form-button" mat-raised-button color="warn" (click)="register()">Register</button>
       <button class="login-form-button" mat-raised-button color="warn" (click)="login()">Login</button>
       <button class="login-form-button" mat-raised-button color="warn" (click)="guestLogin()">Continue as guest</button>
-    </form>
+    </div>
   </div>
 </div>
