@@ -19,6 +19,7 @@ export class CountdownComponent implements OnInit {
         this.start = game.game.startTime;
       }
     });
+    this.start = new Date("Oct 10, 2020 11:00:00");
   }
 
 }
