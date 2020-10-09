@@ -39,7 +39,7 @@ public class GameService {
 
   public GameStatsDTO getGame() {
 
-    GameStatsDTO gameStatsDTO = gameStatsMapper.convertToDTO(gameRepository.findFirst());
+    GameStatsDTO gameStatsDTO = gameStatsMapper.convertToDTO(gameRepository.findAll().get(0));
 
     return new GameStatsDTO();
   }

@@ -22,8 +22,8 @@ CREATE TABLE game
     end_time       TIMESTAMP,
     team1_id       BIGINT,
     team2_id       BIGINT,
-    team1_score    INT,
-    team2_score    INT,
+    team1_score    BIGINT,
+    team2_score    BIGINT,
     round_end_time TIMESTAMP,
     CONSTRAINT fk_team1 FOREIGN KEY (team1_id) REFERENCES team (id),
     CONSTRAINT fk_team2 FOREIGN KEY (team2_id) REFERENCES team (id)
@@ -34,27 +34,27 @@ CREATE TABLE option
     id          BIGSERIAL NOT NULL PRIMARY KEY,
     name        VARCHAR(45),
     possession  BOOLEAN,
-    zone        INT,
+    zone        BIGINT,
     category    VARCHAR(45),
-    duel        INT,
-    pass        INT,
-    shoot       INT,
-    duel_def    INT,
-    pass_def    INT,
-    shoot_def   INT,
-    risk        INT,
+    duel        BIGINT,
+    pass        BIGINT,
+    shoot       BIGINT,
+    duel_def    BIGINT,
+    pass_def    BIGINT,
+    shoot_def   BIGINT,
+    risk        BIGINT,
     win         VARCHAR(45), /*enum?*/
-    win_chance  INT,
+    win_chance  BIGINT,
     loss        VARCHAR(45), /*enum?*/
-    loss_chance INT,
-    card_risk   INT
+    loss_chance BIGINT,
+    card_risk   BIGINT
 );
 
 CREATE TABLE round
 (
     id              BIGSERIAL NOT NULL PRIMARY KEY,
     game_id         BIGINT,
-    round_number    INT,
+    round_number    BIGINT,
     team1_option_id BIGINT,
     team2_option_id BIGINT,
     CONSTRAINT fk_game FOREIGN KEY (game_id) REFERENCES game (id),
