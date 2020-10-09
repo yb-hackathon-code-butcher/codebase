@@ -1,6 +1,8 @@
 package io.github.butcher.butcher.back.socket.event;
 
-public class RoundEndedEvent {
+import io.github.butcher.butcher.back.socket.GameEvent;
+
+public class RoundEndedEvent implements SocketIOEvent {
 
   private VoteResult voteResult;
   private Long[] events;
@@ -20,6 +22,11 @@ public class RoundEndedEvent {
 
   public void setEvents(Long[] events) {
     this.events = events;
+  }
+
+  @Override
+  public String getStringId() {
+    return GameEvent.ROUND_ENDED.getStringId();
   }
 
   public static class VoteResult {

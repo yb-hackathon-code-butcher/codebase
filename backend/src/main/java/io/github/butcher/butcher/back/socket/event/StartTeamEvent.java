@@ -1,6 +1,8 @@
 package io.github.butcher.butcher.back.socket.event;
 
-public class StartTeamEvent {
+import io.github.butcher.butcher.back.socket.GameEvent;
+
+public class StartTeamEvent implements SocketIOEvent {
 
   private Long teamId;
 
@@ -10,5 +12,10 @@ public class StartTeamEvent {
 
   public void setTeamId(Long teamId) {
     this.teamId = teamId;
+  }
+
+  @Override
+  public String getStringId() {
+    return GameEvent.START_TEAM.getStringId();
   }
 }

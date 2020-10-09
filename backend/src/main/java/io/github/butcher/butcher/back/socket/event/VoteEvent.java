@@ -1,6 +1,8 @@
 package io.github.butcher.butcher.back.socket.event;
 
-public class VoteEvent {
+import io.github.butcher.butcher.back.socket.GameEvent;
+
+public class VoteEvent implements SocketIOEvent {
 
   private Long voteId;
 
@@ -10,5 +12,10 @@ public class VoteEvent {
 
   public void setVoteId(Long voteId) {
     this.voteId = voteId;
+  }
+
+  @Override
+  public String getStringId() {
+    return GameEvent.VOTE.getStringId();
   }
 }

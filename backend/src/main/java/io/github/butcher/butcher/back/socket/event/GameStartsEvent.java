@@ -1,8 +1,9 @@
 package io.github.butcher.butcher.back.socket.event;
 
+import io.github.butcher.butcher.back.socket.GameEvent;
 import java.time.LocalDateTime;
 
-public class GameStartsEvent {
+public class GameStartsEvent implements SocketIOEvent {
 
   private LocalDateTime endTime;
 
@@ -12,5 +13,10 @@ public class GameStartsEvent {
 
   public void setEndTime(LocalDateTime endTime) {
     this.endTime = endTime;
+  }
+
+  @Override
+  public String getStringId() {
+    return GameEvent.GAME_STARTS.getStringId();
   }
 }
