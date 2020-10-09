@@ -2,23 +2,22 @@ package io.github.butcher.butcher.back.service.dto;
 
 public class TeamDTO {
 
-    private Integer id;
+  private Integer id;
+  private String name;
 
-    private String name;
+  public Integer getId() {
+    return id;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 }

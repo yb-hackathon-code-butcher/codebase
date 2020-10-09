@@ -19,35 +19,20 @@ public class Option {
   private Long id;
 
   private String name;
-
   private Boolean possession;
-
   private Integer zone;
-
   private String category;
-
   private Integer duel;
-
   private Integer pass;
-
   private Integer shoot;
-
   private Integer duelDef;
-
   private Integer passDef;
-
   private Integer shootDef;
-
   private Integer risk;
-
   private String win;
-
   private Integer winChance;
-
   private String loss;
-
   private Integer lossChance;
-
   private Integer cardRisk;
 
   public Long getId() {

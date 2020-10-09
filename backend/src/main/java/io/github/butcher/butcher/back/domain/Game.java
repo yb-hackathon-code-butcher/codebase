@@ -20,7 +20,6 @@ public class Game {
   private Long id;
 
   private Timestamp startTime;
-
   private Timestamp endTime;
 
   @ManyToOne
