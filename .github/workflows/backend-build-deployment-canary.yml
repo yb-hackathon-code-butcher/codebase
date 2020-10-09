@@ -26,7 +26,7 @@ jobs:
     - name: Build with Maven
       run: |
         cd ./backend
-        mvnw install
+        ./mvnw install
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2

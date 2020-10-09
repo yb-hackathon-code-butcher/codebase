@@ -1,0 +1,4 @@
+app:
+  socket:
+    io:
+      hostname: localhost
