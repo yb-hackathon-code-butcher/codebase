@@ -19,14 +19,14 @@ jobs:
           --health-timeout 2s
           --health-retries 10
     steps:
-    - uses: actions/checkout@master
+      - uses: actions/checkout@v2
 
-    - name: Set up Java version
-      uses: actions/setup-java@v1
-      with:
-        java-version: '11'
+      - name: Set up Java version
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
 
-    - name: Build with Maven
-      run: |
-        cd ./backend
-        ./mvnw install
+      - name: Build with Maven
+        run: |
+          cd ./backend
+          ./mvnw install
