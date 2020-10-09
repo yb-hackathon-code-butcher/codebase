@@ -1,2 +1,9 @@
-<p>countdown works!</p>
-<app-timer *ngIf="start" [countDownDate]="start"></app-timer>
+<div class="background-container">
+  <h3 class="yellow center header">
+    Das Spiel startet in:
+  </h3>
+  <div id="outer-circle-container">
+    <div id="circle-container"></div>
+  </div>
+  <app-timer *ngIf="start" [countDownDate]="start"></app-timer>
+</div>

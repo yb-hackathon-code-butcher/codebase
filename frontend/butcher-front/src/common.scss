@@ -1,0 +1,63 @@
+.background-container {
+  background-image: url("assets/img/pattern.svg");
+  width: 100%;
+  background-color: #0C1619;
+  min-height: 100vh;
+  height: auto;
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+h1 {
+  font-family: Roboto;
+  font-weight: 900!important;
+  font-size: 80px !important;
+  text-transform: uppercase!important;
+  color: #0C1619;
+  color: rgb(12, 22, 25);
+}
+
+
+h2 {
+  font-family: Roboto;
+  font-weight: 400!important;
+  font-size: 74px!important;
+  text-transform: uppercase!important;
+  vertical-align: super!important;
+}
+
+h3 {
+  font-family: Roboto;
+  font-weight: 900!important;
+  font-size: 33px!important;
+  line-height: 40px;
+  text-transform: uppercase!important;
+}
+
+
+h4 {
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+
+.announcer /* rename that shit xd */
+{
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 130px;
+  line-height: 150px;
+  margin: 0px;
+}
+
+
+.center {
+  text-align: center;
+  width: 100%;
+}
+.header{
+  padding: 30px 0;
+  background-color: #0C1619;
+}

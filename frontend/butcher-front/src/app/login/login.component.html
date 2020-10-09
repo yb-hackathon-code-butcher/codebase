@@ -1,18 +1,18 @@
-<div id="login-container">
+<div class="background-container">
   <div id="login-mask">
-    <h1 id="login-title">Login</h1>
+    <h1 id="login-title" class="primary--yellow">Login</h1>
     <div id="login-form">
-      <mat-form-field class="login-form-full-width" color="accent">
+      <mat-form-field class="login-form-full-width" color="primary">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" [(ngModel)]="loginModel.password">
       </mat-form-field>
-      <mat-form-field class="login-form-full-width" color="accent">
+      <mat-form-field class="login-form-full-width" color="primary">
         <mat-label>Password</mat-label>
         <input type="password" matInput placeholder="Password" [(ngModel)]="loginModel.password">
       </mat-form-field>
-      <button class="login-form-button" mat-raised-button color="warn" (click)="register()">Register</button>
-      <button class="login-form-button" mat-raised-button color="warn" (click)="login()">Login</button>
-      <button class="login-form-button" mat-raised-button color="warn" (click)="guestLogin()">Continue as guest</button>
+      <button class="login-form-button" mat-raised-button color="primary" (click)="register()">Register</button>
+      <button class="login-form-button" mat-raised-button color="primary" (click)="login()">Login</button>
+      <button class="login-form-button" mat-raised-button color="primary" (click)="guestLogin()">Continue as guest</button>
     </div>
   </div>
 </div>

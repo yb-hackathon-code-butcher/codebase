@@ -3,13 +3,6 @@
 $login-mask-width: 500px;
 $login-mask-height: 380px;
 
-#login-container{
-  background-image: url("../../assets/img/login-background.jpg");
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-}
 #login-mask{
   width: $login-mask-width;
   height: $login-mask-height;
@@ -21,7 +14,7 @@ $login-mask-height: 380px;
 }
 
 #login-title{
-  color: $light-text;
+  color:$primary-color;
   text-align: center;
   width: 100%;
   margin-top: 40px;
