@@ -9,7 +9,7 @@ import {environment} from "../../../environments/environment";
 })
 export class GameRestService {
 
-  private readonly apiSubRoute: string = "/game";
+  private readonly apiSubRoute: string = "/gameObject";
 
   constructor(private httpClient: HttpClient) {}
 
