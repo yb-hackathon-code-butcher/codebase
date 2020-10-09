@@ -1,7 +1,9 @@
-name: Build & Deploy Angular to Azure Web App (Canary)
+name: Build & deploy Angular to Azure Web App (Canary)
 
 on:
-  [push]
+  push:
+    branches:
+      - canary
 
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
@@ -21,15 +23,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
+
       - name: npm install and build
         run: |
           cd ./frontend/butcher-front
           npm install
           npm run build -- --prod
+
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v1
         with:

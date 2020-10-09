@@ -1,0 +1,37 @@
+name: Build & deploy WAR app to Azure Web App
+
+on:
+  push:
+    branches:
+      - canary
+
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+env:
+  AZURE_APP_NAME: butcher-back
+  AZURE_WAR_PACKAGE_PATH: './backend/target/*.war'
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up Java version
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
+
+    - name: Build with Maven
+      run: |
+        cd ./backend
+        mvnw install
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_APP_NAME }}
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_60cec1f98a9e40a8ad088a7ccb91f025 }}
+        package: '${{ AZURE_WAR_PACKAGE_PATH }}'
