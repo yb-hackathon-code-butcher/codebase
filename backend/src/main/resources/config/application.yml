@@ -1,10 +1,13 @@
 spring:
   session:
     store-type: redis
+  redis:
+    host: ${APPL_REDIS_HOST}
+    password: ${APPL_REDIS_PASSWORD}
   datasource:
-    password: butcher
-    url: jdbc:postgresql://postgresql:5432/butcher
-    username: butcher
+    url: ${APP_DATASOURCE_JDBC_URL}
+    username: ${APP_DATASOURCE_USERNAME}
+    password: ${APP_DATASOURCE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate
