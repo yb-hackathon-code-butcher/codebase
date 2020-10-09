@@ -21,7 +21,6 @@ public class Player {
   private Long id;
 
   private String username;
-
   private String uid;
 
   @ManyToOne

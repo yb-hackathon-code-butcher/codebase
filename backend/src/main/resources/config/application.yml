@@ -1,3 +1,5 @@
+server:
+  port: ${SERVER_PORT}
 spring:
   session:
     store-type: redis
@@ -5,9 +7,9 @@ spring:
     host: ${APPL_REDIS_HOST}
     password: ${APPL_REDIS_PASSWORD}
   datasource:
-    url: ${APP_DATASOURCE_JDBC_URL}
-    username: ${APP_DATASOURCE_USERNAME}
-    password: ${APP_DATASOURCE_PASSWORD}
+    url: ${APPL_DATASOURCE_JDBC_URL}
+    username: ${APPL_DATASOURCE_USERNAME}
+    password: ${APPL_DATASOURCE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate

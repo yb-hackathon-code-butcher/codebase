@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SocketFactoryService } from './socket-factory.service';
+import { GameRestService } from './game-rest.service';
 
-describe('SocketFactoryService', () => {
-  let service: SocketFactoryService;
+describe('GameRestService', () => {
+  let service: GameRestService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SocketFactoryService);
+    service = TestBed.inject(GameRestService);
   });
 
   it('should be created', () => {

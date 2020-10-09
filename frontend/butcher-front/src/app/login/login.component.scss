@@ -1,0 +1,45 @@
+@import '../../styles';
+
+$login-mask-width: 500px;
+$login-mask-height: 380px;
+
+#login-container{
+  background-image: url("../../assets/img/login-background.jpg");
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+#login-mask{
+  width: $login-mask-width;
+  height: $login-mask-height;
+  position: absolute;
+  top:calc(50% - (#{$login-mask-height} / 2));
+  left: calc(50% - (#{$login-mask-width} / 2));
+  background-color: $dark-background;
+  border-radius: 10px;
+}
+
+#login-title{
+  color: $light-text;
+  text-align: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+#login-form{
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.login-form-full-width{
+  width: 90%;
+  position: relative;
+  left: 5%;
+}
+.login-form-button{
+  width: 80%;
+  margin: 5px;
+  position: relative;
+  left: 10%;
+}

@@ -4,8 +4,8 @@ on:
   [push]
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  build-and-test:
+    name: Build and test
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -29,4 +29,4 @@ jobs:
       - name: Build with Maven
         run: |
           cd ./backend
-          ./mvnw install
+          mvn -B package --file pom.xml
