@@ -1,8 +1,8 @@
 package io.github.butcher.butcher.back.socket.event;
 
-import io.github.butcher.butcher.back.TimeUtil;
 import io.github.butcher.butcher.back.domain.Game;
 import io.github.butcher.butcher.back.socket.GameEvent;
+import io.github.butcher.butcher.back.util.TimeUtil;
 import java.time.LocalDateTime;
 import java.util.concurrent.ThreadLocalRandom;
 

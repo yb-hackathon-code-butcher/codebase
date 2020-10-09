@@ -3,16 +3,17 @@ package io.github.butcher.butcher.back.service;
 import io.github.butcher.butcher.back.domain.Player;
 import io.github.butcher.butcher.back.domain.repository.PlayerRepository;
 import io.github.butcher.butcher.back.service.dto.PlayerDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 
 @Service
 public class PlayerService {
 
-  @Autowired
-  private PlayerRepository playerRepository;
+  private final PlayerRepository playerRepository;
+
+  public PlayerService(PlayerRepository playerRepository) {
+    this.playerRepository = playerRepository;
+  }
 
   public Player createPlayer(Player player) {
     return playerRepository.save(player);

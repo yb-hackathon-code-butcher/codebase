@@ -7,12 +7,14 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 public class ButcherBackApplication extends SpringBootServletInitializer {
-  @Override
-  protected SpringApplicationBuilder configure(
-          SpringApplicationBuilder builder) {
-    return builder.sources(ButcherBackApplication.class);
-  }
+
   public static void main(String[] args) {
     SpringApplication.run(ButcherBackApplication.class, args);
+  }
+
+  @Override
+  protected SpringApplicationBuilder configure(
+      SpringApplicationBuilder builder) {
+    return builder.sources(ButcherBackApplication.class);
   }
 }

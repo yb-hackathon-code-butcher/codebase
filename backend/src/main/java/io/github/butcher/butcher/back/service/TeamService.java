@@ -3,25 +3,22 @@ package io.github.butcher.butcher.back.service;
 import io.github.butcher.butcher.back.domain.Team;
 import io.github.butcher.butcher.back.domain.repository.TeamRepository;
 import io.github.butcher.butcher.back.service.dto.TeamDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import org.springframework.stereotype.Service;
 
 @Service
 public class TeamService {
 
-    @Autowired
-    private TeamRepository teamRepository;
+  private final TeamRepository teamRepository;
 
-    public List<TeamDTO> findAll() {
+  public TeamService(TeamRepository teamRepository) {
+    this.teamRepository = teamRepository;
+  }
 
-        // TODO Mapping
-
-        Iterable<Team> teams = teamRepository.findAll();
-
-        return new ArrayList<>();
-    }
+  public List<TeamDTO> findAll() {
+    // TODO Mapping
+    Iterable<Team> teams = teamRepository.findAll();
+    return new ArrayList<>();
+  }
 }
