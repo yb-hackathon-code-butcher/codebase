@@ -65,13 +65,14 @@ public class NextGameScheduler {
   }
 
   private void scheduleGameStart(Game newScheduledGame) {
-    LOGGER.info("Scheduling game start to {}", newScheduledGame.getStartTime());
+    this.currentScheduledGame = newScheduledGame;
+
+    LOGGER.info("Scheduling game start to {}", currentScheduledGame.getStartTime());
 
     this.schedule = taskScheduler.schedule(() -> {
       LOGGER.info("Game starts!");
       // TODO: Start team id?
-      applicationEventPublisher.publishEvent(new GameStartsEvent());
-    }, newScheduledGame.getStartTime().atZone(ZoneId.systemDefault()).toInstant());
-    this.currentScheduledGame = newScheduledGame;
+      applicationEventPublisher.publishEvent(new GameStartsEvent(currentScheduledGame));
+    }, currentScheduledGame.getStartTime().atZone(ZoneId.systemDefault()).toInstant());
   }
 }
