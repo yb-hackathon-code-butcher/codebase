@@ -3,13 +3,11 @@ package io.github.butcher.butcher.back.service.mapper;
 import io.github.butcher.butcher.back.domain.Game;
 import io.github.butcher.butcher.back.domain.Team;
 import io.github.butcher.butcher.back.domain.repository.TeamRepository;
-import io.github.butcher.butcher.back.service.PlayerService;
 import io.github.butcher.butcher.back.service.dto.GameDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.util.Optional;
 
 @Service
 public class GameMapper {

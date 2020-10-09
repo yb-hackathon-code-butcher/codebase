@@ -6,8 +6,6 @@ import io.github.butcher.butcher.back.service.dto.PlayerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 public class PlayerController {
 
@@ -27,7 +25,12 @@ public class PlayerController {
   }
 
   @GetMapping(value = "/player/{id}")
-  public Optional<Player> getPlayer(@PathVariable Long id) {
+  public PlayerDTO findPlayer(@PathVariable Long id) {
     return playerService.findById(id);
+  }
+
+  @PostMapping(value = "player/{id}/select-team")
+  public PlayerDTO selectTeam(@PathVariable Long id, @RequestBody Long teamId) {
+    return playerService.selectTeam(id, teamId);
   }
 }

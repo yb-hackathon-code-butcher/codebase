@@ -6,8 +6,6 @@ import io.github.butcher.butcher.back.service.dto.OptionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class OptionMapper {
 
