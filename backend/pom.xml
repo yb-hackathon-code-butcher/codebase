@@ -6,6 +6,7 @@
   <groupId>io.github.butcher</groupId>
   <artifactId>butcher-back</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
 
   <name>butcher-back</name>
   <description>Backend for YB Hackathon 2020 Team "Code Butcher".</description>

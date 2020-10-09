@@ -9,7 +9,7 @@ on:
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 env:
   AZURE_APP_NAME: butcher-back
-  AZURE_WAR_PACKAGE_PATH: '${{ github.workspace }}/backend/target/*.war'
+  AZURE_WAR_PACKAGE_PATH: './backend/target/*.war'
 
 jobs:
   build-and-deploy:
