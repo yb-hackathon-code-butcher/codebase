@@ -30,7 +30,7 @@ services:
     networks:
       - backend
     volumes:
-      - ../src/main/resources/sql/migration:/flyway/sql
+      - ../src/main/resources/db/migration:/flyway/sql
     depends_on:
       postgresql:
         condition: service_healthy

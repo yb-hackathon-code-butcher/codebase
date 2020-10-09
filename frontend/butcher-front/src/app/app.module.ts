@@ -5,10 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
-import {environment} from '../environments/environment';
 
-const config: SocketIoConfig = { url: environment.socketEndpoint, options: environment.socketIoOptions };
 
 
 @NgModule({
@@ -19,8 +16,7 @@ const config: SocketIoConfig = { url: environment.socketEndpoint, options: envir
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    SocketIoModule.forRoot(config)
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
