@@ -1,44 +1,51 @@
 package io.github.butcher.butcher.back.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 
 @Entity
 @Table
 public class CounterOption {
-    @Id
-    @GenericGenerator(name = "counter_option_id_seq", strategy = PostgreSQLConstants.SEQUENCE_GENERATOR_STRATEGY, parameters = {@org.hibernate.annotations.Parameter(name = "sequence_name", value = "counter_option_id_seq"), @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")})
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "counter_option_id_seq")
-    private Long id;
 
-    @ManyToOne
-    private Option option;
+  @Id
+  @GenericGenerator(name = "counter_option_id_seq", strategy = PostgreSQLConstants.SEQUENCE_GENERATOR_STRATEGY, parameters = {
+      @org.hibernate.annotations.Parameter(name = "sequence_name", value = "counter_option_id_seq"),
+      @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")})
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "counter_option_id_seq")
+  private Long id;
 
-    @ManyToOne
-    private Option counterOption;
+  @ManyToOne
+  private Option option;
 
-    public Long getId() {
-        return id;
-    }
+  @ManyToOne
+  private Option counterOption;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public Option getOption() {
-        return option;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setOption(Option option) {
-        this.option = option;
-    }
+  public Option getOption() {
+    return option;
+  }
 
-    public Option getCounterOption() {
-        return counterOption;
-    }
+  public void setOption(Option option) {
+    this.option = option;
+  }
 
-    public void setCounterOption(Option counterOption) {
-        this.counterOption = counterOption;
-    }
+  public Option getCounterOption() {
+    return counterOption;
+  }
+
+  public void setCounterOption(Option counterOption) {
+    this.counterOption = counterOption;
+  }
 }

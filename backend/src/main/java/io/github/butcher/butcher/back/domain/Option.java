@@ -1,182 +1,188 @@
 package io.github.butcher.butcher.back.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 
 @Entity
 @Table
 public class Option {
-    @Id
-    @GenericGenerator(name = "option_id_seq", strategy = PostgreSQLConstants.SEQUENCE_GENERATOR_STRATEGY, parameters = {@org.hibernate.annotations.Parameter(name = "sequence_name", value = "option_id_seq"), @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")})
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "option_id_seq")
-    private Long id;
 
-    private String name;
+  @Id
+  @GenericGenerator(name = "option_id_seq", strategy = PostgreSQLConstants.SEQUENCE_GENERATOR_STRATEGY, parameters = {
+      @org.hibernate.annotations.Parameter(name = "sequence_name", value = "option_id_seq"),
+      @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")})
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "option_id_seq")
+  private Long id;
 
-    private Boolean possession;
+  private String name;
 
-    private Integer zone;
+  private Boolean possession;
 
-    private String category;
+  private Integer zone;
 
-    private Integer duel;
+  private String category;
 
-    private Integer pass;
+  private Integer duel;
 
-    private Integer shoot;
+  private Integer pass;
 
-    private Integer duelDef;
+  private Integer shoot;
 
-    private Integer passDef;
+  private Integer duelDef;
 
-    private Integer shootDef;
+  private Integer passDef;
 
-    private Integer risk;
+  private Integer shootDef;
 
-    private String win;
+  private Integer risk;
 
-    private Integer winChance;
+  private String win;
 
-    private String loss;
+  private Integer winChance;
 
-    private Integer lossChance;
+  private String loss;
 
-    private Integer cardRisk;
+  private Integer lossChance;
 
-    public Long getId() {
-        return id;
-    }
+  private Integer cardRisk;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public Boolean getPossession() {
-        return possession;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setPossession(Boolean possession) {
-        this.possession = possession;
-    }
+  public Boolean getPossession() {
+    return possession;
+  }
 
-    public Integer getZone() {
-        return zone;
-    }
+  public void setPossession(Boolean possession) {
+    this.possession = possession;
+  }
 
-    public void setZone(Integer zone) {
-        this.zone = zone;
-    }
+  public Integer getZone() {
+    return zone;
+  }
 
-    public String getCategory() {
-        return category;
-    }
+  public void setZone(Integer zone) {
+    this.zone = zone;
+  }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+  public String getCategory() {
+    return category;
+  }
 
-    public Integer getDuel() {
-        return duel;
-    }
+  public void setCategory(String category) {
+    this.category = category;
+  }
 
-    public void setDuel(Integer duel) {
-        this.duel = duel;
-    }
+  public Integer getDuel() {
+    return duel;
+  }
 
-    public Integer getPass() {
-        return pass;
-    }
+  public void setDuel(Integer duel) {
+    this.duel = duel;
+  }
 
-    public void setPass(Integer pass) {
-        this.pass = pass;
-    }
+  public Integer getPass() {
+    return pass;
+  }
 
-    public Integer getShoot() {
-        return shoot;
-    }
+  public void setPass(Integer pass) {
+    this.pass = pass;
+  }
 
-    public void setShoot(Integer shoot) {
-        this.shoot = shoot;
-    }
+  public Integer getShoot() {
+    return shoot;
+  }
 
-    public Integer getDuelDef() {
-        return duelDef;
-    }
+  public void setShoot(Integer shoot) {
+    this.shoot = shoot;
+  }
 
-    public void setDuelDef(Integer duelDef) {
-        this.duelDef = duelDef;
-    }
+  public Integer getDuelDef() {
+    return duelDef;
+  }
 
-    public Integer getPassDef() {
-        return passDef;
-    }
+  public void setDuelDef(Integer duelDef) {
+    this.duelDef = duelDef;
+  }
 
-    public void setPassDef(Integer passDef) {
-        this.passDef = passDef;
-    }
+  public Integer getPassDef() {
+    return passDef;
+  }
 
-    public Integer getShootDef() {
-        return shootDef;
-    }
+  public void setPassDef(Integer passDef) {
+    this.passDef = passDef;
+  }
 
-    public void setShootDef(Integer shootDef) {
-        this.shootDef = shootDef;
-    }
+  public Integer getShootDef() {
+    return shootDef;
+  }
 
-    public Integer getRisk() {
-        return risk;
-    }
+  public void setShootDef(Integer shootDef) {
+    this.shootDef = shootDef;
+  }
 
-    public void setRisk(Integer risk) {
-        this.risk = risk;
-    }
+  public Integer getRisk() {
+    return risk;
+  }
 
-    public String getWin() {
-        return win;
-    }
+  public void setRisk(Integer risk) {
+    this.risk = risk;
+  }
 
-    public void setWin(String win) {
-        this.win = win;
-    }
+  public String getWin() {
+    return win;
+  }
 
-    public Integer getWinChance() {
-        return winChance;
-    }
+  public void setWin(String win) {
+    this.win = win;
+  }
 
-    public void setWinChance(Integer winChance) {
-        this.winChance = winChance;
-    }
+  public Integer getWinChance() {
+    return winChance;
+  }
 
-    public String getLoss() {
-        return loss;
-    }
+  public void setWinChance(Integer winChance) {
+    this.winChance = winChance;
+  }
 
-    public void setLoss(String loss) {
-        this.loss = loss;
-    }
+  public String getLoss() {
+    return loss;
+  }
 
-    public Integer getLossChance() {
-        return lossChance;
-    }
+  public void setLoss(String loss) {
+    this.loss = loss;
+  }
 
-    public void setLossChance(Integer lossChance) {
-        this.lossChance = lossChance;
-    }
+  public Integer getLossChance() {
+    return lossChance;
+  }
 
-    public Integer getCardRisk() {
-        return cardRisk;
-    }
+  public void setLossChance(Integer lossChance) {
+    this.lossChance = lossChance;
+  }
 
-    public void setCardRisk(Integer cardRisk) {
-        this.cardRisk = cardRisk;
-    }
+  public Integer getCardRisk() {
+    return cardRisk;
+  }
+
+  public void setCardRisk(Integer cardRisk) {
+    this.cardRisk = cardRisk;
+  }
 }
