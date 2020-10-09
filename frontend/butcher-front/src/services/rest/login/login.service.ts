@@ -23,10 +23,10 @@ export class LoginService {
   }
 
   public logout(){
-    return this.httpClient.get(environment.backend_url + this.apiSubRoute +"/logout", {});
+    return this.httpClient.get(environment.backend_api + this.apiSubRoute +"/logout", {});
   }
 
   register(loginModel: LoginModel) {
-    return this.httpClient.post(environment.backend_url + this.apiSubRoute +"/register",loginModel);
+    return this.httpClient.post(environment.backend_api + this.apiSubRoute +"/register",loginModel);
   }
 }
