@@ -140,7 +140,6 @@ $mat-dark-theme-background: (
 @include mat-core($fontConfig);
 
 // Theme Config
-$primary-color:#FFD300;
 body {
   --primary-color: #ffd300;
   --primary-lighter-color: #fff2b3;
@@ -241,29 +240,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 }
 
 @import "common";
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Roboto", sans-serif; overflow-x: hidden}
-.yellow{
-  color: $primary-color;
-}
 
-.bg--blue
-{
-  color : #0C1619;
-  background : #0C1619;
-  background : rgba(12, 22, 25, 1);
-}
-.gradient--orange {
-  background: -moz-linear-gradient(0% 50% 0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
-  background: -webkit-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
-  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0, rgba(255, 211, 0, 1)), color-stop(0.2524, rgba(255, 199, 0, 1)), color-stop(1, rgba(255, 165, 0, 1)));
-  background: -o-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
-  background: -ms-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD300', endColorstr='#FFA500' ,GradientType=0)";
-  background: linear-gradient(90deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
-  box-shadow: 0px 18px 33px rgba(255, 213, 34, 0.1);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=18, Color='#FFD522') progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD300', endColorstr='#FFA500', GradientType=1);
-}
-.header-separator{
-  border: 3px solid $primary-color;
-}

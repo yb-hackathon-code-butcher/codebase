@@ -1,3 +1,8 @@
+$primary-color:#FFD300;
+$secondary-color: #FFA500;
+$dark: #0C1619;
+$light: #d7f2e9;
+
 .background-container {
   background-image: url("assets/img/pattern.svg");
   width: 100%;
@@ -8,56 +13,107 @@
   background-size: 200px;
 }
 
-h1 {
-  font-family: Roboto;
-  font-weight: 900!important;
+.h1, .h2, .h3, .h4, .ct{
+  font-family: "Roboto", sans-serif;
+}
+
+.h1 {
+  font-weight: 400;
   font-size: 80px !important;
+  line-height: 100px;
   text-transform: uppercase!important;
-  color: #0C1619;
-  color: rgb(12, 22, 25);
 }
 
 
-h2 {
-  font-family: Roboto;
+.h2 {
   font-weight: 400!important;
   font-size: 74px!important;
+  line-height: 92px;
   text-transform: uppercase!important;
-  vertical-align: super!important;
 }
 
-h3 {
-  font-family: Roboto;
-  font-weight: 900!important;
+.h3 {
+  font-weight: 400;
   font-size: 33px!important;
   line-height: 40px;
   text-transform: uppercase!important;
 }
 
-
-h4 {
-  font-family: Roboto;
-  font-weight: 300;
-  font-size: 22px;
-  text-transform: uppercase;
+.h4 {
+  font-weight: 300!important;
+  font-size: 22px!important;
+  line-height: 28px;
+  text-transform: uppercase!important;
 }
 
-
-.announcer /* rename that shit xd */
-{
-  font-family: Roboto;
+.ct {
   font-weight: 300;
   font-size: 130px;
   line-height: 150px;
-  margin: 0px;
+  margin: 0;
 }
 
+.bold{
+  font-weight: 900!important;
+}
 
 .center {
   text-align: center;
-  width: 100%;
 }
+
+.right{
+  text-align: right;
+}
+
+.left{
+  text-align: left;
+}
+
+.primary-bg{
+  background-color: $primary-color;
+}
+
+.primary-text{
+  color: $primary-color;
+}
+
+.secondary-bg{
+  background-color: $secondary-color;
+}
+
+.secondary-text{
+  color: $secondary-color;
+}
+
+.light-text{
+  color: $light;
+}
+
+.light-bg{
+  background-color: $light;
+}
+
+.dark-text{
+  color: $dark;
+}
+.dark-bg{
+  background-color: $dark;
+}
+
 .header{
   padding: 30px 0;
-  background-color: #0C1619;
+  background-color: $dark;
+  border-bottom: 3px solid $primary-color;
+}
+
+.gradient--orange {
+  background: -moz-linear-gradient(0% 50% 0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0, rgba(255, 211, 0, 1)), color-stop(0.2524, rgba(255, 199, 0, 1)), color-stop(1, rgba(255, 165, 0, 1)));
+  background: -o-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  background: -ms-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD300', endColorstr='#FFA500' ,GradientType=0)";
+  background: linear-gradient(90deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  box-shadow: 0px 18px 33px rgba(255, 213, 34, 0.1);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=18, Color='#FFD522') progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD300', endColorstr='#FFA500', GradientType=1);
 }

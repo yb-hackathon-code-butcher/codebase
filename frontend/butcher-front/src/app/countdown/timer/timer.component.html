@@ -1,3 +1,3 @@
-<p class="announcer yellow center" *ngIf="time">
+<p class="ct primary-text center" *ngIf="time">
   <span *ngIf="time.minutes>=10">{{time.minutes}}</span><span *ngIf="time.minutes<10">0{{time.minutes}}</span>:<span *ngIf="time.seconds>=10">{{time.seconds}}</span><span *ngIf="time.seconds<10">0{{time.seconds}}</span>
 </p>
