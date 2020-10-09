@@ -13,7 +13,7 @@ public enum GameEvent {
 
   private final String stringId;
 
-  private GameEvent(String stringId) {
+  GameEvent(String stringId) {
     this.stringId = stringId;
   }
 

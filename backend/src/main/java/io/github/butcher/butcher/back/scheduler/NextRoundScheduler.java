@@ -22,14 +22,12 @@ import org.springframework.stereotype.Component;
 public class NextRoundScheduler {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(NextRoundScheduler.class);
-
-  private boolean stopGame = false;
-
   private final AppGameProperties appGameProperties;
   private final GameService gameService;
   private final OptionService optionService;
   private final TaskScheduler taskScheduler;
   private final ApplicationEventPublisher applicationEventPublisher;
+  private boolean stopGame = false;
 
   public NextRoundScheduler(AppGameProperties appGameProperties, GameService gameService,
       OptionService optionService,

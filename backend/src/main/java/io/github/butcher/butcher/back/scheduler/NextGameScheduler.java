@@ -20,13 +20,11 @@ import org.springframework.stereotype.Component;
 public class NextGameScheduler {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(NextGameScheduler.class);
-
-  private Game currentScheduledGame;
-  private ScheduledFuture<?> schedule;
-
   private final GameService gameService;
   private final TaskScheduler taskScheduler;
   private final ApplicationEventPublisher applicationEventPublisher;
+  private Game currentScheduledGame;
+  private ScheduledFuture<?> schedule;
 
   public NextGameScheduler(GameService gameService, TaskScheduler taskScheduler,
       ApplicationEventPublisher applicationEventPublisher) {

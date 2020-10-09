@@ -13,7 +13,7 @@ public class RoundEvaluator {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(RoundEvaluator.class);
 
-  private ApplicationEventPublisher applicationEventPublisher;
+  private final ApplicationEventPublisher applicationEventPublisher;
 
   public RoundEvaluator(ApplicationEventPublisher applicationEventPublisher) {
     this.applicationEventPublisher = applicationEventPublisher;

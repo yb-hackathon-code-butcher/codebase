@@ -3,7 +3,7 @@
 // have to load a single css file for Angular Material in your app.
 
 // Fonts
-@import 'https://fonts.googleapis.com/css?family=Material+Icons+Outlined';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 $fontConfig: (
@@ -140,25 +140,25 @@ $mat-dark-theme-background: (
 @include mat-core($fontConfig);
 
 // Theme Config
-
+$primary-color:#FFD300;
 body {
-  --primary-color: #111111;
-  --primary-lighter-color: #b8b8b8;
-  --primary-darker-color: #0a0a0a;
-  --text-primary-color: #{$light-primary-text};
+  --primary-color: #ffd300;
+  --primary-lighter-color: #fff2b3;
+  --primary-darker-color: #ffc200;
+  --text-primary-color: #{$dark-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
-  --text-primary-darker-color: #{$light-primary-text};
+  --text-primary-darker-color: #{$dark-primary-text};
 }
 
 $mat-primary: (
-  main: #111111,
-  lighter: #b8b8b8,
-  darker: #0a0a0a,
-  200: #111111, // For slide toggle,
+  main: #ffd300,
+  lighter: #fff2b3,
+  darker: #ffc200,
+  200: #ffd300, // For slide toggle,
   contrast : (
-    main: $light-primary-text,
+    main: $dark-primary-text,
     lighter: $dark-primary-text,
-    darker: $light-primary-text,
+    darker: $dark-primary-text,
   )
 );
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
@@ -186,23 +186,23 @@ $mat-accent: (
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
 body {
-  --warn-color: #ffcf00;
-  --warn-lighter-color: #fff1b3;
-  --warn-darker-color: #ffbd00;
-  --text-warn-color: #{$dark-primary-text};
+  --warn-color: #0c1619;
+  --warn-lighter-color: #b6b9ba;
+  --warn-darker-color: #060c0e;
+  --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
-  --text-warn-darker-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
 }
 
 $mat-warn: (
-  main: #ffcf00,
-  lighter: #fff1b3,
-  darker: #ffbd00,
-  200: #ffcf00, // For slide toggle,
+  main: #0c1619,
+  lighter: #b6b9ba,
+  darker: #060c0e,
+  200: #0c1619, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
-    darker: $dark-primary-text,
+    darker: $light-primary-text,
   )
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);;
@@ -234,10 +234,36 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
 .material-icons {
   font-size: 24px;
-  font-family: 'Material Icons Outlined', 'Material Icons';
+  font-family: 'Material Icons', 'Material Icons';
   .mat-badge-content {
     font-family: 'Roboto';
   }
 }
+
+@import "common";
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Roboto", sans-serif; overflow-x: hidden}
+.yellow{
+  color: $primary-color;
+}
+
+.bg--blue
+{
+  color : #0C1619;
+  background : #0C1619;
+  background : rgba(12, 22, 25, 1);
+}
+.gradient--orange {
+  background: -moz-linear-gradient(0% 50% 0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0, rgba(255, 211, 0, 1)), color-stop(0.2524, rgba(255, 199, 0, 1)), color-stop(1, rgba(255, 165, 0, 1)));
+  background: -o-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  background: -ms-linear-gradient(0deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD300', endColorstr='#FFA500' ,GradientType=0)";
+  background: linear-gradient(90deg, rgba(255, 211, 0, 1) 0%, rgba(255, 199, 0, 1) 25.24%, rgba(255, 165, 0, 1) 100%);
+  box-shadow: 0px 18px 33px rgba(255, 213, 34, 0.1);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=18, Color='#FFD522') progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD300', endColorstr='#FFA500', GradientType=1);
+}
+.header-separator{
+  border: 3px solid $primary-color;
+}

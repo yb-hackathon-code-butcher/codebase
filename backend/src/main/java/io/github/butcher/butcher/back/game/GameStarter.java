@@ -15,9 +15,9 @@ public class GameStarter {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(GameStarter.class);
 
-  private AppGameProperties appGameProperties;
-  private OptionService optionService;
-  private ApplicationEventPublisher applicationEventPublisher;
+  private final AppGameProperties appGameProperties;
+  private final OptionService optionService;
+  private final ApplicationEventPublisher applicationEventPublisher;
 
   public GameStarter(AppGameProperties appGameProperties,
       OptionService optionService, ApplicationEventPublisher applicationEventPublisher) {

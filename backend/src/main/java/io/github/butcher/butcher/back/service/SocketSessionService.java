@@ -8,9 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SocketSessionService {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(SocketSessionService.class);
-
   public static final String TEAM_ROOM_PREFIX = "team-";
+  private static final Logger LOGGER = LoggerFactory.getLogger(SocketSessionService.class);
 
   public void registerConnection(SocketIOClient socketIOClient) {
     Long teamId = getTeamIdForClient(socketIOClient);
