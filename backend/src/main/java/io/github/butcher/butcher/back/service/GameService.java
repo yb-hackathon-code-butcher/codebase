@@ -8,6 +8,6 @@ public class GameService {
 
   public Game getNextGame() {
     // TODO: Read from DB
-    return new Game();
+    return null;
   }
 }
