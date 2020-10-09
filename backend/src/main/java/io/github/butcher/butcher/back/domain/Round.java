@@ -15,13 +15,13 @@ public class Round {
     @ManyToOne
     private Game game_id;
 
-    private Integer round_number;
+    private Integer roundNumber;
 
     @ManyToOne
-    private Option team1_option_id;
+    private Option team1Option;
 
     @ManyToOne
-    private Option team2_option_id;
+    private Option team2Option;
 
     public Long getId() {
         return id;
@@ -39,27 +39,27 @@ public class Round {
         this.game_id = game_id;
     }
 
-    public Integer getRound_number() {
-        return round_number;
+    public Integer getRoundNumber() {
+        return roundNumber;
     }
 
-    public void setRound_number(Integer round_number) {
-        this.round_number = round_number;
+    public void setRoundNumber(Integer roundNumber) {
+        this.roundNumber = roundNumber;
     }
 
-    public Option getTeam1_option_id() {
-        return team1_option_id;
+    public Option getTeam1Option() {
+        return team1Option;
     }
 
-    public void setTeam1_option_id(Option team1_option_id) {
-        this.team1_option_id = team1_option_id;
+    public void setTeam1Option(Option team1Option) {
+        this.team1Option = team1Option;
     }
 
-    public Option getTeam2_option_id() {
-        return team2_option_id;
+    public Option getTeam2Option() {
+        return team2Option;
     }
 
-    public void setTeam2_option_id(Option team2_option_id) {
-        this.team2_option_id = team2_option_id;
+    public void setTeam2Option(Option team2Option) {
+        this.team2Option = team2Option;
     }
 }

@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name="counter_option")
+@Table
 public class CounterOption {
     @Id
     @GenericGenerator(name = "counter_option_id_seq", strategy = PostgreSQLConstants.SEQUENCE_GENERATOR_STRATEGY, parameters = {@org.hibernate.annotations.Parameter(name = "sequence_name", value = "counter_option_id_seq"), @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")})
@@ -13,10 +13,10 @@ public class CounterOption {
     private Long id;
 
     @ManyToOne
-    private Option option_id;
+    private Option option;
 
     @ManyToOne
-    private Option counter_option_id;
+    private Option counterOption;
 
     public Long getId() {
         return id;
@@ -26,19 +26,19 @@ public class CounterOption {
         this.id = id;
     }
 
-    public Option getOption_id() {
-        return option_id;
+    public Option getOption() {
+        return option;
     }
 
-    public void setOption_id(Option option_id) {
-        this.option_id = option_id;
+    public void setOption(Option option) {
+        this.option = option;
     }
 
-    public Option getCounter_option_id() {
-        return counter_option_id;
+    public Option getCounterOption() {
+        return counterOption;
     }
 
-    public void setCounter_option_id(Option counter_option_id) {
-        this.counter_option_id = counter_option_id;
+    public void setCounterOption(Option counterOption) {
+        this.counterOption = counterOption;
     }
 }

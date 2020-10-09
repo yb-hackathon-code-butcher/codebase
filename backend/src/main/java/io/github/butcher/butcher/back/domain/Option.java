@@ -26,23 +26,23 @@ public class Option {
 
     private Integer shoot;
 
-    private Integer duel_def;
+    private Integer duelDef;
 
-    private Integer pass_def;
+    private Integer passDef;
 
-    private Integer shoot_def;
+    private Integer shootDef;
 
     private Integer risk;
 
     private String win;
 
-    private Integer win_chance;
+    private Integer winChance;
 
     private String loss;
 
-    private Integer loss_chance;
+    private Integer lossChance;
 
-    private Integer card_risk;
+    private Integer cardRisk;
 
     public Long getId() {
         return id;
@@ -108,28 +108,28 @@ public class Option {
         this.shoot = shoot;
     }
 
-    public Integer getDuel_def() {
-        return duel_def;
+    public Integer getDuelDef() {
+        return duelDef;
     }
 
-    public void setDuel_def(Integer duel_def) {
-        this.duel_def = duel_def;
+    public void setDuelDef(Integer duelDef) {
+        this.duelDef = duelDef;
     }
 
-    public Integer getPass_def() {
-        return pass_def;
+    public Integer getPassDef() {
+        return passDef;
     }
 
-    public void setPass_def(Integer pass_def) {
-        this.pass_def = pass_def;
+    public void setPassDef(Integer passDef) {
+        this.passDef = passDef;
     }
 
-    public Integer getShoot_def() {
-        return shoot_def;
+    public Integer getShootDef() {
+        return shootDef;
     }
 
-    public void setShoot_def(Integer shoot_def) {
-        this.shoot_def = shoot_def;
+    public void setShootDef(Integer shootDef) {
+        this.shootDef = shootDef;
     }
 
     public Integer getRisk() {
@@ -148,12 +148,12 @@ public class Option {
         this.win = win;
     }
 
-    public Integer getWin_chance() {
-        return win_chance;
+    public Integer getWinChance() {
+        return winChance;
     }
 
-    public void setWin_chance(Integer win_chance) {
-        this.win_chance = win_chance;
+    public void setWinChance(Integer winChance) {
+        this.winChance = winChance;
     }
 
     public String getLoss() {
@@ -164,19 +164,19 @@ public class Option {
         this.loss = loss;
     }
 
-    public Integer getLoss_chance() {
-        return loss_chance;
+    public Integer getLossChance() {
+        return lossChance;
     }
 
-    public void setLoss_chance(Integer loss_chance) {
-        this.loss_chance = loss_chance;
+    public void setLossChance(Integer lossChance) {
+        this.lossChance = lossChance;
     }
 
-    public Integer getCard_risk() {
-        return card_risk;
+    public Integer getCardRisk() {
+        return cardRisk;
     }
 
-    public void setCard_risk(Integer card_risk) {
-        this.card_risk = card_risk;
+    public void setCardRisk(Integer cardRisk) {
+        this.cardRisk = cardRisk;
     }
 }

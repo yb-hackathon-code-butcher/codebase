@@ -7,6 +7,7 @@ import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 
 @Entity
+@Table
 public class Player {
     @Id
     @GenericGenerator(name = "player_id_seq", strategy = PostgreSQLConstants.SEQUENCE_GENERATOR_STRATEGY, parameters = {@Parameter(name = "sequence_name", value = "player_id_seq"), @Parameter(name = "increment_size", value = "1")})
@@ -18,7 +19,7 @@ public class Player {
     private String uid;
 
     @ManyToOne
-    private Team team_id;
+    private Team team;
 
     public Long getId() {
         return id;
@@ -44,11 +45,11 @@ public class Player {
         this.uid = uid;
     }
 
-    public Team getTeam_id() {
-        return team_id;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setTeam_id(Team team_id) {
-        this.team_id = team_id;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }
