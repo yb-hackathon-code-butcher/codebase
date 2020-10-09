@@ -1,11 +1,11 @@
 package io.github.butcher.butcher.back.scheduler;
 
+import io.github.butcher.butcher.back.TimeUtil;
 import io.github.butcher.butcher.back.admin.event.GameScheduledEvent;
 import io.github.butcher.butcher.back.domain.Game;
 import io.github.butcher.butcher.back.service.GameService;
 import io.github.butcher.butcher.back.socket.event.GameStartsEvent;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.concurrent.ScheduledFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,13 +48,14 @@ public class NextGameScheduler {
   @EventListener
   public void onGameScheduled(GameScheduledEvent gameScheduledEvent) {
     Game newScheduledGame = gameScheduledEvent.getGame();
-    LocalDateTime newStartTime = newScheduledGame.getStartTime();
+    LocalDateTime newStartTime = TimeUtil.timestampToLocalDateTime(newScheduledGame.getStartTime());
 
     if (currentScheduledGame == null) {
       scheduleGameStart(newScheduledGame);
     }
 
-    if (newStartTime.isBefore(currentScheduledGame.getStartTime())
+    if (newStartTime
+        .isBefore(TimeUtil.timestampToLocalDateTime(currentScheduledGame.getStartTime()))
         && !newStartTime.isBefore(LocalDateTime.now())) {
       LOGGER.debug("Rescheduling..");
 
@@ -64,6 +65,7 @@ public class NextGameScheduler {
     }
   }
 
+
   private void scheduleGameStart(Game newScheduledGame) {
     this.currentScheduledGame = newScheduledGame;
 
@@ -71,8 +73,7 @@ public class NextGameScheduler {
 
     this.schedule = taskScheduler.schedule(() -> {
       LOGGER.info("Game starts!");
-      // TODO: Start team id?
       applicationEventPublisher.publishEvent(new GameStartsEvent(currentScheduledGame));
-    }, currentScheduledGame.getStartTime().atZone(ZoneId.systemDefault()).toInstant());
+    }, currentScheduledGame.getStartTime().toInstant());
   }
 }

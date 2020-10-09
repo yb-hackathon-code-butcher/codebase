@@ -1,5 +1,6 @@
 package io.github.butcher.butcher.back.socket.event;
 
+import io.github.butcher.butcher.back.TimeUtil;
 import io.github.butcher.butcher.back.domain.Game;
 import io.github.butcher.butcher.back.socket.GameEvent;
 import java.time.LocalDateTime;
@@ -11,8 +12,8 @@ public class GameStartsEvent implements SocketIOEvent {
   private LocalDateTime endTime;
 
   public GameStartsEvent(Game game) {
-    this.startTeamId = randomOfTwo(game.getTeam1Id(), game.getTeam2Id());
-    this.endTime = game.getStartTime();
+    this.startTeamId = randomOfTwo(game.getTeam1().getId(), game.getTeam2().getId());
+    this.endTime = TimeUtil.timestampToLocalDateTime(game.getStartTime());
   }
 
   private Long randomOfTwo(Long team1Id, Long team2Id) {
