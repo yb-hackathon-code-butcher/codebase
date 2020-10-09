@@ -6,7 +6,6 @@ public enum GameEvent {
   JOIN("join"),
 
   GAME_STARTS("game_starts"),
-  START_TEAM("start_team"),
   NEXT_ROUND("next_round"),
   VOTE_UPDATE("vote_update"),
   ROUND_ENDED("round_ended"),

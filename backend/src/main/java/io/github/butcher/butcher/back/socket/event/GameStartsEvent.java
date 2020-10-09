@@ -5,7 +5,16 @@ import java.time.LocalDateTime;
 
 public class GameStartsEvent implements SocketIOEvent {
 
+  private Long startTeamId;
   private LocalDateTime endTime;
+
+  public Long getStartTeamId() {
+    return startTeamId;
+  }
+
+  public void setStartTeamId(Long startTeamId) {
+    this.startTeamId = startTeamId;
+  }
 
   public LocalDateTime getEndTime() {
     return endTime;

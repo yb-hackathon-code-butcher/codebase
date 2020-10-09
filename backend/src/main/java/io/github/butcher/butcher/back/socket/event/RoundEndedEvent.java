@@ -29,10 +29,10 @@ public class RoundEndedEvent implements SocketIOEvent {
     return GameEvent.ROUND_ENDED.getStringId();
   }
 
-  public static class VoteResult {
+  public class VoteResult {
 
     private Integer zoneId;
-    private Long ballPossesion;
+    private Long ballPossession;
 
     public Integer getZoneId() {
       return zoneId;
@@ -42,12 +42,12 @@ public class RoundEndedEvent implements SocketIOEvent {
       this.zoneId = zoneId;
     }
 
-    public Long getBallPossesion() {
-      return ballPossesion;
+    public Long getBallPossession() {
+      return ballPossession;
     }
 
-    public void setBallPossesion(Long ballPossesion) {
-      this.ballPossesion = ballPossesion;
+    public void setBallPossession(Long ballPossession) {
+      this.ballPossession = ballPossession;
     }
   }
 }

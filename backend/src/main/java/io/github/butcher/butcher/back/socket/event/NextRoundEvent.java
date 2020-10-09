@@ -5,15 +5,15 @@ import java.time.LocalDateTime;
 
 public class NextRoundEvent implements SocketIOEvent {
 
-  private String[] options;
+  private String[] optionIds;
   private LocalDateTime endTime;
 
-  public String[] getOptions() {
-    return options;
+  public String[] getOptionIds() {
+    return optionIds;
   }
 
-  public void setOptions(String[] options) {
-    this.options = options;
+  public void setOptionIds(String[] optionIds) {
+    this.optionIds = optionIds;
   }
 
   public LocalDateTime getEndTime() {
