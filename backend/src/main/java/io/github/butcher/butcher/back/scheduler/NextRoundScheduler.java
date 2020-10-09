@@ -1,8 +1,8 @@
 package io.github.butcher.butcher.back.scheduler;
 
-import io.github.butcher.butcher.back.admin.event.StartEvaluationEvent;
-import io.github.butcher.butcher.back.admin.event.StopGameEvent;
 import io.github.butcher.butcher.back.config.AppGameProperties;
+import io.github.butcher.butcher.back.game.event.StartEvaluationEvent;
+import io.github.butcher.butcher.back.game.event.StopGameEvent;
 import io.github.butcher.butcher.back.service.GameService;
 import io.github.butcher.butcher.back.service.OptionService;
 import io.github.butcher.butcher.back.socket.event.GameEndedEvent;
@@ -11,7 +11,8 @@ import io.github.butcher.butcher.back.socket.event.RoundEndedEvent;
 import io.github.butcher.butcher.back.util.TimeUtil;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.concurrent.ScheduledFuture;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.TaskScheduler;
@@ -20,7 +21,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class NextRoundScheduler {
 
-  private ScheduledFuture<?> schedule;
+  private static final Logger LOGGER = LoggerFactory.getLogger(NextRoundScheduler.class);
+
   private boolean stopGame = false;
 
   private final AppGameProperties appGameProperties;
@@ -42,13 +44,17 @@ public class NextRoundScheduler {
 
   @EventListener
   public void nextRound(NextRoundEvent nextRoundEvent) {
-    schedule = taskScheduler
+    LOGGER.info("Scheduling round end to {}", nextRoundEvent.getEndTime());
+
+    taskScheduler
         .schedule(() -> applicationEventPublisher.publishEvent(new StartEvaluationEvent(this)),
             TimeUtil.localDateTimeToInstant(nextRoundEvent.getEndTime()));
   }
 
   @EventListener
   public void roundEnded(RoundEndedEvent roundEndedEvent) {
+    LOGGER.debug("Round has ended, evaluation stop mode: {}", stopGame);
+
     if (stopGame) {
       wereInTheEndgameNow();
     } else {
@@ -57,11 +63,15 @@ public class NextRoundScheduler {
   }
 
   private void wereInTheEndgameNow() {
+    LOGGER.info("We're in the endgame now.");
+
     applicationEventPublisher.publishEvent(new GameEndedEvent(gameService.determineWinnerTeam()));
   }
 
   private void isThisTheOne() {
-    schedule = taskScheduler
+    LOGGER.debug("Calculating next round, starting");
+
+    taskScheduler
         .schedule(() -> applicationEventPublisher
             .publishEvent(new NextRoundEvent(optionService.getNextOptions(),
                 appGameProperties.getRoundDurationSeconds())), TimeUtil.localDateTimeToInstant(
@@ -71,6 +81,8 @@ public class NextRoundScheduler {
 
   @EventListener
   public void stopGame(StopGameEvent stopGameEvent) {
+    LOGGER.info("Game stop signal received, will shutdown gracefully");
+
     this.stopGame = true;
   }
 }

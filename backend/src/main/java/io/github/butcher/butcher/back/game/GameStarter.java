@@ -4,12 +4,16 @@ import io.github.butcher.butcher.back.config.AppGameProperties;
 import io.github.butcher.butcher.back.service.OptionService;
 import io.github.butcher.butcher.back.socket.event.GameStartsEvent;
 import io.github.butcher.butcher.back.socket.event.NextRoundEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
 public class GameStarter {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(GameStarter.class);
 
   private AppGameProperties appGameProperties;
   private OptionService optionService;
@@ -24,6 +28,8 @@ public class GameStarter {
 
   @EventListener
   public void gameStarts(GameStartsEvent gameStartsEvent) {
+    LOGGER.info("Game starts, initiating first round");
+
     applicationEventPublisher.publishEvent(new NextRoundEvent(optionService.startingOptions(),
         appGameProperties.getRoundDurationSeconds()));
   }

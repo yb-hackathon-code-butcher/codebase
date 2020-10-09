@@ -1,7 +1,7 @@
 package io.github.butcher.butcher.back.scheduler;
 
-import io.github.butcher.butcher.back.admin.event.GameScheduledEvent;
 import io.github.butcher.butcher.back.domain.Game;
+import io.github.butcher.butcher.back.game.event.GameScheduledEvent;
 import io.github.butcher.butcher.back.service.GameService;
 import io.github.butcher.butcher.back.socket.event.GameEndedEvent;
 import io.github.butcher.butcher.back.socket.event.GameStartsEvent;
@@ -37,7 +37,7 @@ public class NextGameScheduler {
 
   @EventListener
   public void scheduleInitialGameStart(ApplicationReadyEvent applicationReadyEvent) {
-    LOGGER.info("Application started.. initiating game schedule");
+    LOGGER.info("Application started, initiating game schedule");
 
     scheduleNextGame();
   }
@@ -59,6 +59,11 @@ public class NextGameScheduler {
 
   @EventListener
   public void onGameScheduled(GameScheduledEvent gameScheduledEvent) {
+    if (LOGGER.isDebugEnabled()) {
+      LOGGER.debug("A new game has been scheduled, evaluation start time: {}",
+          gameScheduledEvent.getGame().getStartTime());
+    }
+
     Game newScheduledGame = gameScheduledEvent.getGame();
     LocalDateTime newStartTime = TimeUtil.timestampToLocalDateTime(newScheduledGame.getStartTime());
 
@@ -69,7 +74,7 @@ public class NextGameScheduler {
     if (newStartTime
         .isBefore(TimeUtil.timestampToLocalDateTime(currentScheduledGame.getStartTime()))
         && !newStartTime.isBefore(LocalDateTime.now())) {
-      LOGGER.debug("Rescheduling..");
+      LOGGER.debug("Game will start soon, rescheduling..");
 
       schedule.cancel(false);
 
