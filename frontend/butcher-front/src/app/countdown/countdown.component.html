@@ -1,2 +1,2 @@
 <p>countdown works!</p>
-<app-timer [countDownDate]="start"></app-timer>
+<app-timer *ngIf="start" [countDownDate]="start"></app-timer>
