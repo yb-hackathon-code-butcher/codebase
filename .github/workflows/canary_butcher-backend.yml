@@ -40,7 +40,7 @@ jobs:
     - name: Build with Maven
       run: |
         cd ./backend
-        ./mvnw install
+        mvn -B package --file pom.xml
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
