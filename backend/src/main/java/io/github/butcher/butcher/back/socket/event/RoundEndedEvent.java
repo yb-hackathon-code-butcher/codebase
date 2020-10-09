@@ -1,53 +1,37 @@
 package io.github.butcher.butcher.back.socket.event;
 
+import io.github.butcher.butcher.back.game.VotingResult;
 import io.github.butcher.butcher.back.socket.GameEvent;
 
 public class RoundEndedEvent implements SocketIOEvent {
 
-  private VoteResult voteResult;
-  private Long[] events;
+  private VotingResult votingResult;
+  private Long[] eventIds;
 
-  public VoteResult getVoteResult() {
-    return voteResult;
+  public RoundEndedEvent(VotingResult votingResult, Long[] eventIds) {
+    this.votingResult = votingResult;
+    this.eventIds = eventIds;
   }
 
-  public void setVoteResult(
-      VoteResult voteResult) {
-    this.voteResult = voteResult;
+  public VotingResult getVotingResult() {
+    return votingResult;
   }
 
-  public Long[] getEvents() {
-    return events;
+  public void setVotingResult(
+      VotingResult votingResult) {
+    this.votingResult = votingResult;
   }
 
-  public void setEvents(Long[] events) {
-    this.events = events;
+  public Long[] getEventIds() {
+    return eventIds;
+  }
+
+  public void setEventIds(Long[] eventIds) {
+    this.eventIds = eventIds;
   }
 
   @Override
   public String getStringId() {
     return GameEvent.ROUND_ENDED.getStringId();
-  }
-
-  public class VoteResult {
-
-    private Integer zoneId;
-    private Long ballPossession;
-
-    public Integer getZoneId() {
-      return zoneId;
-    }
-
-    public void setZoneId(Integer zoneId) {
-      this.zoneId = zoneId;
-    }
-
-    public Long getBallPossession() {
-      return ballPossession;
-    }
-
-    public void setBallPossession(Long ballPossession) {
-      this.ballPossession = ballPossession;
-    }
   }
 }

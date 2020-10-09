@@ -1,4 +1,4 @@
-package io.github.butcher.butcher.back.admin.event;
+package io.github.butcher.butcher.back.game.event;
 
 import io.github.butcher.butcher.back.domain.Game;
 import org.springframework.context.ApplicationEvent;

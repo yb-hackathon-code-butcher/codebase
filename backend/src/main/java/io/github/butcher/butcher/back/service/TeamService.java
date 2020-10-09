@@ -11,12 +11,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class TeamService {
 
-    @Autowired
-    private TeamRepository teamRepository;
+  private final TeamRepository teamRepository;
+
+  public TeamService(TeamRepository teamRepository) {
+    this.teamRepository = teamRepository;
+  }
 
     @Autowired
     private TeamMapper teamMapper;

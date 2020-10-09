@@ -20,4 +20,7 @@ export class PlayerRestService {
   edit(player: PlayerModel){
     return this.httpClient.put(environment.backend_api+this.apiSubRoute+"/", player);
   }
+  selectTeam(teamId:number){
+    return this.httpClient.post(environment.backend_api+this.apiSubRoute+"/select-team",{"teamId":teamId});
+  }
 }

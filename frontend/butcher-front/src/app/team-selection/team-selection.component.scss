@@ -1,0 +1,23 @@
+@import "../../styles";
+
+.team-selection-separator{
+  border: 8px solid $primary-color;
+  border-radius: 5px;
+  margin: 10px;
+  width: calc(100% - 32px);
+  position: relative;
+  bottom: calc(50% - 4px);
+}
+.image-team-selection{
+  height: 80%;
+  margin: 10%;
+  width: auto;
+  cursor:pointer;
+}
+.team-selection-header{
+  height: 20vh;
+}
+.team-selection-container{
+  height: 80vh;
+  overflow: hidden;
+}

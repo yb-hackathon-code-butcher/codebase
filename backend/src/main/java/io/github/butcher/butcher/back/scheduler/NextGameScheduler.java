@@ -1,10 +1,11 @@
 package io.github.butcher.butcher.back.scheduler;
 
-import io.github.butcher.butcher.back.TimeUtil;
-import io.github.butcher.butcher.back.admin.event.GameScheduledEvent;
 import io.github.butcher.butcher.back.domain.Game;
+import io.github.butcher.butcher.back.game.event.GameScheduledEvent;
 import io.github.butcher.butcher.back.service.GameService;
+import io.github.butcher.butcher.back.socket.event.GameEndedEvent;
 import io.github.butcher.butcher.back.socket.event.GameStartsEvent;
+import io.github.butcher.butcher.back.util.TimeUtil;
 import java.time.LocalDateTime;
 import java.util.concurrent.ScheduledFuture;
 import org.slf4j.Logger;
@@ -19,13 +20,11 @@ import org.springframework.stereotype.Component;
 public class NextGameScheduler {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(NextGameScheduler.class);
-
-  private Game currentScheduledGame;
-  private ScheduledFuture<?> schedule;
-
   private final GameService gameService;
   private final TaskScheduler taskScheduler;
   private final ApplicationEventPublisher applicationEventPublisher;
+  private Game currentScheduledGame;
+  private ScheduledFuture<?> schedule;
 
   public NextGameScheduler(GameService gameService, TaskScheduler taskScheduler,
       ApplicationEventPublisher applicationEventPublisher) {
@@ -36,8 +35,19 @@ public class NextGameScheduler {
 
   @EventListener
   public void scheduleInitialGameStart(ApplicationReadyEvent applicationReadyEvent) {
-    LOGGER.info("Application started.. initiating game schedule");
+    LOGGER.info("Application started, initiating game schedule");
 
+    scheduleNextGame();
+  }
+
+  @EventListener
+  public void scheduleNextGameStart(GameEndedEvent gameEndedEvent) {
+    LOGGER.info("Looking for the next game");
+
+    scheduleNextGame();
+  }
+
+  private void scheduleNextGame() {
     Game nextGame = gameService.getNextGame();
 
     if (nextGame != null) {
@@ -47,6 +57,11 @@ public class NextGameScheduler {
 
   @EventListener
   public void onGameScheduled(GameScheduledEvent gameScheduledEvent) {
+    if (LOGGER.isDebugEnabled()) {
+      LOGGER.debug("A new game has been scheduled, evaluation start time: {}",
+          gameScheduledEvent.getGame().getStartTime());
+    }
+
     Game newScheduledGame = gameScheduledEvent.getGame();
     LocalDateTime newStartTime = TimeUtil.timestampToLocalDateTime(newScheduledGame.getStartTime());
 
@@ -57,9 +72,9 @@ public class NextGameScheduler {
     if (newStartTime
         .isBefore(TimeUtil.timestampToLocalDateTime(currentScheduledGame.getStartTime()))
         && !newStartTime.isBefore(LocalDateTime.now())) {
-      LOGGER.debug("Rescheduling..");
+      LOGGER.debug("Game will start soon, rescheduling..");
 
-      this.schedule.cancel(false);
+      schedule.cancel(false);
 
       scheduleGameStart(newScheduledGame);
     }
@@ -67,11 +82,11 @@ public class NextGameScheduler {
 
 
   private void scheduleGameStart(Game newScheduledGame) {
-    this.currentScheduledGame = newScheduledGame;
+    currentScheduledGame = newScheduledGame;
 
     LOGGER.info("Scheduling game start to {}", currentScheduledGame.getStartTime());
 
-    this.schedule = taskScheduler.schedule(() -> {
+    schedule = taskScheduler.schedule(() -> {
       LOGGER.info("Game starts!");
       applicationEventPublisher.publishEvent(new GameStartsEvent(currentScheduledGame));
     }, currentScheduledGame.getStartTime().toInstant());

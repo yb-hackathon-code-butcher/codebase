@@ -9,15 +9,30 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class OptionService {
 
     @Autowired
-    private OptionRepository optionRepository;
+  private final OptionRepository optionRepository;
 
-    @Autowired
-    private OptionMapper optionMapper;
+  @Autowired
+  private OptionMapper optionMapper;
+
+  public OptionService(OptionRepository optionRepository) {
+    this.optionRepository = optionRepository;
+  }
+
+  public List<Option> startingOptions() {
+    // TODO
+    return new ArrayList();
+  }
+
+  public List<Option> getNextOptions() {
+    // TODO
+    return new ArrayList();
+  }
 
     public List<OptionDTO> getAll() {
 
