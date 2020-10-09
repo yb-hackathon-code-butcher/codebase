@@ -23,7 +23,7 @@ services:
       - frontend
       - backend
     ports:
-      - "6380:6380"
+      - "6379:6379"
   migration:
     build: 'flyway'
     container_name: butcher_flyway
