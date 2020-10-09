@@ -23,4 +23,11 @@ public class GameEndedEvent implements SocketIOEvent {
   public String getStringId() {
     return GameEvent.GAME_ENDED.getStringId();
   }
+
+  @Override
+  public String toString() {
+    return "GameEndedEvent{" +
+        "winnerTeamId=" + winnerTeamId +
+        '}';
+  }
 }

@@ -28,7 +28,7 @@ public class GameStarter {
 
   @EventListener
   public void gameStarts(GameStartsEvent gameStartsEvent) {
-    LOGGER.info("Game starts, initiating first round");
+    LOGGER.info("Game starts, initiating first round: {}", gameStartsEvent);
 
     applicationEventPublisher.publishEvent(new NextRoundEvent(optionService.startingOptions(),
         appGameProperties.getRoundDurationSeconds()));
