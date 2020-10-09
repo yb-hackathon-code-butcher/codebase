@@ -1,0 +1,30 @@
+package io.github.butcher.butcher.back.game;
+
+import io.github.butcher.butcher.back.config.AppGameProperties;
+import io.github.butcher.butcher.back.service.OptionService;
+import io.github.butcher.butcher.back.socket.event.GameStartsEvent;
+import io.github.butcher.butcher.back.socket.event.NextRoundEvent;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
+
+@Component
+public class GameStarter {
+
+  private AppGameProperties appGameProperties;
+  private OptionService optionService;
+  private ApplicationEventPublisher applicationEventPublisher;
+
+  public GameStarter(AppGameProperties appGameProperties,
+      OptionService optionService, ApplicationEventPublisher applicationEventPublisher) {
+    this.appGameProperties = appGameProperties;
+    this.optionService = optionService;
+    this.applicationEventPublisher = applicationEventPublisher;
+  }
+
+  @EventListener
+  public void gameStarts(GameStartsEvent gameStartsEvent) {
+    applicationEventPublisher.publishEvent(new NextRoundEvent(optionService.startingOptions(),
+        appGameProperties.getRoundDurationSeconds()));
+  }
+}

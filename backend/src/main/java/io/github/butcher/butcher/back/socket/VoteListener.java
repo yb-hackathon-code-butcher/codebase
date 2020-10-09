@@ -29,5 +29,6 @@ public class VoteListener extends AbstractSocketIOEventListener<VoteEvent> {
     LOGGER.debug("{} received: {}", voteEvent.getClass().getSimpleName(), voteEvent);
 
     // TODO
+    // Pay attention it respects the `EvaluationStartsEvent`!
   }
 }
