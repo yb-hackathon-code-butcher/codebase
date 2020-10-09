@@ -9,7 +9,7 @@ on:
       - canary
 
 env:
-  AZURE_APP_NAME: butcher-back
+  AZURE_APP_NAME: butcher-backend
   AZURE_WAR_PACKAGE_PATH: './backend/target/butcher-back.war'
   JAVA_VERSION: 11
 
