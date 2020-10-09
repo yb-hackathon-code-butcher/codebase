@@ -3,33 +3,31 @@ package io.github.butcher.butcher.back.service.dto;
 
 public class OptionDTO {
 
-    private Integer id;
+  private Integer id;
+  private String name;
+  private Integer risk;
 
-    private String name;
+  public Integer getId() {
+    return id;
+  }
 
-    private Integer risk;
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public Integer getRisk() {
+    return risk;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getRisk() {
-        return risk;
-    }
-
-    public void setRisk(Integer risk) {
-        this.risk = risk;
-    }
+  public void setRisk(Integer risk) {
+    this.risk = risk;
+  }
 }

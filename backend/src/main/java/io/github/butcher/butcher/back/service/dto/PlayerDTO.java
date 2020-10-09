@@ -2,33 +2,31 @@ package io.github.butcher.butcher.back.service.dto;
 
 public class PlayerDTO {
 
-    private Integer id;
+  private Integer id;
+  private String username;
+  private Integer teamId;
 
-    private String username;
+  public Integer getId() {
+    return id;
+  }
 
-    private Integer teamId;
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public String getUsername() {
-        return username;
-    }
+  public Integer getTeamId() {
+    return teamId;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Integer getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(Integer teamId) {
-        this.teamId = teamId;
-    }
+  public void setTeamId(Integer teamId) {
+    this.teamId = teamId;
+  }
 }
