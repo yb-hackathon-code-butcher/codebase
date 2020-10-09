@@ -29,10 +29,10 @@ public class Game {
   private Team team2;
 
   @Column(name = "team1_score")
-  private Integer team1Score;
+  private Long team1Score;
 
   @Column(name = "team2_score")
-  private Integer team2Score;
+  private Long team2Score;
 
   private Timestamp roundEndTime;
 
@@ -76,19 +76,19 @@ public class Game {
     this.team2 = team2;
   }
 
-  public Integer getTeam1Score() {
+  public Long getTeam1Score() {
     return team1Score;
   }
 
-  public void setTeam1Score(Integer team1Score) {
+  public void setTeam1Score(Long team1Score) {
     this.team1Score = team1Score;
   }
 
-  public Integer getTeam2Score() {
+  public Long getTeam2Score() {
     return team2Score;
   }
 
-  public void setTeam2Score(Integer team2Score) {
+  public void setTeam2Score(Long team2Score) {
     this.team2Score = team2Score;
   }
 

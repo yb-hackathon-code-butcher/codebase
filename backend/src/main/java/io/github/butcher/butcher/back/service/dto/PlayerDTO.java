@@ -2,15 +2,15 @@ package io.github.butcher.butcher.back.service.dto;
 
 public class PlayerDTO {
 
-  private Integer id;
+  private Long id;
   private String username;
-  private Integer teamId;
+  private Long teamId;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -22,11 +22,11 @@ public class PlayerDTO {
     this.username = username;
   }
 
-  public Integer getTeamId() {
+  public Long getTeamId() {
     return teamId;
   }
 
-  public void setTeamId(Integer teamId) {
+  public void setTeamId(Long teamId) {
     this.teamId = teamId;
   }
 }
