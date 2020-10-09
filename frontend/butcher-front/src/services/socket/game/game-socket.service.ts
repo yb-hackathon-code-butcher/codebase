@@ -50,4 +50,8 @@ export class GameSocketService {
   sendVote(){
       this.socket.emit(ClientMessage.VOTE);
   }
+
+  sendJoin(){
+    this.socket.emit(ClientMessage.JOIN);
+  }
 }
