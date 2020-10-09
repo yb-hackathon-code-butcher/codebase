@@ -7,6 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 
+/**
+ * Socket.io implementation based on: https://github.com/mrniko/netty-socketio.
+ * A working example: https://github.com/mrniko/netty-socketio-demo.
+ */
 @Configuration
 public class SocketIOServerConfig {
 
