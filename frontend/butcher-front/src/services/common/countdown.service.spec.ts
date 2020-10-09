@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SocketFactoryService } from './socket-factory.service';
+import { CountdownService } from './countdown.service';
 
-describe('SocketFactoryService', () => {
-  let service: SocketFactoryService;
+describe('CountdownService', () => {
+  let service: CountdownService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SocketFactoryService);
+    service = TestBed.inject(CountdownService);
   });
 
   it('should be created', () => {
