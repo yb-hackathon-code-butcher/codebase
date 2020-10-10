@@ -5,6 +5,7 @@ public class PlayerDTO {
   private Long id;
   private String username;
   private Long teamId;
+  private String uid;
 
   public Long getId() {
     return id;
@@ -28,5 +29,13 @@ public class PlayerDTO {
 
   public void setTeamId(Long teamId) {
     this.teamId = teamId;
+  }
+
+  public String getUid() {
+    return uid;
+  }
+
+  public void setUid(String uid) {
+    this.uid = uid;
   }
 }

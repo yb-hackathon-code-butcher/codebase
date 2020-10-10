@@ -13,5 +13,5 @@ public enum WinnLose {
   KICK,
   GOAL_SHOT,
   GOAL,
-  GOAL_ENEMY;
+  GOAL_ENEMY
 }

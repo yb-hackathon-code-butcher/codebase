@@ -13,7 +13,7 @@ public class NextRoundEvent implements SocketIOEvent {
   private Long[] optionIds;
   private LocalDateTime endTime;
 
-  private Long teamId;
+  private final Long teamId;
 
   public NextRoundEvent(List<Option> options, int roundDurationSeconds, Long teamId) {
     this.optionIds = options.stream()
