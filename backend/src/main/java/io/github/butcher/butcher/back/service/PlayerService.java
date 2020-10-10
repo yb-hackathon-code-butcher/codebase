@@ -7,6 +7,8 @@ import io.github.butcher.butcher.back.service.mapper.PlayerMapper;
 import io.github.butcher.butcher.back.service.mapper.TeamMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PlayerService {
 
@@ -29,8 +31,19 @@ public class PlayerService {
   }
 
 
-  public Player createPlayer(Player player) {
-    return playerRepository.save(player);
+  public PlayerDTO createPlayer(String uid) {
+    Optional<Player> player = playerRepository.findByUid(uid);
+
+    if(!player.isPresent()) {
+      Player newPlayer = new Player();
+      newPlayer.setTeam(teamMapper.convert(teamService.findById(1L)));
+      newPlayer.setUid(uid);
+      newPlayer.setUsername("geyoungboyst");
+      playerRepository.save(newPlayer);
+
+      return playerMapper.convertToDTO(newPlayer);
+    }
+    return playerMapper.convertToDTO(player.get());
   }
 
   public PlayerDTO findById(Long id) {
