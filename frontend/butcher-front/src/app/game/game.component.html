@@ -9,6 +9,6 @@
   </div>
   <div class="cell">
     <app-vote-result-bar [items]="voteResults" [teamName]="opponentName"></app-vote-result-bar>
-    <app-option-list [options]="options" [teamName]="teamName" [tempResults]="tempResults"></app-option-list>
+    <app-option-list [options]="options" [teamName]="teamName" [tempResults]="tempResults" (onVote)="voted($event)"></app-option-list>
   </div>
 </div>

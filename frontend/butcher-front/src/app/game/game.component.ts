@@ -34,4 +34,7 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  voted(optionIndex: number) {
+    console.warn(optionIndex);
+  }
 }

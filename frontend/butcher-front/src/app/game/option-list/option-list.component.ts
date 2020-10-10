@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-option-list',
@@ -13,10 +13,21 @@ export class OptionListComponent implements OnInit {
   options: {name: string, chance: number}[];
   @Input()
   tempResults: { percent: number; }[];
+  @Output()
+  onVote: EventEmitter<number>;
+  selectedOption = -1;
 
-  constructor() { }
+  constructor() {
+    this.onVote = new EventEmitter<number>();
+  }
 
   ngOnInit(): void {
   }
 
+  vote(optionIndex: number) {
+    if(this.selectedOption === -1){
+      this.selectedOption = optionIndex;
+      this.onVote.next(optionIndex)
+    }
+  }
 }

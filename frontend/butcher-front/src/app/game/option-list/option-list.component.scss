@@ -20,6 +20,9 @@
   overflow: hidden;
   display: flex;
   justify-content: space-between;
+  &.unselected{
+    opacity: 0.4;
+  }
 
   .left{
     flex-grow: 1;
@@ -40,8 +43,6 @@
     &.letter {
       flex-grow: 0;
       padding: 0.5em;
-
-
     }
 
     &.name {
