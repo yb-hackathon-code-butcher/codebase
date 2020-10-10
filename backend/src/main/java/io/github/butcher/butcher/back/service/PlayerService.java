@@ -1,12 +1,14 @@
 package io.github.butcher.butcher.back.service;
 
 import io.github.butcher.butcher.back.domain.Player;
+import io.github.butcher.butcher.back.domain.Team;
 import io.github.butcher.butcher.back.domain.repository.PlayerRepository;
 import io.github.butcher.butcher.back.service.dto.PlayerDTO;
 import io.github.butcher.butcher.back.service.mapper.PlayerMapper;
 import io.github.butcher.butcher.back.service.mapper.TeamMapper;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PlayerService {
@@ -15,7 +17,6 @@ public class PlayerService {
   private final PlayerMapper playerMapper;
   private final TeamService teamService;
   private final TeamMapper teamMapper;
-
 
   public PlayerService(PlayerRepository playerRepository, PlayerMapper playerMapper,
       TeamService teamService, TeamMapper teamMapper) {
@@ -63,5 +64,12 @@ public class PlayerService {
     player = playerRepository.save(player);
 
     return playerMapper.convertToDTO(player);
+  }
+
+  @Transactional(readOnly = true)
+  public Long getTeamIdByUid(String uid) {
+    return playerRepository.findTeamByUid(uid)
+        .orElse(new Team(Long.valueOf(1), "BSC Young Boys"))
+        .getId();
   }
 }
