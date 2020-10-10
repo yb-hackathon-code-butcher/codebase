@@ -43,13 +43,12 @@ public class GameService {
   }
 
   public Game getCurrentGame() {
-    // TODO: Find current game
-    return gameRepository.findAll().get(0);
+    return gameRepository.findAllByOrderByStartTimeDesc().get(0);
   }
 
   public GameStatsDTO getGame() {
 
-    GameStatsDTO gameStatsDTO = gameStatsMapper.convertToDTO(gameRepository.findAllByOrderByStartTimeDesc().get(0));
+    GameStatsDTO gameStatsDTO = gameStatsMapper.convertToDTO(getCurrentGame());
 
     return gameStatsDTO;
   }
