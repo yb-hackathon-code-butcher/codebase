@@ -3,6 +3,7 @@ package io.github.butcher.butcher.back.controller;
 import io.github.butcher.butcher.back.service.PlayerService;
 import io.github.butcher.butcher.back.service.dto.PlayerDTO;
 import io.github.butcher.butcher.back.service.dto.UIDDTO;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,6 @@ public class PlayerController {
   public PlayerController(PlayerService playerService) {
     this.playerService = playerService;
   }
-
 
   @PostMapping(value = "/players")
   public PlayerDTO createPlayer(@RequestBody UIDDTO uiddto) {
