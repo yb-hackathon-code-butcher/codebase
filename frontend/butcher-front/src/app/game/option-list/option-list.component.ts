@@ -12,7 +12,7 @@ export class OptionListComponent implements OnInit {
   @Input()
   options: {name: string, chance: number}[];
   @Input()
-  tempResults
+  tempResults: { percent: number; }[];
 
   constructor() { }
 
