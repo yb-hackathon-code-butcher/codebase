@@ -69,4 +69,9 @@ public class OptionService {
 
     return optionDTOList;
   }
+
+  public boolean optionIsCounteredBy(Option offensiveTeamOption, Option passiveTeamOption) {
+    // TODO: Calculate if passive team is in counter options of offensive team
+    return false;
+  }
 }

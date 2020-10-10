@@ -76,4 +76,9 @@ public class GameService {
   public void setStartingTeam(Game currentScheduledGame, Long startingTeamId) {
     // TODO
   }
+
+  @Transactional
+  public void updateCurrentGameZones(Game currentGame) {
+    // TODO or maybe whole object?
+  }
 }

@@ -75,6 +75,7 @@ public class RoundScheduler {
 
     Game currentGame = gameService.getCurrentGame();
 
+    // TODO: Calculate options based on active/passive, so passive has at least one or two counter options
     List<Option> team1Options = optionService.getNextOptions(currentGame.getTeam1Zone());
     List<Option> team2Options = optionService.getNextOptions(currentGame.getTeam2Zone());
 
