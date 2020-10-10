@@ -32,8 +32,13 @@ public class GameService {
   }
 
   public Team determineWinnerTeam() {
-    // TODO
-    return null;
+    Game currentGame = getCurrentGame();
+
+    if (currentGame.getTeam1Score() > currentGame.getTeam2Score()) {
+      return currentGame.getTeam1();
+    }
+
+    return currentGame.getTeam2();
   }
 
   public Game getCurrentGame() {
