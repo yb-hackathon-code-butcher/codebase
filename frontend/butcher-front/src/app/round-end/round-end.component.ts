@@ -22,6 +22,15 @@ export class RoundEndComponent implements OnInit {
       autoplay: true,
       path: '../../assets/animations/field_1-3.json'
     });
+    //animation.setDirection(-1);
+
+    let animationAction = lottie.loadAnimation({
+      container: document.getElementById('action'),
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: '../../assets/animations/duel_negative.json'
+    });
   }
 
 }
