@@ -21,6 +21,7 @@
     <!-- General configuration -->
     <java.version>11</java.version>
     <build.finalName>butcher-back</build.finalName>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Dependencies -->
     <netty-socketio-version>1.7.12</netty-socketio-version>
