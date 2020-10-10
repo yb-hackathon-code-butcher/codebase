@@ -1,6 +1,8 @@
 package io.github.butcher.butcher.back.game;
 
 import io.github.butcher.butcher.back.config.AppGameProperties;
+import io.github.butcher.butcher.back.domain.Game;
+import io.github.butcher.butcher.back.service.GameService;
 import io.github.butcher.butcher.back.service.OptionService;
 import io.github.butcher.butcher.back.socket.event.GameStartsEvent;
 import io.github.butcher.butcher.back.socket.event.NextRoundEvent;
@@ -16,12 +18,14 @@ public class GameStarter {
   private static final Logger LOGGER = LoggerFactory.getLogger(GameStarter.class);
 
   private final AppGameProperties appGameProperties;
+  private final GameService gameService;
   private final OptionService optionService;
   private final ApplicationEventPublisher applicationEventPublisher;
 
-  public GameStarter(AppGameProperties appGameProperties,
+  public GameStarter(AppGameProperties appGameProperties, GameService gameService,
       OptionService optionService, ApplicationEventPublisher applicationEventPublisher) {
     this.appGameProperties = appGameProperties;
+    this.gameService = gameService;
     this.optionService = optionService;
     this.applicationEventPublisher = applicationEventPublisher;
   }
@@ -30,7 +34,10 @@ public class GameStarter {
   public void gameStarts(GameStartsEvent gameStartsEvent) {
     LOGGER.info("Game starts, initiating first round: {}", gameStartsEvent);
 
+    Game currentGame = gameService.getCurrentGame();
     applicationEventPublisher.publishEvent(new NextRoundEvent(optionService.startingOptions(),
-        appGameProperties.getRoundDurationSeconds()));
+        appGameProperties.getRoundDurationSeconds(), currentGame.getTeam1().getId()));
+    applicationEventPublisher.publishEvent(new NextRoundEvent(optionService.startingOptions(),
+        appGameProperties.getRoundDurationSeconds(), currentGame.getTeam2().getId()));
   }
 }

@@ -8,4 +8,10 @@ public class JoinEvent implements SocketIOEvent {
   public String getStringId() {
     return GameEvent.JOIN.getStringId();
   }
+
+  @Override
+  public Long getTeamId() {
+    // This event is not published
+    return null;
+  }
 }
