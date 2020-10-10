@@ -46,11 +46,16 @@ public class RoundEvaluator {
     Pair<VotingResult, VotingResult> results = calculateVotingResults(team1Option, team2Option,
         currentGame);
 
+    VotingResult team1VotingResult = results.getFirst();
+    VotingResult team2VotingResult = results.getSecond();
+
     applicationEventPublisher.publishEvent(
-        new RoundEndedEvent(results.getFirst(), eventsBasedOnVotingResult(results.getFirst()),
+        new RoundEndedEvent(team1VotingResult,
+            eventsBasedOnVotingResult(team1VotingResult, team1VotingResult.getBallPossession()),
             currentGame.getTeam1().getId()));
     applicationEventPublisher.publishEvent(
-        new RoundEndedEvent(results.getSecond(), eventsBasedOnVotingResult(results.getSecond()),
+        new RoundEndedEvent(team2VotingResult,
+            eventsBasedOnVotingResult(team2VotingResult, team2VotingResult.getBallPossession()),
             currentGame.getTeam2().getId()));
   }
 
@@ -146,12 +151,12 @@ public class RoundEvaluator {
     return team1Option.getDuel().compareTo(team2Option.getDuel()) > 0;
   }
 
-  private Long[] eventsBasedOnVotingResult(VotingResult votingResult) {
+  private Long[] eventsBasedOnVotingResult(VotingResult votingResult, boolean win) {
     if (LOGGER.isDebugEnabled()) {
       LOGGER.debug("Calculating events based on voting result: {}", votingResult);
     }
 
-    // TODO
+    // TODO actions based on winner
     return new Long[]{};
   }
 }

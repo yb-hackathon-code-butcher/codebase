@@ -57,8 +57,7 @@ public class OptionService {
 
   public Option getById(Long optionId) {
     return optionRepository.findById(optionId)
-        .orElseThrow(
-            () -> new IllegalArgumentException("Cannot find option with id " + optionId));
+        .orElseThrow(() -> new IllegalArgumentException("Cannot find option with id " + optionId));
   }
 
   public List<OptionDTO> getAll() {
