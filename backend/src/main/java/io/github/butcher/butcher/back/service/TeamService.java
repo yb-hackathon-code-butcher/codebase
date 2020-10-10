@@ -38,4 +38,12 @@ public class TeamService {
   public TeamDTO findById(Long teamId) {
     return teamMapper.convertToDTO(teamRepository.findById(teamId).get());
   }
+
+  public List<Team> createInstantNewGame() {
+    List<Team> teams = new ArrayList<>();
+    teams.add(teamRepository.findById(1L).get());
+    teams.add(teamRepository.findById(2L).get());
+
+    return teams;
+  }
 }
