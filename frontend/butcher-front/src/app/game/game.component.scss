@@ -29,3 +29,56 @@
     flex-direction: row;
   }
 }
+
+.option {
+  border-radius: $btn-border-radius;
+  background-color: #ffcc00;
+  height: 3em;
+  margin: $default-whitespace 0 0 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  &.unselected{
+    opacity: 0.4;
+  }
+
+  .left{
+    flex-grow: 1;
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .bottom {
+      height: 5px;
+      background-color: $secondary-color;
+    }
+  }
+
+
+  span {
+    &.letter {
+      flex-grow: 0;
+      padding: 0.5em;
+    }
+
+    &.name {
+      flex-grow: 1;
+      padding-right: 0.5em;
+    }
+  }
+
+  .chance {
+    flex-grow: 0;
+    height: 100%;
+    background-color: $light;
+    display: flex;
+    align-items: center;
+
+    span {
+      padding: 0.5em
+    }
+  }
+
+}

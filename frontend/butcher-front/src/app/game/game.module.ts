@@ -13,6 +13,11 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 @NgModule({
   declarations: [GameComponent, VoteResultBarComponent, OptionListComponent, RoundCounterComponent, BallPossessionComponent, ScoreboardComponent],
+  exports: [
+    RoundCounterComponent,
+    ScoreboardComponent,
+    BallPossessionComponent
+  ],
   imports: [
     CommonModule,
     GameRoutingModule,

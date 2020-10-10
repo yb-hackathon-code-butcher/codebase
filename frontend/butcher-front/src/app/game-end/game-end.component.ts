@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-end.component.scss']
 })
 export class GameEndComponent implements OnInit {
+  winnerName = 'BSC YB';
 
   constructor() { }
 
