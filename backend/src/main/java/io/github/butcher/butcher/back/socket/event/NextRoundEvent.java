@@ -13,12 +13,15 @@ public class NextRoundEvent implements SocketIOEvent {
   private Long[] optionIds;
   private LocalDateTime endTime;
 
-  public NextRoundEvent(List<Option> options, int roundDurationSeconds) {
+  private Long teamId;
+
+  public NextRoundEvent(List<Option> options, int roundDurationSeconds, Long teamId) {
     this.optionIds = options.stream()
         .map(Option::getId)
         .collect(Collectors.toList())
         .toArray(new Long[options.size()]);
     this.endTime = LocalDateTime.now().plus(roundDurationSeconds, ChronoUnit.SECONDS);
+    this.teamId = teamId;
   }
 
   public Long[] getOptionIds() {
@@ -40,6 +43,11 @@ public class NextRoundEvent implements SocketIOEvent {
   @Override
   public String getStringId() {
     return GameEvent.NEXT_ROUND.getStringId();
+  }
+
+  @Override
+  public Long getTeamId() {
+    return teamId;
   }
 
   @Override

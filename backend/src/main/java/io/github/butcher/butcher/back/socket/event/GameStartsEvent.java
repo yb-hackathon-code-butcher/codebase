@@ -42,6 +42,12 @@ public class GameStartsEvent implements SocketIOEvent {
   }
 
   @Override
+  public Long getTeamId() {
+    // This event is not team restricted
+    return null;
+  }
+
+  @Override
   public String toString() {
     return "GameStartsEvent{" +
         "startTeamId=" + startTeamId +

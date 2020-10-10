@@ -34,6 +34,12 @@ public class Game {
   @Column(name = "team2_score")
   private Long team2Score;
 
+  @Column(name = "team1_zone")
+  private Long team1Zone;
+
+  @Column(name = "team2_zone")
+  private Long team2Zone;
+
   private Timestamp roundEndTime;
 
   public Long getId() {
@@ -90,6 +96,22 @@ public class Game {
 
   public void setTeam2Score(Long team2Score) {
     this.team2Score = team2Score;
+  }
+
+  public Long getTeam1Zone() {
+    return team1Zone;
+  }
+
+  public void setTeam1Zone(Long team1Zone) {
+    this.team1Zone = team1Zone;
+  }
+
+  public Long getTeam2Zone() {
+    return team2Zone;
+  }
+
+  public void setTeam2Zone(Long team2Zone) {
+    this.team2Zone = team2Zone;
   }
 
   public Timestamp getRoundEndTime() {

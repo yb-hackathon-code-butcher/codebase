@@ -18,4 +18,10 @@ public class VoteEvent implements SocketIOEvent {
   public String getStringId() {
     return GameEvent.VOTE.getStringId();
   }
+
+  @Override
+  public Long getTeamId() {
+    // This event is not published
+    return null;
+  }
 }
