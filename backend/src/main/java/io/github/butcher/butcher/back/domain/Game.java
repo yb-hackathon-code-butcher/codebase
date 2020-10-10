@@ -40,6 +40,8 @@ public class Game {
   @Column(name = "team2_zone")
   private Long team2Zone;
 
+  private Long possessionTeamId;
+
   private Timestamp roundEndTime;
 
   public Long getId() {
@@ -112,6 +114,14 @@ public class Game {
 
   public void setTeam2Zone(Long team2Zone) {
     this.team2Zone = team2Zone;
+  }
+
+  public Long getPossessionTeamId() {
+    return possessionTeamId;
+  }
+
+  public void setPossessionTeamId(Long possessionTeamId) {
+    this.possessionTeamId = possessionTeamId;
   }
 
   public Timestamp getRoundEndTime() {

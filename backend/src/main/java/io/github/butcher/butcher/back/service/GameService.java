@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class GameService {
@@ -69,5 +70,10 @@ public class GameService {
     newGame.setTeam2Score(0L);
 
     gameRepository.save(newGame);
+  }
+
+  @Transactional
+  public void setStartingTeam(Game currentScheduledGame, Long startingTeamId) {
+    // TODO
   }
 }

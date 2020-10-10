@@ -22,19 +22,20 @@ import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NextRoundScheduler {
+public class RoundScheduler {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(NextRoundScheduler.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(RoundScheduler.class);
+
   private final AppGameProperties appGameProperties;
   private final GameService gameService;
   private final OptionService optionService;
   private final TaskScheduler taskScheduler;
   private final ApplicationEventPublisher applicationEventPublisher;
+
   private boolean stopGame = false;
 
-  public NextRoundScheduler(AppGameProperties appGameProperties, GameService gameService,
-      OptionService optionService,
-      TaskScheduler taskScheduler,
+  public RoundScheduler(AppGameProperties appGameProperties, GameService gameService,
+      OptionService optionService, TaskScheduler taskScheduler,
       ApplicationEventPublisher applicationEventPublisher) {
     this.appGameProperties = appGameProperties;
     this.gameService = gameService;

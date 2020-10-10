@@ -55,6 +55,12 @@ public class OptionService {
     return randoms;
   }
 
+  public Option getById(Long optionId) {
+    return optionRepository.findById(optionId)
+        .orElseThrow(
+            () -> new IllegalArgumentException("Cannot find option with id " + optionId));
+  }
+
   public List<OptionDTO> getAll() {
     List<OptionDTO> optionDTOList = new ArrayList<>();
     List<Option> optionList = optionRepository.findAll();
