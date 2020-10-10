@@ -1,0 +1,17 @@
+<div class="background-container">
+  <p class="h3 primary-text header bold center">Coinflip<br>
+    <span class="h4 primary-text">Das Team mit mehr aktiven Spielern gewinnt</span>
+  </p>
+  <div class="coinflip-container">
+    <div class="coinflip">
+      <div class="coinflip-inner" [ngClass]="{'animate-coin-team1' : winner===1, 'animate-coin-team2' : winner===2}" >
+        <div class="coin-front">
+          <img src="../../assets/img/teams/young_boys.png">
+        </div>
+        <div class="coin-back">
+          <img  src="../../assets/img/teams/basel.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

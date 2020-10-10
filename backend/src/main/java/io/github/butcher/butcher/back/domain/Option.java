@@ -20,20 +20,20 @@ public class Option {
 
   private String name;
   private Boolean possession;
-  private Integer zone;
+  private Long zone;
   private String category;
-  private Integer duel;
-  private Integer pass;
-  private Integer shoot;
-  private Integer duelDef;
-  private Integer passDef;
-  private Integer shootDef;
-  private Integer risk;
+  private Long duel;
+  private Long pass;
+  private Long shoot;
+  private Long duelDef;
+  private Long passDef;
+  private Long shootDef;
+  private Long risk;
   private String win;
-  private Integer winChance;
+  private Long winChance;
   private String loss;
-  private Integer lossChance;
-  private Integer cardRisk;
+  private Long lossChance;
+  private Long cardRisk;
 
   public Long getId() {
     return id;
@@ -59,11 +59,11 @@ public class Option {
     this.possession = possession;
   }
 
-  public Integer getZone() {
+  public Long getZone() {
     return zone;
   }
 
-  public void setZone(Integer zone) {
+  public void setZone(Long zone) {
     this.zone = zone;
   }
 
@@ -75,59 +75,59 @@ public class Option {
     this.category = category;
   }
 
-  public Integer getDuel() {
+  public Long getDuel() {
     return duel;
   }
 
-  public void setDuel(Integer duel) {
+  public void setDuel(Long duel) {
     this.duel = duel;
   }
 
-  public Integer getPass() {
+  public Long getPass() {
     return pass;
   }
 
-  public void setPass(Integer pass) {
+  public void setPass(Long pass) {
     this.pass = pass;
   }
 
-  public Integer getShoot() {
+  public Long getShoot() {
     return shoot;
   }
 
-  public void setShoot(Integer shoot) {
+  public void setShoot(Long shoot) {
     this.shoot = shoot;
   }
 
-  public Integer getDuelDef() {
+  public Long getDuelDef() {
     return duelDef;
   }
 
-  public void setDuelDef(Integer duelDef) {
+  public void setDuelDef(Long duelDef) {
     this.duelDef = duelDef;
   }
 
-  public Integer getPassDef() {
+  public Long getPassDef() {
     return passDef;
   }
 
-  public void setPassDef(Integer passDef) {
+  public void setPassDef(Long passDef) {
     this.passDef = passDef;
   }
 
-  public Integer getShootDef() {
+  public Long getShootDef() {
     return shootDef;
   }
 
-  public void setShootDef(Integer shootDef) {
+  public void setShootDef(Long shootDef) {
     this.shootDef = shootDef;
   }
 
-  public Integer getRisk() {
+  public Long getRisk() {
     return risk;
   }
 
-  public void setRisk(Integer risk) {
+  public void setRisk(Long risk) {
     this.risk = risk;
   }
 
@@ -139,11 +139,11 @@ public class Option {
     this.win = win;
   }
 
-  public Integer getWinChance() {
+  public Long getWinChance() {
     return winChance;
   }
 
-  public void setWinChance(Integer winChance) {
+  public void setWinChance(Long winChance) {
     this.winChance = winChance;
   }
 
@@ -155,19 +155,19 @@ public class Option {
     this.loss = loss;
   }
 
-  public Integer getLossChance() {
+  public Long getLossChance() {
     return lossChance;
   }
 
-  public void setLossChance(Integer lossChance) {
+  public void setLossChance(Long lossChance) {
     this.lossChance = lossChance;
   }
 
-  public Integer getCardRisk() {
+  public Long getCardRisk() {
     return cardRisk;
   }
 
-  public void setCardRisk(Integer cardRisk) {
+  public void setCardRisk(Long cardRisk) {
     this.cardRisk = cardRisk;
   }
 }
