@@ -19,11 +19,9 @@ export class LoginComponent implements OnInit {
 
 
   guestLogin() {
-    if(!this.authService.isAuthenticated()){
-      this.loginService.guestLogin(this.authService.getUUID()).subscribe((response) =>{
-        console.log(response);
-      });
-    }
+    this.loginService.guestLogin(this.authService.getUUID()).subscribe((response) =>{
+      console.log(response);
+    });
   }
 
   login() {
