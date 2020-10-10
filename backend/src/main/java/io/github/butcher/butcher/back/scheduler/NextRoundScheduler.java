@@ -54,7 +54,7 @@ public class NextRoundScheduler {
 
   @EventListener
   public void roundEnded(RoundEndedEvent roundEndedEvent) {
-    LOGGER.debug("Round has ended, evaluation stop mode: {}", stopGame);
+    LOGGER.debug("Round has ended, evaluating stop mode: {}", stopGame);
 
     if (stopGame) {
       wereInTheEndgameNow();

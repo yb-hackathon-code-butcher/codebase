@@ -9,9 +9,12 @@ public class RoundEndedEvent implements SocketIOEvent {
   private VotingResult votingResult;
   private Long[] eventIds;
 
-  public RoundEndedEvent(VotingResult votingResult, Long[] eventIds) {
+  private Long teamId;
+
+  public RoundEndedEvent(VotingResult votingResult, Long[] eventIds, Long teamId) {
     this.votingResult = votingResult;
     this.eventIds = eventIds;
+    this.teamId = teamId;
   }
 
   public VotingResult getVotingResult() {
@@ -38,8 +41,7 @@ public class RoundEndedEvent implements SocketIOEvent {
 
   @Override
   public Long getTeamId() {
-    // TODO: Is this team relevant?
-    return null;
+    return teamId;
   }
 
   @Override
