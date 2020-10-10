@@ -9,13 +9,13 @@ import {log} from "util";
 })
 export class LoginService {
 
-  private readonly apiSubRoute: string = "/user";
+  private readonly apiSubRoute: string = "/players";
 
   constructor(private httpClient: HttpClient) {
   }
 
   public guestLogin(uuid: string){
-    return this.httpClient.post(environment.backend_api  + this.apiSubRoute +"/guest-login", {uuid:uuid});
+    return this.httpClient.post(environment.backend_api  + this.apiSubRoute +"/", {uid:uuid});
   }
 
   public login(loginModel: LoginModel){
