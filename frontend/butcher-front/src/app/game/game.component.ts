@@ -21,6 +21,7 @@ export class GameComponent implements OnInit {
   ];
   roundEndDate = new Date("Oct 10, 2020 11:00:00");
   teamWithBallPossession = 'YB';
+  score = {teamA: 0, teamB: 0};
 
   constructor() { }
 
