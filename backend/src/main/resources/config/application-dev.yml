@@ -5,9 +5,6 @@ app:
     io:
       hostname: localhost
 spring:
-  redis:
-    host: localhost
-    password:
   datasource:
     url: jdbc:postgresql://localhost:5432/butcher
     username: butcher

@@ -16,14 +16,6 @@ services:
       interval: 3s
       timeout: 2s
       retries: 10
-  redis:
-    image: redis:6-alpine
-    container_name: butcher_redis
-    networks:
-      - frontend
-      - backend
-    ports:
-      - "6379:6379"
   migration:
     build: 'flyway'
     container_name: butcher_flyway
