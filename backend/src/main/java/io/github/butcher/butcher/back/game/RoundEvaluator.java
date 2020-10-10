@@ -15,11 +15,13 @@ public class RoundEvaluator {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(RoundEvaluator.class);
 
+  private final Voter voter;
   private final GameService gameService;
   private final ApplicationEventPublisher applicationEventPublisher;
 
-  public RoundEvaluator(GameService gameService,
+  public RoundEvaluator(Voter voter, GameService gameService,
       ApplicationEventPublisher applicationEventPublisher) {
+    this.voter = voter;
     this.gameService = gameService;
     this.applicationEventPublisher = applicationEventPublisher;
   }
@@ -43,6 +45,8 @@ public class RoundEvaluator {
 
   private VotingResult calculateVotingResult(Long teamId) {
     LOGGER.debug("Calculating voting result for team {}", teamId);
+
+    voter.getResult(teamId);
 
     // TODO
     return new VotingResult();

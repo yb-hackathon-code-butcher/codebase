@@ -17,12 +17,7 @@ public class Voter {
 
   }
 
-  @EventListener
-  public void nextRound(NextRoundEvent nextRoundEvent) {
-    resetTeam(nextRoundEvent.getTeamId(), nextRoundEvent.getOptionIds());
-  }
-
-  private synchronized void resetTeam(Long teamId, Long[] optionIds) {
+  public synchronized void resetTeam(Long teamId, Long[] optionIds) {
     Map<Long, BigDecimal> initialVotes = new HashMap<>();
 
     Arrays.asList(optionIds).forEach(optionId -> initialVotes.put(optionId, BigDecimal.ZERO));
@@ -30,7 +25,10 @@ public class Voter {
     votes.put(teamId, initialVotes);
   }
 
-  public void vote(Long teamId, Long voteId) {
+  public synchronized void vote(Long teamId, Long voteId) {
     votes.get(teamId).put(voteId, votes.get(teamId).get(voteId).add(BigDecimal.ONE));
+  }
+
+  public void getResult(Long teamId) {
   }
 }

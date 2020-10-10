@@ -21,7 +21,7 @@ public class Option {
   private String name;
   private Boolean possession;
   private Long zone;
-  private OptionCategory category;
+  private String category;
   private Long duel;
   private Long pass;
   private Long shoot;
@@ -29,9 +29,9 @@ public class Option {
   private Long passDef;
   private Long shootDef;
   private Long risk;
-  private OptionWinLose win;
+  private String win;
   private Long winChance;
-  private OptionWinLose loss;
+  private String loss;
   private Long lossChance;
   private Long cardRisk;
 
@@ -68,11 +68,11 @@ public class Option {
   }
 
   public OptionCategory getCategory() {
-    return category;
+    return OptionCategory.valueOf(category);
   }
 
   public void setCategory(OptionCategory category) {
-    this.category = category;
+    this.category = category.name();
   }
 
   public Long getDuel() {
@@ -132,11 +132,11 @@ public class Option {
   }
 
   public OptionWinLose getWin() {
-    return win;
+    return OptionWinLose.valueOf(win);
   }
 
   public void setWin(OptionWinLose win) {
-    this.win = win;
+    this.win = win.name();
   }
 
   public Long getWinChance() {
@@ -148,11 +148,11 @@ public class Option {
   }
 
   public OptionWinLose getLoss() {
-    return loss;
+    return OptionWinLose.valueOf(loss);
   }
 
   public void setLoss(OptionWinLose loss) {
-    this.loss = loss;
+    this.loss = loss.name();
   }
 
   public Long getLossChance() {

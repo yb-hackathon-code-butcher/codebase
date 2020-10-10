@@ -3,7 +3,6 @@ package io.github.butcher.butcher.back.socket.event;
 import io.github.butcher.butcher.back.domain.Option;
 import io.github.butcher.butcher.back.socket.GameEvent;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,12 +14,12 @@ public class NextRoundEvent implements SocketIOEvent {
 
   private Long teamId;
 
-  public NextRoundEvent(List<Option> options, int roundDurationSeconds, Long teamId) {
+  public NextRoundEvent(List<Option> options, LocalDateTime endTime, Long teamId) {
     this.optionIds = options.stream()
         .map(Option::getId)
         .collect(Collectors.toList())
         .toArray(new Long[options.size()]);
-    this.endTime = LocalDateTime.now().plus(roundDurationSeconds, ChronoUnit.SECONDS);
+    this.endTime = endTime;
     this.teamId = teamId;
   }
 

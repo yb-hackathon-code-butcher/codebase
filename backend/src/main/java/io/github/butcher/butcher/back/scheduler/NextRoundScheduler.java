@@ -84,10 +84,12 @@ public class NextRoundScheduler {
   private void publishNextRoundPerTeam(List<Option> options, Long teamId) {
     LOGGER.debug("Publishing next options for team {}", teamId);
 
+    LocalDateTime endTime = LocalDateTime.now()
+        .plus(appGameProperties.getRoundDurationSeconds(), ChronoUnit.SECONDS);
+
     taskScheduler
         .schedule(() -> applicationEventPublisher
-                .publishEvent(
-                    new NextRoundEvent(options, appGameProperties.getRoundDurationSeconds(), teamId)),
+                .publishEvent(new NextRoundEvent(options, endTime, teamId)),
             TimeUtil.localDateTimeToInstant(LocalDateTime.now()
                 .plus(appGameProperties.getRoundDelaySeconds(), ChronoUnit.SECONDS)));
   }
