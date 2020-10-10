@@ -5,6 +5,7 @@ import io.github.butcher.butcher.back.domain.repository.PlayerRepository;
 import io.github.butcher.butcher.back.service.dto.PlayerDTO;
 import io.github.butcher.butcher.back.service.mapper.PlayerMapper;
 import io.github.butcher.butcher.back.service.mapper.TeamMapper;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,32 +17,37 @@ public class PlayerService {
   private final TeamMapper teamMapper;
 
 
-  public PlayerService(
-      PlayerRepository playerRepository,
-      PlayerMapper playerMapper,
-      TeamService teamService,
-      TeamMapper teamMapper
-  ) {
+  public PlayerService(PlayerRepository playerRepository, PlayerMapper playerMapper,
+      TeamService teamService, TeamMapper teamMapper) {
     this.playerRepository = playerRepository;
     this.playerMapper = playerMapper;
     this.teamService = teamService;
     this.teamMapper = teamMapper;
   }
 
+  public PlayerDTO createPlayer(String uid) {
+    Optional<Player> player = playerRepository.findByUid(uid);
 
-  public Player createPlayer(Player player) {
-    return playerRepository.save(player);
+    if (!player.isPresent()) {
+      Player newPlayer = new Player();
+      newPlayer.setTeam(teamMapper.convert(teamService.findById(1L)));
+      newPlayer.setUid(uid);
+      newPlayer.setUsername("geyoungboyst");
+      playerRepository.save(newPlayer);
+
+      return playerMapper.convertToDTO(newPlayer);
+    }
+
+    return playerMapper.convertToDTO(player.get());
   }
 
   public PlayerDTO findById(Long id) {
-
     PlayerDTO playerDTO = playerMapper.convertToDTO(playerRepository.findById(id).get());
 
     return playerDTO;
   }
 
   public PlayerDTO update(PlayerDTO playerDTO) {
-
     Player player = playerMapper.convert(playerDTO);
     player = playerRepository.save(player);
 

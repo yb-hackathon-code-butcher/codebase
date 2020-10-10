@@ -5,6 +5,9 @@ import io.github.butcher.butcher.back.domain.Team;
 import io.github.butcher.butcher.back.domain.repository.GameRepository;
 import io.github.butcher.butcher.back.service.dto.GameStatsDTO;
 import io.github.butcher.butcher.back.service.mapper.GameStatsMapper;
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,9 +17,13 @@ public class GameService {
 
   private final GameRepository gameRepository;
 
-  public GameService(GameRepository gameRepository, GameStatsMapper gameStatsMapper) {
+  private final TeamService teamService;
+
+  public GameService(GameRepository gameRepository, GameStatsMapper gameStatsMapper,
+      TeamService teamService) {
     this.gameRepository = gameRepository;
     this.gameStatsMapper = gameStatsMapper;
+    this.teamService = teamService;
   }
 
   public Game getNextGame() {
@@ -30,11 +37,32 @@ public class GameService {
   }
 
   public Game getCurrentGame() {
-    // TODO: Find current game
-    return gameRepository.findAll().get(0);
+    return gameRepository.findOneByOrderByStartTimeDesc();
   }
 
   public GameStatsDTO getGame() {
-    return gameStatsMapper.convertToDTO(getCurrentGame());
+
+    GameStatsDTO gameStatsDTO = gameStatsMapper.convertToDTO(getCurrentGame());
+
+    return gameStatsDTO;
+  }
+
+  public void createNewGame() {
+    Game newGame = new Game();
+
+    newGame.setStartTime(new Timestamp(System.currentTimeMillis()));
+    newGame.setEndTime(new Timestamp(
+        new Timestamp(System.currentTimeMillis()).getTime() + TimeUnit.MINUTES.toMillis(10)));
+    newGame.setEndTime(
+        new Timestamp(newGame.getStartTime().getTime() + TimeUnit.SECONDS.toMillis(20)));
+
+    List<Team> teams = teamService.createInstantNewGame();
+    newGame.setTeam1(teams.get(0));
+    newGame.setTeam1(teams.get(1));
+
+    newGame.setTeam1Score(0L);
+    newGame.setTeam2Score(0L);
+
+    gameRepository.save(newGame);
   }
 }

@@ -18,4 +18,9 @@ public class GameController {
   public GameStatsDTO getGame() {
     return gameService.getGame();
   }
+
+  @GetMapping(value = "/gameObject/newGame")
+  public void createNewGame() {
+    gameService.createNewGame();
+  }
 }

@@ -11,7 +11,7 @@ export class CoinflipComponent implements OnInit {
 
   game: GameStatsModel;
 
-  winner: number = 2;
+  winner: number = 1;
 
   constructor(private gameRestService: GameRestService) {
   }

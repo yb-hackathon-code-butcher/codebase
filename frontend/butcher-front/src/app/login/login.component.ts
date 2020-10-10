@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginModel} from "../../model/rest/login/login.model";
 import {LoginService} from "../../services/rest/login/login.service";
+import {GameSocketService} from '../../services/socket/game/game-socket.service';
 
 @Component({
   selector: 'app-login',

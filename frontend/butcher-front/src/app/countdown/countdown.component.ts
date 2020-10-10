@@ -20,7 +20,7 @@ export class CountdownComponent implements OnInit {
         this.start = game.game.startTime;
       }
     });
-    this.start = new Date("Oct 10, 2020 00:00:00");
+    this.start = new Date("Oct 10, 2020 02:05:00");
     let init = Date.now();
     let bar = new ProgressBar.Circle("#circle-container", {
       strokeWidth: 40,
