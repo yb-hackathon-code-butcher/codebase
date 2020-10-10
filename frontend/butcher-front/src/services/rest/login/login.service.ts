@@ -14,8 +14,8 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public guestLogin(){
-    return this.httpClient.post(environment.backend_api  + this.apiSubRoute +"/guest-login", {});
+  public guestLogin(uuid: string){
+    return this.httpClient.post(environment.backend_api  + this.apiSubRoute +"/guest-login", {uuid:uuid});
   }
 
   public login(loginModel: LoginModel){
