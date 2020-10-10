@@ -1,4 +1,5 @@
 
+@import "../../common";
 $coinflip-size: 300px;
 
 .coinflip-container{
@@ -24,6 +25,9 @@ $coinflip-size: 300px;
   transition: transform 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: $dark;
+  border: $primary-color 3px solid;
+  border-radius: 50%;
 }
 
 .coin-front, .coin-back {
