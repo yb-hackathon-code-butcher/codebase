@@ -1,6 +1,5 @@
 package io.github.butcher.butcher.back.controller;
 
-import io.github.butcher.butcher.back.domain.Player;
 import io.github.butcher.butcher.back.service.PlayerService;
 import io.github.butcher.butcher.back.service.dto.PlayerDTO;
 import io.github.butcher.butcher.back.service.dto.UIDDTO;

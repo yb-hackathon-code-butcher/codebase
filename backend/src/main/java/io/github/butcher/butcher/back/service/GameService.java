@@ -5,11 +5,10 @@ import io.github.butcher.butcher.back.domain.Team;
 import io.github.butcher.butcher.back.domain.repository.GameRepository;
 import io.github.butcher.butcher.back.service.dto.GameStatsDTO;
 import io.github.butcher.butcher.back.service.mapper.GameStatsMapper;
-import org.springframework.stereotype.Service;
-
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.springframework.stereotype.Service;
 
 @Service
 public class GameService {
@@ -20,15 +19,11 @@ public class GameService {
 
   private final TeamService teamService;
 
-  public GameService(
-      GameRepository gameRepository,
-      GameStatsMapper gameStatsMapper,
-      TeamService teamService
-  ) {
+  public GameService(GameRepository gameRepository, GameStatsMapper gameStatsMapper,
+      TeamService teamService) {
     this.gameRepository = gameRepository;
     this.gameStatsMapper = gameStatsMapper;
     this.teamService = teamService;
-
   }
 
   public Game getNextGame() {
@@ -56,8 +51,10 @@ public class GameService {
     Game newGame = new Game();
 
     newGame.setStartTime(new Timestamp(System.currentTimeMillis()));
-    newGame.setEndTime(new Timestamp(new Timestamp(System.currentTimeMillis()).getTime() + TimeUnit.MINUTES.toMillis(10)));
-    newGame.setEndTime(new Timestamp(newGame.getStartTime().getTime() + TimeUnit.SECONDS.toMillis(20)));
+    newGame.setEndTime(new Timestamp(
+        new Timestamp(System.currentTimeMillis()).getTime() + TimeUnit.MINUTES.toMillis(10)));
+    newGame.setEndTime(
+        new Timestamp(newGame.getStartTime().getTime() + TimeUnit.SECONDS.toMillis(20)));
 
     List<Team> teams = teamService.createInstantNewGame();
     newGame.setTeam1(teams.get(0));
