@@ -9,3 +9,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/butcher
     username: butcher
     password: butcher
+  flyway:
+    url: jdbc:postgresql://localhost:5432/butcher
+    user: butcher
+    password: butcher

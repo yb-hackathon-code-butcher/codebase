@@ -1,11 +1,9 @@
 package io.github.butcher.butcher.back.game;
 
-import io.github.butcher.butcher.back.socket.event.NextRoundEvent;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -29,6 +27,12 @@ public class Voter {
     votes.get(teamId).put(voteId, votes.get(teamId).get(voteId).add(BigDecimal.ONE));
   }
 
-  public void getResult(Long teamId) {
+  public Long getHighestVotedOptionId(Long teamId) {
+    Map<Long, BigDecimal> votesPerOption = votes.get(teamId);
+    return votesPerOption.values().stream()
+        .sorted()
+        .findFirst()
+        .orElse(votesPerOption.get(0))
+        .longValue();
   }
 }

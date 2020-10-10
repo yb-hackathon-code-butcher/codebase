@@ -1,13 +1,4 @@
-server:
-  port: ${SERVER_PORT}
 spring:
-  session:
-    store-type: redis
-  redis:
-    host: ${APPL_REDIS_HOST}
-    password: ${APPL_REDIS_PASSWORD}
-    port: ${APPL_REDIS_PORT}
-    ssl: ${APPL_REDIS_SSL}
   datasource:
     url: ${APPL_DATASOURCE_JDBC_URL}
     username: ${APPL_DATASOURCE_USERNAME}
@@ -18,3 +9,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    url: ${APPL_DATASOURCE_JDBC_URL}
+    user: ${APPL_DATASOURCE_USERNAME}
+    password: ${APPL_DATASOURCE_PASSWORD}

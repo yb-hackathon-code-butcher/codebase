@@ -55,6 +55,11 @@ public class OptionService {
     return randoms;
   }
 
+  public Option getById(Long optionId) {
+    return optionRepository.findById(optionId)
+        .orElseThrow(() -> new IllegalArgumentException("Cannot find option with id " + optionId));
+  }
+
   public List<OptionDTO> getAll() {
     List<OptionDTO> optionDTOList = new ArrayList<>();
     List<Option> optionList = optionRepository.findAll();
@@ -62,5 +67,10 @@ public class OptionService {
     optionList.forEach(option -> optionDTOList.add(optionMapper.convertToDTO(option)));
 
     return optionDTOList;
+  }
+
+  public boolean optionIsCounteredBy(Option offensiveTeamOption, Option passiveTeamOption) {
+    // TODO: Calculate if passive team is in counter options of offensive team
+    return false;
   }
 }
