@@ -1,31 +1,50 @@
 @import "../../vars";
 
-.row{
+.row {
   background-color: transparent;
   display: flex;
   width: 100vw;
   height: 100%;
   flex-direction: row;
   justify-content: center;
-  .cell{
+
+  .cell {
     padding: $big-whitespace;
     flex: 1;
-    &.second{
+
+    &.second {
       flex: 0;
     }
   }
 }
+
 .round-end-arrow,
-.round-end-arrow-team1, .round-end-arrow-team2{
-  height:3em;
+.round-end-arrow-team1, .round-end-arrow-team2 {
+  height: 3em;
 }
-.round-end-arrow-team1{
+
+.round-end-arrow-team1 {
   transform: rotateY(180deg);
 }
+
 /* Portrait */
-@media screen and (min-aspect-ratio:1/1){
+@media screen and (min-aspect-ratio: 1/1) {
   /* Portrait styles */
-  .row{
+  .row {
     flex-direction: row;
   }
+}
+
+
+.stack {
+  position: relative;
+}
+
+#action {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
 }

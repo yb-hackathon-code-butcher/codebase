@@ -1,11 +1,35 @@
 @import '../../styles';
+@import "../../vars";
 
+.page{
+  background-color: $dark;
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  .cell{
+    padding: $big-whitespace;
+    flex: 1;
+    &.first{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
 
-#login-mask{
-  width: 100%;
-  height: auto;
-  text-align: center;
-  padding-top: 20vh;
+    }
+    .headUp{
+      display: flex;
+      justify-content: space-between;
+    }
+
+  }
+}
+/* Portrait */
+@media screen and (min-aspect-ratio:1/1){
+  /* Portrait styles */
+  .page{
+    flex-direction: row;
+  }
 }
 
 #login-title{
