@@ -10,7 +10,6 @@ public class GameDTO {
   private Date startTime;
   private Date endTime;
 
-
   public Long getId() {
     return id;
   }

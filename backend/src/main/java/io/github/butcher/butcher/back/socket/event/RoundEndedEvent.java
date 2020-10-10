@@ -21,8 +21,7 @@ public class RoundEndedEvent implements SocketIOEvent {
     return votingResult;
   }
 
-  public void setVotingResult(
-      VotingResult votingResult) {
+  public void setVotingResult(VotingResult votingResult) {
     this.votingResult = votingResult;
   }
 

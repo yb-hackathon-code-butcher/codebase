@@ -8,6 +8,7 @@ import io.github.butcher.butcher.back.socket.event.GameStartsEvent;
 import io.github.butcher.butcher.back.util.TimeUtil;
 import java.time.LocalDateTime;
 import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ThreadLocalRandom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -86,9 +87,23 @@ public class NextGameScheduler {
 
     LOGGER.info("Scheduling game start to {}", currentScheduledGame.getStartTime());
 
+    Long startingTeamId = randomOfTwo(currentScheduledGame.getTeam1().getId(),
+        currentScheduledGame.getTeam2().getId());
+    LocalDateTime endTime = TimeUtil.timestampToLocalDateTime(currentScheduledGame.getStartTime());
+
+    if (LOGGER.isDebugEnabled()) {
+      LOGGER.debug("Team {} is gonna start", startingTeamId);
+    }
+
+    gameService.setStartingTeam(currentScheduledGame, startingTeamId);
+
     schedule = taskScheduler.schedule(() -> {
       LOGGER.info("Game starts!");
-      applicationEventPublisher.publishEvent(new GameStartsEvent(currentScheduledGame));
+      applicationEventPublisher.publishEvent(new GameStartsEvent(startingTeamId, endTime));
     }, currentScheduledGame.getStartTime().toInstant());
+  }
+
+  private Long randomOfTwo(Long team1Id, Long team2Id) {
+    return new Long[]{team1Id, team2Id}[ThreadLocalRandom.current().nextInt(0, 2)];
   }
 }
