@@ -1,7 +1,6 @@
 package io.github.butcher.butcher.back.socket;
 
 import com.corundumstudio.socketio.SocketIOServer;
-import io.github.butcher.butcher.back.service.GameStateService;
 import io.github.butcher.butcher.back.service.SocketSessionService;
 import io.github.butcher.butcher.back.socket.event.SocketIOEvent;
 import org.slf4j.Logger;
@@ -16,12 +15,9 @@ public class SocketIOServerOutboundEventListener {
       .getLogger(SocketIOServerOutboundEventListener.class);
 
   private final SocketIOServer socketIOServer;
-  private final GameStateService gameStateService;
 
-  public SocketIOServerOutboundEventListener(SocketIOServer socketIOServer,
-      GameStateService gameStateService) {
+  public SocketIOServerOutboundEventListener(SocketIOServer socketIOServer) {
     this.socketIOServer = socketIOServer;
-    this.gameStateService = gameStateService;
   }
 
   @EventListener

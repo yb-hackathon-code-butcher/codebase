@@ -37,6 +37,12 @@ public class RoundEndedEvent implements SocketIOEvent {
   }
 
   @Override
+  public Long getTeamId() {
+    // TODO: Is this team relevant?
+    return null;
+  }
+
+  @Override
   public String toString() {
     return "RoundEndedEvent{" +
         "votingResult=" + votingResult +

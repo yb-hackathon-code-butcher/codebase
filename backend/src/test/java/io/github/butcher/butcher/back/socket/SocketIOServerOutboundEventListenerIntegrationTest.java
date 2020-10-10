@@ -4,7 +4,6 @@ import static org.mockito.Mockito.verify;
 
 import io.github.butcher.butcher.back.config.SocketIOServerConfig;
 import io.github.butcher.butcher.back.config.SocketIOServerProperties;
-import io.github.butcher.butcher.back.service.GameStateService;
 import io.github.butcher.butcher.back.socket.event.SocketIOEvent;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {SocketIOServerProperties.class, SocketIOServerConfig.class,
-    SocketIOServerOutboundEventListener.class, GameStateService.class})
+    SocketIOServerOutboundEventListener.class})
 public class SocketIOServerOutboundEventListenerIntegrationTest {
 
   @Autowired
@@ -37,6 +36,11 @@ public class SocketIOServerOutboundEventListenerIntegrationTest {
     @Override
     public String getStringId() {
       return "test";
+    }
+
+    @Override
+    public Long getTeamId() {
+      return 1234L;
     }
   }
 }

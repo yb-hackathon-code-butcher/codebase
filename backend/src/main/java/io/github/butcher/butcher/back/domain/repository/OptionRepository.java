@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OptionRepository extends JpaRepository<Option, Long> {
 
-  List<Option> findAllWhereZoneEquals(Long zone);
+  List<Option> findAllByZone(Long zone);
 }

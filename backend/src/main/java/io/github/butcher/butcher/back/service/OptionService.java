@@ -39,7 +39,7 @@ public class OptionService {
   public List<Option> getNextOptions(Long zone) {
     LOGGER.debug("Selecting next options for zone {}", zone);
 
-    List<Option> possibleOptions = optionRepository.findAllWhereZoneEquals(STARTING_ZONE);
+    List<Option> possibleOptions = optionRepository.findAllByZone(STARTING_ZONE);
     return selectRandomFromOptions(possibleOptions);
   }
 

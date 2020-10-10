@@ -25,6 +25,12 @@ public class GameEndedEvent implements SocketIOEvent {
   }
 
   @Override
+  public Long getTeamId() {
+    // This event is not team restricted
+    return null;
+  }
+
+  @Override
   public String toString() {
     return "GameEndedEvent{" +
         "winnerTeamId=" + winnerTeamId +
