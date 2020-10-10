@@ -22,7 +22,6 @@ export class RoundEndComponent implements OnInit {
       autoplay: true,
       path: '../../assets/animations/field_1-3.json'
     });
-    animation.setDirection(-1);
   }
 
 }
