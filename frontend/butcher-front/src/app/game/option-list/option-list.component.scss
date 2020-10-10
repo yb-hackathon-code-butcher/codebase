@@ -17,28 +17,32 @@
   background-color: #ffcc00;
   height: 3em;
   margin: $default-whitespace 0 0 0;
+  overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  position: relative;
-
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: $secondary-color;
-    height: 5px;
+  &.unselected{
+    opacity: 0.4;
   }
+
+  .left{
+    flex-grow: 1;
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .bottom {
+      height: 5px;
+      background-color: $secondary-color;
+    }
+  }
+
 
   span {
     &.letter {
       flex-grow: 0;
       padding: 0.5em;
-
-
     }
 
     &.name {

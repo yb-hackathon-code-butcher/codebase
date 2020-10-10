@@ -8,10 +8,11 @@ import { OptionListComponent } from './option-list/option-list.component';
 import {MatButtonModule} from '@angular/material/button';
 import { RoundCounterComponent } from './round-counter/round-counter.component';
 import { BallPossessionComponent } from './ball-possession/ball-possession.component';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 
 @NgModule({
-  declarations: [GameComponent, VoteResultBarComponent, OptionListComponent, RoundCounterComponent, BallPossessionComponent],
+  declarations: [GameComponent, VoteResultBarComponent, OptionListComponent, RoundCounterComponent, BallPossessionComponent, ScoreboardComponent],
   imports: [
     CommonModule,
     GameRoutingModule,

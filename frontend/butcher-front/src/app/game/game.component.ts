@@ -21,10 +21,20 @@ export class GameComponent implements OnInit {
   ];
   roundEndDate = new Date("Oct 10, 2020 11:00:00");
   teamWithBallPossession = 'YB';
+  score = {teamA: 0, teamB: 0};
+  tempResults = [
+    {percent: 10},
+    {percent: 30},
+    {percent: 50},
+    {percent: 10},
+  ];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  voted(optionIndex: number) {
+    console.warn(optionIndex);
+  }
 }
