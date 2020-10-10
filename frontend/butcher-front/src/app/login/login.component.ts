@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginModel} from "../../model/rest/login/login.model";
 import {LoginService} from "../../services/rest/login/login.service";
-import {GameSocketService} from '../../services/socket/game/game-socket.service';
+import {AuthService} from "../../services/common/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -12,16 +12,18 @@ export class LoginComponent implements OnInit {
 
   loginModel: LoginModel = <LoginModel>{};
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
 
   guestLogin() {
-    this.loginService.guestLogin().subscribe((response) =>{
-      console.log(response);
-    });
+    if(!this.authService.isAuthenticated()){
+      this.loginService.guestLogin(this.authService.getUUID()).subscribe((response) =>{
+        console.log(response);
+      });
+    }
   }
 
   login() {

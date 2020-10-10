@@ -23,6 +23,7 @@ public class PlayerMapper {
     playerDTO.setId(player.getId());
     playerDTO.setTeamId(player.getTeam().getId());
     playerDTO.setUsername(player.getUsername());
+    playerDTO.setUid(player.getUid());
 
     return playerDTO;
   }
@@ -33,6 +34,7 @@ public class PlayerMapper {
 
     player.setTeam(teamRepository.findById(playerDTO.getTeamId()).get());
     player.setUsername(playerDTO.getUsername());
+    player.setUid(playerDTO.getUid());
 
     return player;
   }

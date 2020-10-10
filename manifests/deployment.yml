@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "butchercluster-80ed"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "butchercluster-80ed"
+  template:
+    metadata:
+      labels:
+        app: "butchercluster-80ed"
+    spec:
+      containers:
+        - name: "butchercluster-80ed"
+          image: "butcher.azurecr.io/butchercluster"
+          ports:
+          - containerPort: 80
