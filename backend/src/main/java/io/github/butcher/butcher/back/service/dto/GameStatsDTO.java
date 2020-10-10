@@ -8,11 +8,11 @@ public class GameStatsDTO {
 
   private GameDTO game;
   private Boolean isRunning;
-  private Integer teamScore1;
-  private Integer teamScore2;
+  private Long teamScore1;
+  private Long teamScore2;
   private Date roundEndTime;
-  private Integer[] options;
-  private Map<Integer, Integer> voteDistribution;
+  private Long[] options;
+  private Map<Long, Long> voteDistribution;
 
   public GameDTO getGame() {
     return game;
@@ -30,19 +30,19 @@ public class GameStatsDTO {
     isRunning = running;
   }
 
-  public Integer getTeamScore1() {
+  public Long getTeamScore1() {
     return teamScore1;
   }
 
-  public void setTeamScore1(Integer teamScore1) {
+  public void setTeamScore1(Long teamScore1) {
     this.teamScore1 = teamScore1;
   }
 
-  public Integer getTeamScore2() {
+  public Long getTeamScore2() {
     return teamScore2;
   }
 
-  public void setTeamScore2(Integer teamScore2) {
+  public void setTeamScore2(Long teamScore2) {
     this.teamScore2 = teamScore2;
   }
 
@@ -54,19 +54,19 @@ public class GameStatsDTO {
     this.roundEndTime = roundEndTime;
   }
 
-  public Integer[] getOptions() {
+  public Long[] getOptions() {
     return options;
   }
 
-  public void setOptions(Integer[] options) {
+  public void setOptions(Long[] options) {
     this.options = options;
   }
 
-  public Map<Integer, Integer> getVoteDistribution() {
+  public Map<Long, Long> getVoteDistribution() {
     return voteDistribution;
   }
 
-  public void setVoteDistribution(Map<Integer, Integer> voteDistribution) {
+  public void setVoteDistribution(Map<Long, Long> voteDistribution) {
     this.voteDistribution = voteDistribution;
   }
 }

@@ -3,15 +3,15 @@ package io.github.butcher.butcher.back.service.dto;
 
 public class OptionDTO {
 
-  private Integer id;
+  private Long id;
   private String name;
-  private Integer risk;
+  private Long risk;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -23,11 +23,11 @@ public class OptionDTO {
     this.name = name;
   }
 
-  public Integer getRisk() {
+  public Long getRisk() {
     return risk;
   }
 
-  public void setRisk(Integer risk) {
+  public void setRisk(Long risk) {
     this.risk = risk;
   }
 }

@@ -1,10 +1,10 @@
 package io.github.butcher.butcher.back.domain.repository;
 
 import io.github.butcher.butcher.back.domain.Option;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OptionRepository extends CrudRepository<Option, Long> {
+public interface OptionRepository extends JpaRepository<Option, Long> {
 
 }

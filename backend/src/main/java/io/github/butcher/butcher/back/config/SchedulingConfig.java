@@ -13,13 +13,14 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 @EnableScheduling
 @EnableAsync
 public class SchedulingConfig implements SchedulingConfigurer {
-    @Override
-    public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
-        taskRegistrar.setTaskScheduler(taskScheduler());
-    }
 
-    @Bean
-    public TaskScheduler taskScheduler() {
-        return new ConcurrentTaskScheduler(); //single threaded by default
-    }
+  @Override
+  public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
+    taskRegistrar.setTaskScheduler(taskScheduler());
+  }
+
+  @Bean
+  public TaskScheduler taskScheduler() {
+    return new ConcurrentTaskScheduler(); //single threaded by default
+  }
 }

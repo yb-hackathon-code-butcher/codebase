@@ -4,24 +4,34 @@ import java.util.Date;
 
 public class GameDTO {
 
-  private Integer team1Id;
-  private Integer team2Id;
+  private Long id;
+  private Long team1Id;
+  private Long team2Id;
   private Date startTime;
   private Date endTime;
 
-  public Integer getTeam1Id() {
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Long getTeam1Id() {
     return team1Id;
   }
 
-  public void setTeam1Id(Integer team1Id) {
+  public void setTeam1Id(Long team1Id) {
     this.team1Id = team1Id;
   }
 
-  public Integer getTeam2Id() {
+  public Long getTeam2Id() {
     return team2Id;
   }
 
-  public void setTeam2Id(Integer team2Id) {
+  public void setTeam2Id(Long team2Id) {
     this.team2Id = team2Id;
   }
 

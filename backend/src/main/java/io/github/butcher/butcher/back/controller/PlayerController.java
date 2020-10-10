@@ -3,7 +3,6 @@ package io.github.butcher.butcher.back.controller;
 import io.github.butcher.butcher.back.domain.Player;
 import io.github.butcher.butcher.back.service.PlayerService;
 import io.github.butcher.butcher.back.service.dto.PlayerDTO;
-import java.util.Optional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +19,7 @@ public class PlayerController {
     this.playerService = playerService;
   }
 
+
   @PostMapping(value = "/players")
   public Player createPlayer() {
     Player player = new Player();
@@ -33,7 +33,12 @@ public class PlayerController {
   }
 
   @GetMapping(value = "/player/{id}")
-  public Optional<Player> getPlayer(@PathVariable Long id) {
+  public PlayerDTO findPlayer(@PathVariable Long id) {
     return playerService.findById(id);
+  }
+
+  @PostMapping(value = "player/{id}/select-team")
+  public PlayerDTO selectTeam(@PathVariable Long id, @RequestBody Long teamId) {
+    return playerService.selectTeam(id, teamId);
   }
 }
