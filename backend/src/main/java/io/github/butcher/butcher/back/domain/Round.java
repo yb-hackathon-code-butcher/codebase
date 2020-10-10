@@ -23,7 +23,7 @@ public class Round {
   @ManyToOne
   private Game game;
 
-  private Integer roundNumber;
+  private Long roundNumber;
 
   @ManyToOne
   @JoinColumn(name = "team1_option_id")
@@ -49,11 +49,11 @@ public class Round {
     this.game = game_id;
   }
 
-  public Integer getRoundNumber() {
+  public Long getRoundNumber() {
     return roundNumber;
   }
 
-  public void setRoundNumber(Integer roundNumber) {
+  public void setRoundNumber(Long roundNumber) {
     this.roundNumber = roundNumber;
   }
 

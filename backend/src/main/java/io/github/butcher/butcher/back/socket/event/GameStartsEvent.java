@@ -40,4 +40,12 @@ public class GameStartsEvent implements SocketIOEvent {
   public String getStringId() {
     return GameEvent.GAME_STARTS.getStringId();
   }
+
+  @Override
+  public String toString() {
+    return "GameStartsEvent{" +
+        "startTeamId=" + startTeamId +
+        ", endTime=" + endTime +
+        '}';
+  }
 }

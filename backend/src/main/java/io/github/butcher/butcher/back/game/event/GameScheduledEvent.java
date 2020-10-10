@@ -16,4 +16,11 @@ public class GameScheduledEvent extends ApplicationEvent {
   public Game getGame() {
     return this.game;
   }
+
+  @Override
+  public String toString() {
+    return "GameScheduledEvent{" +
+        "game=" + game +
+        '}';
+  }
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {GameSocketService} from "../../services/socket/game/game-socket.service";
+import {Component, OnInit} from '@angular/core';
+import {GameRestService} from "../../services/rest/game/game-rest.service";
+import {GameStatsModel} from "../../model/rest/game/game-stats.model";
 
 @Component({
   selector: 'app-coinflip',
@@ -8,11 +9,18 @@ import {GameSocketService} from "../../services/socket/game/game-socket.service"
 })
 export class CoinflipComponent implements OnInit {
 
-  constructor(private gameSockerService: GameSocketService) { }
+  game: GameStatsModel;
+
+  winner: number = 1;
+
+  constructor(private gameRestService: GameRestService) {
+  }
 
   ngOnInit(): void {
-    this.gameSockerService.onGameStarts().then((data)=>{
-
+    this.gameRestService.getGame().subscribe((game) => {
+      this.game = game;
     })
   }
+
+
 }

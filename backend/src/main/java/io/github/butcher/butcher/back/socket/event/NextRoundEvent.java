@@ -4,6 +4,7 @@ import io.github.butcher.butcher.back.domain.Option;
 import io.github.butcher.butcher.back.socket.GameEvent;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,5 +40,13 @@ public class NextRoundEvent implements SocketIOEvent {
   @Override
   public String getStringId() {
     return GameEvent.NEXT_ROUND.getStringId();
+  }
+
+  @Override
+  public String toString() {
+    return "NextRoundEvent{" +
+        "optionIds=" + Arrays.toString(optionIds) +
+        ", endTime=" + endTime +
+        '}';
   }
 }

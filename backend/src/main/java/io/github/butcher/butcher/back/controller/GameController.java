@@ -14,7 +14,7 @@ public class GameController {
     this.gameService = gameService;
   }
 
-  @GetMapping(value = "/game")
+  @GetMapping(value = "/gameObject")
   public GameStatsDTO getGame() {
     return gameService.getGame();
   }

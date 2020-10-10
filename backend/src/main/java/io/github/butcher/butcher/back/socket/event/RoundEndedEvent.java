@@ -2,6 +2,7 @@ package io.github.butcher.butcher.back.socket.event;
 
 import io.github.butcher.butcher.back.game.VotingResult;
 import io.github.butcher.butcher.back.socket.GameEvent;
+import java.util.Arrays;
 
 public class RoundEndedEvent implements SocketIOEvent {
 
@@ -33,5 +34,13 @@ public class RoundEndedEvent implements SocketIOEvent {
   @Override
   public String getStringId() {
     return GameEvent.ROUND_ENDED.getStringId();
+  }
+
+  @Override
+  public String toString() {
+    return "RoundEndedEvent{" +
+        "votingResult=" + votingResult +
+        ", eventIds=" + Arrays.toString(eventIds) +
+        '}';
   }
 }
