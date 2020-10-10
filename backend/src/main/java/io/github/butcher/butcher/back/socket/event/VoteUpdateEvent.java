@@ -19,4 +19,11 @@ public class VoteUpdateEvent implements SocketIOEvent {
   public String getStringId() {
     return GameEvent.VOTE_UPDATE.getStringId();
   }
+
+  @Override
+  public String toString() {
+    return "VoteUpdateEvent{" +
+        "options=" + options +
+        '}';
+  }
 }
