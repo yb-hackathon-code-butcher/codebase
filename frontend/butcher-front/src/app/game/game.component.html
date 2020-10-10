@@ -1,0 +1,11 @@
+<div class="page">
+  <div class="cell first">
+    <app-round-counter [endDate]="roundEndDate"></app-round-counter>
+    <div></div>
+    <app-ball-possession [teamName]="teamWithBallPossession"></app-ball-possession>
+  </div>
+  <div class="cell">
+    <app-vote-result-bar [items]="voteResults" [teamName]="opponentName"></app-vote-result-bar>
+    <app-option-list [options]="options" [teamName]="teamName"></app-option-list>
+  </div>
+</div>

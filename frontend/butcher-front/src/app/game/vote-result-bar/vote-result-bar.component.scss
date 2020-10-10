@@ -1,0 +1,24 @@
+@import "../../../vars";
+
+.heading{
+  display: flex;
+  margin-bottom: $small-border-size;
+  justify-content: space-between;
+  .h4{
+    flex: 1;
+  }
+}
+.bar{
+  display: flex;
+  height: 18px;
+  border: solid $small-border-size $primary-color;
+  border-radius: 2em;
+  .item{
+
+    flex: 1;
+  }
+  .item:not(:last-child){
+    border-right: solid $small-border-size $primary-color;
+  }
+
+}

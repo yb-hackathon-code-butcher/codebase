@@ -31,7 +31,7 @@ export class CountdownService {
         clearInterval(interval);
         subject.complete();
       }
-    }, 1000);
+    }, 500);
 
     return subject.asObservable();
   }
