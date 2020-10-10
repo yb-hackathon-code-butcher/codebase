@@ -1,7 +1,6 @@
-$primary-color:#FFD300;
-$secondary-color: #FFA500;
-$dark: #0C1619;
-$light: #d7f2e9;
+@import "vars";
+@import "../node_modules/rfs/scss";
+
 
 .background-container {
   background-image: url("assets/img/pattern.svg");
@@ -19,37 +18,34 @@ $light: #d7f2e9;
 
 .h1 {
   font-weight: 400;
-  font-size: 80px !important;
-  line-height: 100px;
+  @include font-size(4rem);
   text-transform: uppercase!important;
 }
 
 
 .h2 {
   font-weight: 400!important;
-  font-size: 74px!important;
-  line-height: 92px;
+  @include font-size(3rem);
+
   text-transform: uppercase!important;
 }
 
 .h3 {
   font-weight: 400;
-  font-size: 33px!important;
-  line-height: 40px;
+  @include font-size(1.75rem);
   text-transform: uppercase!important;
 }
 
 .h4 {
   font-weight: 300!important;
-  font-size: 22px!important;
-  line-height: 28px;
+  @include font-size(1rem);
   text-transform: uppercase!important;
 }
 
 .ct {
   font-weight: 300;
-  font-size: 130px;
-  line-height: 150px;
+  @include font-size(5rem);
+
   margin: 0;
 }
 

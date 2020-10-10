@@ -7,6 +7,7 @@ import {GameStarts} from '../../../model/socket/receive/GameStarts';
 import {NextRound} from '../../../model/socket/receive/NextRound';
 import {VoteUpdate} from '../../../model/socket/receive/VoteUpdate';
 import {RoundEnded} from '../../../model/socket/receive/RoundEnded';
+import {Vote} from '../../../model/socket/send/Vote';
 
 @Injectable({
   providedIn: 'root'
@@ -47,11 +48,12 @@ export class GameSocketService {
     return this.socket.fromEvent(ServerMessage.VOTE_UPDATE);
   }
 
-  sendVote(){
-      this.socket.emit(ClientMessage.VOTE);
+  sendVote(vote: Vote){
+      this.socket.emit(ClientMessage.VOTE, vote);
   }
 
   sendJoin(){
-    this.socket.emit(ClientMessage.JOIN);
+    console.log('Hit send')
+    this.socket.emit(ClientMessage.JOIN, {});
   }
 }

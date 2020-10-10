@@ -1,0 +1,26 @@
+@import "../../vars";
+
+.page{
+  background-color: $dark;
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  flex-direction: column;
+  .cell{
+    padding: $big-whitespace;
+    flex: 1;
+    &.first{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+  }
+}
+/* Portrait */
+@media screen and (min-aspect-ratio:1/1){
+/* Portrait styles */
+  .page{
+    flex-direction: row;
+  }
+}

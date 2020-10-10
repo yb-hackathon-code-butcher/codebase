@@ -1,0 +1,8 @@
+<div class="heading">
+  <span class="h4 primary-text">{{teamName}}</span>
+  <span class="h4 primary-text right">Entscheidung</span>
+</div>
+<div class="bar">
+  <div *ngFor="let item of items" class="item" [style.flex-basis]="item.percent+'%'"></div>
+</div>
+
