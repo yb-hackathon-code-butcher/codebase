@@ -15,3 +15,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    url: jdbc:postgresql://localhost:5432/butcher
+    user: butcher
+    password: butcher
