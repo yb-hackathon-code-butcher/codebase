@@ -20,7 +20,6 @@ public class GameService {
 
   private final TeamService teamService;
 
-
   public GameService(
       GameRepository gameRepository,
       GameStatsMapper gameStatsMapper,
@@ -43,7 +42,7 @@ public class GameService {
   }
 
   public Game getCurrentGame() {
-    return gameRepository.findAllByOrderByStartTimeDesc().get(0);
+    return gameRepository.findOneByOrderByStartTimeDesc();
   }
 
   public GameStatsDTO getGame() {
