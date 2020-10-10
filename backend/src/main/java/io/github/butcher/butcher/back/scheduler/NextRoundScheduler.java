@@ -54,7 +54,7 @@ public class NextRoundScheduler {
 
   @EventListener
   public void roundEnded(RoundEndedEvent roundEndedEvent) {
-    LOGGER.debug("Round has ended, evaluation stop mode: {}", stopGame);
+    LOGGER.debug("Round has ended, evaluating stop mode: {}", stopGame);
 
     if (stopGame) {
       wereInTheEndgameNow();
@@ -84,10 +84,12 @@ public class NextRoundScheduler {
   private void publishNextRoundPerTeam(List<Option> options, Long teamId) {
     LOGGER.debug("Publishing next options for team {}", teamId);
 
+    LocalDateTime endTime = LocalDateTime.now()
+        .plus(appGameProperties.getRoundDurationSeconds(), ChronoUnit.SECONDS);
+
     taskScheduler
         .schedule(() -> applicationEventPublisher
-                .publishEvent(
-                    new NextRoundEvent(options, appGameProperties.getRoundDurationSeconds(), teamId)),
+                .publishEvent(new NextRoundEvent(options, endTime, teamId)),
             TimeUtil.localDateTimeToInstant(LocalDateTime.now()
                 .plus(appGameProperties.getRoundDelaySeconds(), ChronoUnit.SECONDS)));
   }

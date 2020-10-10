@@ -1,6 +1,6 @@
-package io.github.butcher.butcher.back.game;
+package io.github.butcher.butcher.back.domain;
 
-public enum WinnLose {
+public enum OptionWinLose {
 
   ZONES_1,
   ZONES_2,

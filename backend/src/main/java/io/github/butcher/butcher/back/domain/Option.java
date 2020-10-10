@@ -67,12 +67,12 @@ public class Option {
     this.zone = zone;
   }
 
-  public String getCategory() {
-    return category;
+  public OptionCategory getCategory() {
+    return OptionCategory.valueOf(category);
   }
 
-  public void setCategory(String category) {
-    this.category = category;
+  public void setCategory(OptionCategory category) {
+    this.category = category.name();
   }
 
   public Long getDuel() {
@@ -131,12 +131,12 @@ public class Option {
     this.risk = risk;
   }
 
-  public String getWin() {
-    return win;
+  public OptionWinLose getWin() {
+    return OptionWinLose.valueOf(win);
   }
 
-  public void setWin(String win) {
-    this.win = win;
+  public void setWin(OptionWinLose win) {
+    this.win = win.name();
   }
 
   public Long getWinChance() {
@@ -147,12 +147,12 @@ public class Option {
     this.winChance = winChance;
   }
 
-  public String getLoss() {
-    return loss;
+  public OptionWinLose getLoss() {
+    return OptionWinLose.valueOf(loss);
   }
 
-  public void setLoss(String loss) {
-    this.loss = loss;
+  public void setLoss(OptionWinLose loss) {
+    this.loss = loss.name();
   }
 
   public Long getLossChance() {
