@@ -14,14 +14,9 @@ public class GameService {
 
   private final GameRepository gameRepository;
 
-
-  public GameService(
-      GameRepository gameRepository,
-      GameStatsMapper gameStatsMapper
-  ) {
+  public GameService(GameRepository gameRepository, GameStatsMapper gameStatsMapper) {
     this.gameRepository = gameRepository;
     this.gameStatsMapper = gameStatsMapper;
-
   }
 
   public Game getNextGame() {
@@ -34,10 +29,12 @@ public class GameService {
     return null;
   }
 
+  public Game getCurrentGame() {
+    // TODO: Find current game
+    return gameRepository.findAll().get(0);
+  }
+
   public GameStatsDTO getGame() {
-
-    GameStatsDTO gameStatsDTO = gameStatsMapper.convertToDTO(gameRepository.findAll().get(0));
-
-    return new GameStatsDTO();
+    return gameStatsMapper.convertToDTO(getCurrentGame());
   }
 }

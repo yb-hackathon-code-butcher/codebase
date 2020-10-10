@@ -17,7 +17,6 @@ public class OptionController {
 
   @GetMapping(value = "/option")
   public List<OptionDTO> getAll() {
-
     return optionService.getAll();
   }
 }

@@ -1,6 +1,8 @@
 package io.github.butcher.butcher.back.scheduler;
 
 import io.github.butcher.butcher.back.config.AppGameProperties;
+import io.github.butcher.butcher.back.domain.Game;
+import io.github.butcher.butcher.back.domain.Option;
 import io.github.butcher.butcher.back.game.event.StartEvaluationEvent;
 import io.github.butcher.butcher.back.game.event.StopGameEvent;
 import io.github.butcher.butcher.back.service.GameService;
@@ -11,6 +13,7 @@ import io.github.butcher.butcher.back.socket.event.RoundEndedEvent;
 import io.github.butcher.butcher.back.util.TimeUtil;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEventPublisher;
@@ -69,11 +72,23 @@ public class NextRoundScheduler {
   private void isThisTheOne() {
     LOGGER.debug("Calculating next round, starting");
 
+    Game currentGame = gameService.getCurrentGame();
+
+    List<Option> team1Options = optionService.getNextOptions(currentGame.getTeam1Zone());
+    List<Option> team2Options = optionService.getNextOptions(currentGame.getTeam2Zone());
+
+    publishNextRoundPerTeam(team1Options, currentGame.getTeam1().getId());
+    publishNextRoundPerTeam(team2Options, currentGame.getTeam2().getId());
+  }
+
+  private void publishNextRoundPerTeam(List<Option> options, Long teamId) {
+    LOGGER.debug("Publishing next options for team {}", teamId);
+
     taskScheduler
         .schedule(() -> applicationEventPublisher
-            .publishEvent(new NextRoundEvent(optionService.getNextOptions(),
-                appGameProperties.getRoundDurationSeconds())), TimeUtil.localDateTimeToInstant(
-            LocalDateTime.now()
+                .publishEvent(
+                    new NextRoundEvent(options, appGameProperties.getRoundDurationSeconds(), teamId)),
+            TimeUtil.localDateTimeToInstant(LocalDateTime.now()
                 .plus(appGameProperties.getRoundDelaySeconds(), ChronoUnit.SECONDS)));
   }
 
