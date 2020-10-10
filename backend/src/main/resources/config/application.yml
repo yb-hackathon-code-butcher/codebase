@@ -11,3 +11,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    url: ${APPL_DATASOURCE_JDBC_URL}
+    user: ${APPL_DATASOURCE_USERNAME}
+    password: ${APPL_DATASOURCE_PASSWORD}
