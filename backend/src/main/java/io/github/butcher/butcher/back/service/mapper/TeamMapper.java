@@ -3,32 +3,32 @@ package io.github.butcher.butcher.back.service.mapper;
 import io.github.butcher.butcher.back.domain.Team;
 import io.github.butcher.butcher.back.domain.repository.TeamRepository;
 import io.github.butcher.butcher.back.service.dto.TeamDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TeamMapper {
 
-    @Autowired
-    private TeamRepository teamRepository;
+  private final TeamRepository teamRepository;
 
-    public TeamDTO convertToDTO(Team team) {
-        TeamDTO teamDTO = new TeamDTO();
+  public TeamMapper(TeamRepository teamRepository) {
+    this.teamRepository = teamRepository;
+  }
 
-        teamDTO.setId(team.getId());
-        teamDTO.setName(team.getName());
+  public TeamDTO convertToDTO(Team team) {
+    TeamDTO teamDTO = new TeamDTO();
 
-        return teamDTO;
-    }
+    teamDTO.setId(team.getId());
+    teamDTO.setName(team.getName());
 
-    public Team convert(TeamDTO teamDTO) {
+    return teamDTO;
+  }
 
-        Team team = teamRepository.findById(teamDTO.getId()).get();
+  public Team convert(TeamDTO teamDTO) {
 
-        team.setName(teamDTO.getName());
-        
-        return team;
-    }
+    Team team = teamRepository.findById(teamDTO.getId()).get();
 
+    team.setName(teamDTO.getName());
 
+    return team;
+  }
 }

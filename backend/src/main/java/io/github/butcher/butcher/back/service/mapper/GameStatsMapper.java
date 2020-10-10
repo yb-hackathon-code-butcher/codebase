@@ -2,41 +2,40 @@ package io.github.butcher.butcher.back.service.mapper;
 
 import io.github.butcher.butcher.back.domain.Game;
 import io.github.butcher.butcher.back.service.dto.GameStatsDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.sql.Timestamp;
+import org.springframework.stereotype.Service;
 
 @Service
 public class GameStatsMapper {
 
-    @Autowired
-    private GameMapper gameMapper;
+  private final GameMapper gameMapper;
 
-    public GameStatsDTO convertToDTO(Game game) {
-        GameStatsDTO gameStatsDTO = new GameStatsDTO();
+  public GameStatsMapper(GameMapper gameMapper) {
+    this.gameMapper = gameMapper;
+  }
 
-        gameStatsDTO.setGame(gameMapper.convertToDTO(game));
-        gameStatsDTO.setTeamScore1(game.getTeam1Score());
-        gameStatsDTO.setTeamScore2(game.getTeam2Score());
-        gameStatsDTO.setRoundEndTime(game.getRoundEndTime());
+  public GameStatsDTO convertToDTO(Game game) {
+    GameStatsDTO gameStatsDTO = new GameStatsDTO();
 
-        // Missing mapping attributes: options, voteDistribution, isRunning
+    gameStatsDTO.setGame(gameMapper.convertToDTO(game));
+    gameStatsDTO.setTeamScore1(game.getTeam1Score());
+    gameStatsDTO.setTeamScore2(game.getTeam2Score());
+    gameStatsDTO.setRoundEndTime(game.getRoundEndTime());
 
-        return gameStatsDTO;
-    }
+    // Missing mapping attributes: options, voteDistribution, isRunning
 
-    public Game convert(GameStatsDTO gameStatsDTO) {
-        Game game = gameMapper.convert(gameStatsDTO.getGame());
+    return gameStatsDTO;
+  }
 
-        game.setTeam1Score(gameStatsDTO.getTeamScore1());
-        game.setTeam2Score(gameStatsDTO.getTeamScore2());
-        game.setRoundEndTime(new Timestamp(gameStatsDTO.getRoundEndTime().getTime()));
+  public Game convert(GameStatsDTO gameStatsDTO) {
+    Game game = gameMapper.convert(gameStatsDTO.getGame());
 
-        // Missing mapping attributes: options, voteDistribution, isRunning
+    game.setTeam1Score(gameStatsDTO.getTeamScore1());
+    game.setTeam2Score(gameStatsDTO.getTeamScore2());
+    game.setRoundEndTime(new Timestamp(gameStatsDTO.getRoundEndTime().getTime()));
 
-        return game;
-    }
+    // Missing mapping attributes: options, voteDistribution, isRunning
 
-
+    return game;
+  }
 }

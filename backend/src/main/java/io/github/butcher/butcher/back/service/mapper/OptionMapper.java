@@ -3,34 +3,34 @@ package io.github.butcher.butcher.back.service.mapper;
 import io.github.butcher.butcher.back.domain.Option;
 import io.github.butcher.butcher.back.domain.repository.OptionRepository;
 import io.github.butcher.butcher.back.service.dto.OptionDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OptionMapper {
 
-    @Autowired
-    private OptionRepository optionRepository;
+  private final OptionRepository optionRepository;
 
-    public OptionDTO convertToDTO(Option option) {
-        OptionDTO optionDTO = new OptionDTO();
+  private OptionMapper(OptionRepository optionRepository) {
+    this.optionRepository = optionRepository;
+  }
 
-        optionDTO.setId(option.getId());
-        optionDTO.setName(option.getName());
-        optionDTO.setRisk(option.getRisk());
+  public OptionDTO convertToDTO(Option option) {
+    OptionDTO optionDTO = new OptionDTO();
 
-        return optionDTO;
-    }
+    optionDTO.setId(option.getId());
+    optionDTO.setName(option.getName());
+    optionDTO.setRisk(option.getRisk());
 
-    public Option convert(OptionDTO optionDTO) {
+    return optionDTO;
+  }
 
-        Option option = optionRepository.findById(optionDTO.getId()).get();
+  public Option convert(OptionDTO optionDTO) {
 
-        option.setName(optionDTO.getName());
-        option.setRisk(optionDTO.getRisk());
+    Option option = optionRepository.findById(optionDTO.getId()).get();
 
-        return option;
-    }
+    option.setName(optionDTO.getName());
+    option.setRisk(optionDTO.getRisk());
 
-
+    return option;
+  }
 }
