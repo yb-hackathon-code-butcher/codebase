@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: haubzit-backend
+  labels:
+    appl: haubzit-backend
+spec:
+  selector:
+    appl: haubzit-backend
+  type: NodePort
+  ports:
+    - name: backend
+      port: 8080
+      protocol: TCP
+      targetPort: 8080

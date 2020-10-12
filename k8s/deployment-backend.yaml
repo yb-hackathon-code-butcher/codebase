@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haubzit-backend
+  labels:
+    appl: haubzit-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appl: haubzit-backend
+      version: "v1"
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        appl: haubzit-backend
+        version: "v1"
+    spec:
+      containers:
+        - name: haubzit-backend
+          image: gcr.io/jovial-syntax-292308/haubzit-backend:latest
+          imagePullPolicy: Always
+          env:
+            - name: APPL_DATASOURCE_JDBC_URL
+              value: jdbc:postgresql://haubzit-postgres:5432/postgres
+            - name: APPL_DATASOURCE_USERNAME
+              value: haubzit
+            - name: APPL_DATASOURCE_PASSWORD
+              value: haubzit
+          ports:
+            - name: backend
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /api/option
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+
