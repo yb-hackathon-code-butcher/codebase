@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api")
@@ -22,8 +23,8 @@ public class PlayerController {
   }
 
   @PostMapping(value = "/players")
-  public PlayerDTO createPlayer(@RequestBody UIDDTO uiddto) {
-    return playerService.createPlayer(uiddto.getUid());
+  public Mono<PlayerDTO> createPlayer(@RequestBody UIDDTO uiddto) {
+    return Mono.just(playerService.createPlayer(uiddto.getUid()));
   }
 
   @PutMapping(value = "/player")
