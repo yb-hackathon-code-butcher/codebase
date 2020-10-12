@@ -36,13 +36,12 @@ spec:
             - name: rest
               containerPort: 8080
             - name: actuator
-              containerPort: 8081
+              containerPort: 8090
             - name: socket
               containerPort: 9092
           readinessProbe:
             httpGet:
-              path: /api/option
-              port: 8080
+              path: /actuator/health
+              port: actuator
             initialDelaySeconds: 5
             periodSeconds: 5
-

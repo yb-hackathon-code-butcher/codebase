@@ -23,8 +23,15 @@
     <build.finalName>butcher-back</build.finalName>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+    <!-- Docker -->
+    <docker-repository>gcr.io/jovial-syntax-292308/haubzit/backend</docker-repository>
+    <docker-tag>latest</docker-tag>
+
     <!-- Dependencies -->
     <netty-socketio-version>1.7.12</netty-socketio-version>
+
+    <!-- Plugins -->
+    <dockerfile-maven-plugin-version>1.4.13</dockerfile-maven-plugin-version>
   </properties>
 
   <dependencies>
@@ -45,6 +52,11 @@
       <groupId>com.corundumstudio.socketio</groupId>
       <artifactId>netty-socketio</artifactId>
       <version>${netty-socketio-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
 
     <dependency>
@@ -143,6 +155,21 @@
           </includes>
         </configuration>
       </plugin>
+
+        <plugin>
+          <groupId>com.spotify</groupId>
+          <artifactId>dockerfile-maven-plugin</artifactId>
+          <version>${dockerfile-maven-plugin-version}</version>
+
+          <configuration>
+            <buildArgs>
+              <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+            </buildArgs>
+
+            <repository>${docker-repository}</repository>
+            <tag>${docker-tag}</tag>
+          </configuration>
+        </plugin>
     </plugins>
   </build>
 </project>

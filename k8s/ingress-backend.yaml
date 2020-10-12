@@ -5,4 +5,4 @@ metadata:
 spec:
   backend:
     serviceName: haubzit-backend
-    servicePort: 8080
+    servicePort: rest
