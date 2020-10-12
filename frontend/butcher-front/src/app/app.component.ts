@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {GameSocketService} from '../services/socket/game/game-socket.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,10 @@ import {GameSocketService} from '../services/socket/game/game-socket.service';
 export class AppComponent implements OnInit{
   title = 'butcher-front';
 
-  constructor(private socketService: GameSocketService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.socketService.sendJoin();
 
   }
 

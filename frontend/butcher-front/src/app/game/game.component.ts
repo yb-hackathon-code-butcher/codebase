@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OptionRestService} from '../../services/rest/option/option-rest.service';
+import {OptionModel} from '../../model/rest/option/option.model';
+import {GameRestService} from '../../services/rest/game/game-rest.service';
 
 @Component({
   selector: 'app-game',
@@ -28,10 +31,18 @@ export class GameComponent implements OnInit {
     {percent: 50},
     {percent: 10},
   ];
+  allAvailableOptions: OptionModel[];
 
-  constructor() { }
+  constructor(private optionService: OptionRestService,
+              private gameRestService: GameRestService) { }
 
   ngOnInit(): void {
+    this.gameRestService.getGame().subscribe((gameState) => {
+      this.roundEndDate = new Date(gameState.game.endTime);
+    })
+    this.optionService.getAll().subscribe((options) => {
+      this.allAvailableOptions = options;
+    })
   }
 
   voted(optionIndex: number) {

@@ -23,6 +23,9 @@ export class CountdownService {
   getCountdown(date: Date): Observable<Time>{
     const initTime = this.getTimeUntilDate(date);
     const subject = new BehaviorSubject<Time>(initTime);
+    if(initTime.distance < 0){
+      subject.complete();
+    }
 
     const interval = setInterval(() => {
       const time = this.getTimeUntilDate(date);
@@ -31,7 +34,7 @@ export class CountdownService {
         clearInterval(interval);
         subject.complete();
       }
-    }, 500);
+    }, 1000);
 
     return subject.asObservable();
   }
