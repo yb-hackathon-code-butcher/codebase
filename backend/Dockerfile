@@ -1,4 +1,23 @@
-FROM openjdk:11
+FROM openjdk:11-jre-slim as builder
+WORKDIR application
 ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+COPY ${JAR_FILE} application.jar
+RUN java -Djarmode=layertools -jar application.jar extract
+
+FROM openjdk:11-jre-slim
+
+RUN useradd -ms /bin/bash haubzit
+
+EXPOSE 8080
+EXPOSE 8081
+EXPOSE 9092
+
+USER haubzit
+WORKDIR application
+
+COPY --from=builder application/dependencies/ ./
+COPY --from=builder application/spring-boot-loader/ ./
+COPY --from=builder application/snapshot-dependencies/ ./
+COPY --from=builder application/application/ ./
+
+ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]

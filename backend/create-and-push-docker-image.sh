@@ -1,4 +1,5 @@
 #!/bin/bash
 # just for testing purposes, will add a github action later
-docker build --no-cache --pull -t gcr.io/jovial-syntax-292308/haubzit-backend:latest -f Dockerfile .
+mvn clean package
+docker build -t gcr.io/jovial-syntax-292308/haubzit-backend:latest .
 docker push gcr.io/jovial-syntax-292308/haubzit-backend:latest

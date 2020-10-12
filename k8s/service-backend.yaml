@@ -9,7 +9,14 @@ spec:
     appl: haubzit-backend
   type: NodePort
   ports:
-    - name: backend
+    - name: rest
       port: 8080
       protocol: TCP
       targetPort: 8080
+    - name: actuator
+      port: 8090
+      protocol: TCP
+      targetPort: 8081
+    - name: socket
+      port: 9092
+      targetPort: 9092

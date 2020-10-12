@@ -6,4 +6,7 @@ COPY . .
 RUN npm run build --prod
 
 FROM nginx:1.15.8-alpine
+
+EXPOSE 80
+
 COPY --from=builder /usr/src/app/dist/butcher-front/ /usr/share/nginx/html
