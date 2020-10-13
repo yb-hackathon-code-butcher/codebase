@@ -24,7 +24,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Docker -->
-    <docker-repository>gcr.io/jovial-syntax-292308/haubzit/backend</docker-repository>
+    <docker-repository>gcr.io/haubzit/haubzit-backend</docker-repository>
     <docker-tag>latest</docker-tag>
 
     <!-- Dependencies -->

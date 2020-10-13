@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: haubzit-frontend
-          image: gcr.io/jovial-syntax-292308/haubzit-frontend:latest
+          image: gcr.io/haubzit/haubzit-frontend:latest
           imagePullPolicy: Always
           ports:
             - name: http

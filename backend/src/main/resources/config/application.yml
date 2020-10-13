@@ -13,6 +13,6 @@ spring:
     url: ${APPL_DATASOURCE_JDBC_URL}
     user: ${APPL_DATASOURCE_USERNAME}
     password: ${APPL_DATASOURCE_PASSWORD}
-management:
-  server:
-    port: 8090
+#management:
+#  server:
+#    port: 8090
