@@ -31,7 +31,7 @@ public class PlayerService {
 
     if (!player.isPresent()) {
       Player newPlayer = new Player();
-      newPlayer.setTeam(teamMapper.convert(teamService.findById(1L)));
+      newPlayer.setTeam(teamMapper.convert(teamService.findById(0L)));
       newPlayer.setUid(uid);
       newPlayer.setUsername("geyoungboyst");
       playerRepository.save(newPlayer);
@@ -57,8 +57,8 @@ public class PlayerService {
     return updatedPlayerDTO;
   }
 
-  public PlayerDTO selectTeam(Long playerId, Long teamId) {
-    Player player = playerRepository.findById(playerId).get();
+  public PlayerDTO selectTeam(String playerUUID, Long teamId) {
+    Player player = playerRepository.findByUid(playerUUID).get();
 
     player.setTeam(teamMapper.convert(teamService.findById(teamId)));
     player = playerRepository.save(player);

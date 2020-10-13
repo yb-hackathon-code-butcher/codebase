@@ -38,10 +38,6 @@
     </dependency>
 
     <dependency>
-      <groupId>jakarta.servlet</groupId>
-      <artifactId>jakarta.servlet-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.corundumstudio.socketio</groupId>
       <artifactId>netty-socketio</artifactId>
       <version>${netty-socketio-version}</version>

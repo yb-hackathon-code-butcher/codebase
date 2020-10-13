@@ -8,16 +8,24 @@ import {CountdownService} from '../../../services/common/countdown.service';
 })
 export class RoundCounterComponent implements OnInit {
   @Input()
-  endDate: Date;
+  set endDate(value: Date) {
+    if(this._endDate != value){
+      this._endDate = value;
+      this.initCounter();
+    }
+  }
+  private _endDate: Date;
 
   seconds: number;
 
   constructor(private countdownService: CountdownService) { }
 
   ngOnInit(): void {
-    this.countdownService.getCountdown(this.endDate).subscribe((newTime) => {
+  }
+
+  private initCounter() {
+    this.countdownService.getCountdown(this._endDate).subscribe((newTime) => {
       this.seconds = newTime.seconds
     })
   }
-
 }

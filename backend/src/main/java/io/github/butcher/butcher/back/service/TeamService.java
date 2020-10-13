@@ -32,7 +32,7 @@ public class TeamService {
       teamDTOList.add(teamMapper.convertToDTO(team));
     });
 
-    return new ArrayList<>();
+    return teamDTOList;
   }
 
   public TeamDTO findById(Long teamId) {

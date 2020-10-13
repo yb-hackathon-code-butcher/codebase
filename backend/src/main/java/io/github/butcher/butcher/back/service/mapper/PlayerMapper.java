@@ -21,7 +21,9 @@ public class PlayerMapper {
     PlayerDTO playerDTO = new PlayerDTO();
 
     playerDTO.setId(player.getId());
-    playerDTO.setTeamId(player.getTeam().getId());
+    if(player.getTeam() != null){
+      playerDTO.setTeamId(player.getTeam().getId());
+    }
     playerDTO.setUsername(player.getUsername());
     playerDTO.setUid(player.getUid());
 
