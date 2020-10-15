@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="cell">
-      <app-timer *ngIf="start" [countDownDate]="start"></app-timer>
+      <app-timer *ngIf="start" [countDownDate]="start" (finished)="navigateToGame()"></app-timer>
     </div>
   </div>
 

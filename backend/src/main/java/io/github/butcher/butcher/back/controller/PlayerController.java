@@ -37,8 +37,8 @@ public class PlayerController {
     return playerService.findById(id);
   }
 
-  @PostMapping(value = "player/{id}/select-team")
-  public PlayerDTO selectTeam(@PathVariable Long id, @RequestBody Long teamId) {
-    return playerService.selectTeam(id, teamId);
+  @PostMapping(value = "player/{uuid}/select-team")
+  public PlayerDTO selectTeam(@PathVariable String uuid, @RequestBody Long teamId) {
+    return playerService.selectTeam(uuid, teamId);
   }
 }

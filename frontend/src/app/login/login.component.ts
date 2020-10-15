@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginModel} from "../../model/rest/login/login.model";
-import {LoginService} from "../../services/rest/login/login.service";
 import {AuthService} from "../../services/common/auth.service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,26 +12,16 @@ export class LoginComponent implements OnInit {
 
   loginModel: LoginModel = <LoginModel>{};
 
-  constructor(private loginService: LoginService, private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    if(this.authService.isAuthenticated()){
+      this.router.navigateByUrl('team-selection')
+    }
   }
-
 
   guestLogin() {
-    this.loginService.guestLogin(this.authService.getUUID()).subscribe((response) =>{
-      console.log(response);
-    });
-  }
-
-  login() {
-    this.loginService.login(this.loginModel).subscribe((response) =>{
-      console.log(response);
-    });
-  }
-
-  register() {
-    this.loginService.register(this.loginModel).subscribe((response) =>{
+    this.authService.guestLogin(this.authService.getUUID()).subscribe((response) =>{
       console.log(response);
     });
   }

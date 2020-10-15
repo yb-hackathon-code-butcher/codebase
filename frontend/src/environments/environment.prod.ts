@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   backend_url: "http://localhost:8080",
-  socketEndpoint: 'http://socketurl',
+  socketEndpoint: 'http://localhost:8080',
   socketIoOptions: {
     "reconnection": true,             // whether to reconnect automatically
     "reconnectionAttempts": 1000, // number of reconnection attempts before giving up

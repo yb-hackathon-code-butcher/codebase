@@ -7,6 +7,7 @@ export const environment = {
   backend_url: "http://localhost:8080",
   socketEndpoint: 'http://localhost:9092/',
   socketIoOptions: {
+    "path": "/socket.io",
     "reconnection": true,             // whether to reconnect automatically
     "reconnectionAttempts": 1000, // number of reconnection attempts before giving up
     "reconnectionDelay": 1000,        // how long to initially wait before attempting a new reconnection

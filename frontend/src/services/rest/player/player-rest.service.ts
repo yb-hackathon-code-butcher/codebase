@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {PlayerModel} from "../../../model/rest/player/player.model";
@@ -11,16 +11,18 @@ export class PlayerRestService {
 
   private readonly apiSubRoute: string = "/player";
 
-  constructor(private httpClient: HttpClient) { }
-
-  get(id:number): Observable<PlayerModel>{
-    return this.httpClient.get<PlayerModel>(environment.backend_api+this.apiSubRoute+"/"+id);
+  constructor(private httpClient: HttpClient) {
   }
 
-  edit(player: PlayerModel){
-    return this.httpClient.put(environment.backend_api+this.apiSubRoute+"/", player);
+  get(id: number): Observable<PlayerModel> {
+    return this.httpClient.get<PlayerModel>(environment.backend_api + this.apiSubRoute + "/" + id);
   }
-  selectTeam(teamId:number){
-    return this.httpClient.post(environment.backend_api+this.apiSubRoute+"/select-team",{"teamId":teamId});
+
+  edit(player: PlayerModel) {
+    return this.httpClient.put(environment.backend_api + this.apiSubRoute + "/", player);
+  }
+
+  selectTeam(playerUUID: string, teamId: number): Observable<PlayerModel> {
+    return this.httpClient.post<PlayerModel>(environment.backend_api + this.apiSubRoute +"/" + playerUUID+ "/select-team", teamId);
   }
 }

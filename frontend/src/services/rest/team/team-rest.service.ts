@@ -9,7 +9,7 @@ import {TeamModel} from "../../../model/rest/team/team.model";
 })
 export class TeamRestService {
 
-  private readonly apiSubRoute: string = "/team";
+  private readonly apiSubRoute: string = "/teams";
 
   constructor(private httpClient: HttpClient) { }
 

@@ -1,23 +1,23 @@
 <div class="background-container">
-  <div *ngIf="gameObject">
+  <div *ngIf="gameObject; else noGameAvailable">
     <div class="team-selection-header">
       <h3 class="primary-text center header h3 bold">Wähle dein Team</h3>
     </div>
     <div class="team-selection-container">
       <mat-grid-list cols="1" rowHeight="37.5vh" gutterSize="2.5vh">
         <mat-grid-tile>
-          <img class="image-team-selection" [src]="'../../assets/img/teams/'+gameObject.game.team1+'.png'"
-               (click)="selectTeam(gameObject.game.team1)">
+          <img class="image-team-selection" [src]="'../../assets/img/teams/'+gameObject.game.team1Id+'.png'"
+               (click)="selectTeam(gameObject.game.team1Id)">
         </mat-grid-tile>
         <mat-grid-tile>
-          <img class="image-team-selection" [src]="'../../assets/img/teams/'+gameObject.game.team2+'.png'"
-               (click)="selectTeam(gameObject.game.team2)">
+          <img class="image-team-selection" [src]="'../../assets/img/teams/'+gameObject.game.team2Id+'.png'"
+               (click)="selectTeam(gameObject.game.team2Id)">
         </mat-grid-tile>
       </mat-grid-list>
       <hr class="team-selection-separator">
     </div>
   </div>
-  <div *ngIf="!gameObject">
-    <h3 class="primary-text center header h3 bold">Kein Spiel Verfügbar</h3>
-  </div>
 </div>
+<ng-template #noGameAvailable>
+    <h3 class="primary-text center header h3 bold">Kein Spiel Verfügbar</h3>
+</ng-template>
