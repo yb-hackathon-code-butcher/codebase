@@ -27,6 +27,6 @@ jobs:
 
       - name: npm install and build
         run: |
-          cd ./frontend/butcher-front
+          cd ./frontend
           npm install
           npm run build -- --prod
