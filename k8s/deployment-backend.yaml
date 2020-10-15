@@ -35,8 +35,6 @@ spec:
           ports:
             - name: rest
               containerPort: 8080
-            - name: actuator
-              containerPort: 8090
             - name: socket
               containerPort: 9092
           readinessProbe:

@@ -9,7 +9,6 @@ FROM openjdk:11-jre-slim
 RUN useradd -ms /bin/bash haubzit
 
 EXPOSE 8080
-EXPOSE 8090
 EXPOSE 9092
 
 USER haubzit
