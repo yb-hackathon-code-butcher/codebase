@@ -20,7 +20,6 @@
   <properties>
     <!-- General configuration -->
     <java.version>11</java.version>
-    <build.finalName>haubzit-backend</build.finalName>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Docker -->
@@ -110,7 +109,7 @@
   </dependencies>
 
   <build>
-    <finalName>${build.finalName}</finalName>
+    <finalName>haubzit-backend</finalName>
 
     <plugins>
       <plugin>
