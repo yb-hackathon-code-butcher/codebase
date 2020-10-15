@@ -4,10 +4,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.butcher</groupId>
-  <artifactId>butcher-back</artifactId>
+  <artifactId>haubzit-backend</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>butcher-back</name>
+  <name>haubzit-backend</name>
   <description>Backend for YB Hackathon 2020 Team "Code Butcher".</description>
 
   <parent>
@@ -20,7 +20,7 @@
   <properties>
     <!-- General configuration -->
     <java.version>11</java.version>
-    <build.finalName>butcher-back</build.finalName>
+    <build.finalName>haubzit-backend</build.finalName>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Docker -->
