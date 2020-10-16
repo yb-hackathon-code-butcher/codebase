@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haubzit-frontend
+  labels:
+    appl: haubzit-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appl: haubzit-frontend
+      version: "v1"
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        appl: haubzit-frontend
+        version: "v1"
+    spec:
+      containers:
+        - name: haubzit-frontend
+          image: gcr.io/haubzit/haubzit-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80

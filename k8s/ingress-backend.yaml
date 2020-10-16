@@ -1,0 +1,8 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: haubzit-backend
+spec:
+  backend:
+    serviceName: haubzit-backend
+    servicePort: rest

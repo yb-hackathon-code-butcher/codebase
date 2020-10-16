@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haubzit-postgres
+  labels:
+    appl: haubzit-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appl: haubzit-postgres
+      version: "v1"
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        appl: haubzit-postgres
+        version: "v1"
+    spec:
+      containers:
+        - name: haubzit-postgres
+          image: postgres:11-alpine
+          imagePullPolicy: Always
+          env:
+            - name: POSTGRES_USER
+              value: haubzit
+            - name: POSTGRES_PASSWORD
+              value: haubzit
+          ports:
+            - name: postgres
+              containerPort: 5432
+      restartPolicy: Always

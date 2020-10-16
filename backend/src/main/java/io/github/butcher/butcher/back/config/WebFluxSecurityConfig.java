@@ -18,10 +18,11 @@ public class WebFluxSecurityConfig {
   @Bean
   public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
     http.authorizeExchange()
+        .pathMatchers("/actuator/health").permitAll()
         .pathMatchers("/api/**").permitAll()
         .and()
         .csrf()
-        .requireCsrfProtectionMatcher(new NegatedServerWebExchangeMatcher(pathMatchers("/api/**")));
+        .requireCsrfProtectionMatcher(new NegatedServerWebExchangeMatcher(pathMatchers("/api/**", "/actuator/**")));
     return http.build();
   }
 }

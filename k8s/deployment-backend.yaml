@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haubzit-backend
+  labels:
+    appl: haubzit-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appl: haubzit-backend
+      version: "v1"
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        appl: haubzit-backend
+        version: "v1"
+    spec:
+      containers:
+        - name: haubzit-backend
+          image: gcr.io/haubzit/haubzit-backend:latest
+          imagePullPolicy: Always
+          env:
+            - name: APPL_DATASOURCE_JDBC_URL
+              value: jdbc:postgresql://haubzit-postgres:5432/postgres
+            - name: APPL_DATASOURCE_USERNAME
+              value: haubzit
+            - name: APPL_DATASOURCE_PASSWORD
+              value: haubzit
+          ports:
+            - name: rest
+              containerPort: 8080
+            - name: socket
+              containerPort: 9092
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: rest
+            initialDelaySeconds: 5
+            periodSeconds: 5
