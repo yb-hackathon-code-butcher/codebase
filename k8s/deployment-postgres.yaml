@@ -34,4 +34,3 @@ spec:
             - name: postgres
               containerPort: 5432
       restartPolicy: Always
-

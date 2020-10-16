@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: haubzit-backend
-          image: gcr.io/jovial-syntax-292308/haubzit-backend:latest
+          image: gcr.io/haubzit/haubzit-backend:latest
           imagePullPolicy: Always
           env:
             - name: APPL_DATASOURCE_JDBC_URL
@@ -35,14 +35,11 @@ spec:
           ports:
             - name: rest
               containerPort: 8080
-            - name: actuator
-              containerPort: 8081
             - name: socket
               containerPort: 9092
           readinessProbe:
             httpGet:
-              path: /api/option
-              port: 8080
+              path: /actuator/health
+              port: rest
             initialDelaySeconds: 5
             periodSeconds: 5
-
