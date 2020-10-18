@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.haubzit</groupId>
+  <artifactId>haubzit-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>haubzit</name>
+  <description>The YB Hackathon 2020 "Haubzit" Project.</description>
+
+  <properties>
+    <!-- General configuration -->
+    <java.version>11</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Spring release -->
+    <spring.version>2.3.4.RELEASE</spring.version>
+
+    <!-- Dependencies -->
+    <netty-socketio-version>1.7.12</netty-socketio-version>
+
+    <!-- Plugins -->
+    <dockerfile-maven-plugin-version>1.4.13</dockerfile-maven-plugin-version>
+    <frontend-maven-plugin-version>1.10.3</frontend-maven-plugin-version>
+    <maven-clean-plugin-version>3.1.0</maven-clean-plugin-version>
+    <maven-failsafe-plugin-version>3.0.0-M5</maven-failsafe-plugin-version>
+    <maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>
+  </properties>
+
+  <modules>
+    <module>backend</module>
+    <module>frontend</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.corundumstudio.socketio</groupId>
+        <artifactId>netty-socketio</artifactId>
+        <version>${netty-socketio-version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${maven-clean-plugin-version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>com.github.eirslett</groupId>
+          <artifactId>frontend-maven-plugin</artifactId>
+          <version>${frontend-maven-plugin-version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>com.spotify</groupId>
+          <artifactId>dockerfile-maven-plugin</artifactId>
+          <version>${dockerfile-maven-plugin-version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin-version}</version>
+
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/*IntegrationTest.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${maven-failsafe-plugin-version}</version>
+
+        <configuration>
+          <includes>
+            <include>**/*IntegrationTest.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
