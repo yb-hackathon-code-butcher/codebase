@@ -3,34 +3,21 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.github.butcher</groupId>
   <artifactId>haubzit-backend</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
 
   <name>haubzit-backend</name>
-  <description>Backend for YB Hackathon 2020 Team "Code Butcher".</description>
+  <description>Backend for the YB Hackathon 2020 "Haubzit" Project.</description>
 
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.3.4.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <groupId>io.github.haubzit</groupId>
+    <artifactId>haubzit-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <properties>
-    <!-- General configuration -->
-    <java.version>11</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <!-- Docker -->
     <docker-repository>gcr.io/haubzit/haubzit-backend</docker-repository>
     <docker-tag>latest</docker-tag>
-
-    <!-- Dependencies -->
-    <netty-socketio-version>1.7.12</netty-socketio-version>
-
-    <!-- Plugins -->
-    <dockerfile-maven-plugin-version>1.4.13</dockerfile-maven-plugin-version>
   </properties>
 
   <dependencies>
@@ -46,7 +33,6 @@
     <dependency>
       <groupId>com.corundumstudio.socketio</groupId>
       <artifactId>netty-socketio</artifactId>
-      <version>${netty-socketio-version}</version>
     </dependency>
 
     <dependency>
@@ -105,18 +91,19 @@
   </dependencies>
 
   <build>
-    <finalName>haubzit-backend</finalName>
-
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.version}</version>
+
         <configuration>
           <layers>
             <enabled>true</enabled>
             <includeLayerTools>true</includeLayerTools>
           </layers>
         </configuration>
+
         <executions>
           <execution>
             <goals>
@@ -127,44 +114,18 @@
       </plugin>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
 
         <configuration>
-          <includes>
-            <include>**/*Test.java</include>
-          </includes>
-          <excludes>
-            <exclude>**/*IntegrationTest.java</exclude>
-          </excludes>
+          <buildArgs>
+            <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+          </buildArgs>
+
+          <repository>${docker-repository}</repository>
+          <tag>${docker-tag}</tag>
         </configuration>
       </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
-
-        <configuration>
-          <includes>
-            <include>**/*IntegrationTest.java</include>
-          </includes>
-        </configuration>
-      </plugin>
-
-        <plugin>
-          <groupId>com.spotify</groupId>
-          <artifactId>dockerfile-maven-plugin</artifactId>
-          <version>${dockerfile-maven-plugin-version}</version>
-
-          <configuration>
-            <buildArgs>
-              <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-            </buildArgs>
-
-            <repository>${docker-repository}</repository>
-            <tag>${docker-tag}</tag>
-          </configuration>
-        </plugin>
     </plugins>
   </build>
 </project>

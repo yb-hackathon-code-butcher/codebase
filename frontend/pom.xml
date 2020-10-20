@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>haubzit-frontend</artifactId>
+  <packaging>pom</packaging>
+
+  <name>haubzit-frontend</name>
+  <description>Frontend for the YB Hackathon 2020 "Haubzit" Project.</description>
+
+  <parent>
+    <groupId>io.github.haubzit</groupId>
+    <artifactId>haubzit-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <!-- frontend-maven-plugin -->
+    <node.version>v12.19.0</node.version>
+    <npm.version>6.14.8</npm.version>
+    <node.installDirectory>${project.build.outputDirectory}/node</node.installDirectory>
+    <node.workingDirectory>./</node.workingDirectory>
+
+    <!-- Docker -->
+    <docker-repository>gcr.io/haubzit/haubzit-frontend</docker-repository>
+    <docker-tag>latest</docker-tag>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+
+        <configuration>
+          <directory>dist</directory>
+          <directory>node_modules</directory>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+
+        <executions>
+          <!-- download nodejs and npm -->
+          <execution>
+            <id>install node and npm</id>
+            <phase>generate-resources</phase>
+
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+
+            <configuration>
+              <installDirectory>${node.installDirectory}</installDirectory>
+              <nodeVersion>${node.version}</nodeVersion>
+              <npmVersion>${npm.version}</npmVersion>
+            </configuration>
+          </execution>
+
+          <!-- install dependencies -->
+          <execution>
+            <id>npm install</id>
+            <phase>generate-resources</phase>
+
+            <goals>
+              <goal>npm</goal>
+            </goals>
+
+            <configuration>
+              <arguments>install</arguments>
+              <installDirectory>${node.installDirectory}</installDirectory>
+            </configuration>
+          </execution>
+
+          <!-- build frontend -->
+          <execution>
+            <id>npm run build</id>
+            <phase>generate-resources</phase>
+
+            <goals>
+              <goal>npm</goal>
+            </goals>
+
+            <configuration>
+              <arguments>run build --prod</arguments>
+              <installDirectory>${node.installDirectory}</installDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+
+        <configuration>
+          <repository>${docker-repository}</repository>
+          <tag>${docker-tag}</tag>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
