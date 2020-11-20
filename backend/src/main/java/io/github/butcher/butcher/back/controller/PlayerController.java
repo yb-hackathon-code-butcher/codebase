@@ -22,11 +22,6 @@ public class PlayerController {
     this.playerService = playerService;
   }
 
-  @PostMapping(value = "/players")
-  public Mono<PlayerDTO> createPlayer(@RequestBody UIDDTO uiddto) {
-    return Mono.just(playerService.createPlayer(uiddto.getUid()));
-  }
-
   @PutMapping(value = "/player")
   public PlayerDTO updatePlayer(@RequestBody PlayerDTO playerDTO) {
     return playerService.update(playerDTO);

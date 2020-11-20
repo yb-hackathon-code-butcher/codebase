@@ -17,9 +17,12 @@ export class AuthService {
   }
 
   public createUUID() {
-    let uuid = uuidv4();
-    localStorage.setItem('uuid-code-butcher', uuid);
-    return uuid;
+    if(!this.isAuthenticated()){
+      let uuid = uuidv4();
+      localStorage.setItem('uuid-code-butcher', uuid);
+      return uuid
+    }
+    return this.getUUID();
   }
 
   public isAuthenticated() {

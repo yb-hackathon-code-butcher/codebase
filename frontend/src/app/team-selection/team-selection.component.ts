@@ -35,7 +35,8 @@ export class TeamSelectionComponent implements OnInit {
   }
 
   selectTeam(teamId: number) {
-    const playerUUID = this.authService.getUUID();
+    const playerUUID = this.authService.createUUID();
+    console.log("Generated UUID: "+playerUUID);
     this.playerRestService.selectTeam(playerUUID, teamId).subscribe((a)=> {
       console.warn(a)
       this.router.navigateByUrl('countdown');

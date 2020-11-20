@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 import {environment} from '../environments/environment';
+import {AuthGuard} from "../services/guards/auth.guard";
+import {NegateAuthGuard} from "../services/guards/negate.auth.guard";
+import {GameRunningGuard} from "../services/guards/game.running.guard";
 
 const config: SocketIoConfig = { url: environment.socketEndpoint, options: environment.socketIoOptions };
 
@@ -23,7 +26,7 @@ const config: SocketIoConfig = { url: environment.socketEndpoint, options: envir
     BrowserAnimationsModule,
     SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [AuthGuard, NegateAuthGuard,GameRunningGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
