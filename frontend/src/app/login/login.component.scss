@@ -1,43 +1,48 @@
 @import '../../styles';
 @import "../../vars";
 
-.page{
+.page {
   background-color: transparent;
   display: flex;
   width: 100vw;
   height: 100%;
   flex-direction: column;
   align-items: center;
-  .cell{
+
+  .cell {
     padding: $big-whitespace;
     flex: 1;
-    &.first{
+
+    &.first {
       display: flex;
       justify-content: space-between;
       flex-direction: column;
 
     }
-    .headUp{
+
+    .headUp {
       display: flex;
       justify-content: space-between;
     }
 
   }
 }
+
 /* Portrait */
-@media screen and (min-aspect-ratio:1/1){
+@media screen and (min-aspect-ratio: 1/1) {
   /* Portrait styles */
-  .page{
+  .page {
     flex-direction: row;
   }
 }
 
-#login-title{
-  color:$primary-color;
+#login-title {
+  color: $primary-color;
   text-align: center;
   width: 100%;
   margin-top: 40px;
 }
-.login-form-button{
+
+.login-form-button {
 
 }

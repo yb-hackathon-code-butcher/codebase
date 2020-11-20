@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { TeamSelectionComponent } from './team-selection.component';
+import {TeamSelectionComponent} from './team-selection.component';
 
-const routes: Routes = [{ path: '', component: TeamSelectionComponent }];
+const routes: Routes = [{path: '', component: TeamSelectionComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TeamSelectionRoutingModule { }
+export class TeamSelectionRoutingModule {
+}

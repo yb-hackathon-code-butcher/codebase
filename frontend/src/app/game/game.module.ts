@@ -1,14 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { GameRoutingModule } from './game-routing.module';
-import { GameComponent } from './game.component';
-import { VoteResultBarComponent } from './vote-result-bar/vote-result-bar.component';
-import { OptionListComponent } from './option-list/option-list.component';
+import {GameRoutingModule} from './game-routing.module';
+import {GameComponent} from './game.component';
+import {VoteResultBarComponent} from './vote-result-bar/vote-result-bar.component';
+import {OptionListComponent} from './option-list/option-list.component';
 import {MatButtonModule} from '@angular/material/button';
-import { RoundCounterComponent } from './round-counter/round-counter.component';
-import { BallPossessionComponent } from './ball-possession/ball-possession.component';
-import { ScoreboardComponent } from './scoreboard/scoreboard.component';
+import {RoundCounterComponent} from './round-counter/round-counter.component';
+import {BallPossessionComponent} from './ball-possession/ball-possession.component';
+import {ScoreboardComponent} from './scoreboard/scoreboard.component';
 
 
 @NgModule({
@@ -24,4 +24,5 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
     MatButtonModule
   ]
 })
-export class GameModule { }
+export class GameModule {
+}

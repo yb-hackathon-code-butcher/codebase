@@ -11,7 +11,8 @@ export class VoteResultBarComponent implements OnInit {
   @Input()
   teamName: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

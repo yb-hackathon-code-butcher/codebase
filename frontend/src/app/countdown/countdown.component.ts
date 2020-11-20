@@ -37,7 +37,7 @@ export class CountdownComponent implements OnInit {
         this.start = new Date(game.game.startTime);
         let initDistance = this.start.getTime() - Date.now();
         this.countdownService.getCountdown(this.start).subscribe((newTime) => {
-          bar.animate(1-(initDistance - newTime.distance) / initDistance);
+          bar.animate(1 - (initDistance - newTime.distance) / initDistance);
         });
       }
     });

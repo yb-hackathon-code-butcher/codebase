@@ -12,16 +12,17 @@ export class LoginComponent implements OnInit {
 
   loginModel: LoginModel = <LoginModel>{};
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
-    if(this.authService.isAuthenticated()){
+    if (this.authService.isAuthenticated()) {
       this.router.navigateByUrl('team-selection')
     }
   }
 
   guestLogin() {
-    this.authService.guestLogin(this.authService.getUUID()).subscribe((response) =>{
+    this.authService.guestLogin(this.authService.getUUID()).subscribe((response) => {
       console.log(response);
     });
   }

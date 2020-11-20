@@ -2,7 +2,6 @@ package io.github.butcher.butcher.back.controller;
 
 import io.github.butcher.butcher.back.service.PlayerService;
 import io.github.butcher.butcher.back.service.dto.PlayerDTO;
-import io.github.butcher.butcher.back.service.dto.UIDDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api")
@@ -20,11 +18,6 @@ public class PlayerController {
 
   public PlayerController(PlayerService playerService) {
     this.playerService = playerService;
-  }
-
-  @PostMapping(value = "/players")
-  public Mono<PlayerDTO> createPlayer(@RequestBody UIDDTO uiddto) {
-    return Mono.just(playerService.createPlayer(uiddto.getUid()));
   }
 
   @PutMapping(value = "/player")

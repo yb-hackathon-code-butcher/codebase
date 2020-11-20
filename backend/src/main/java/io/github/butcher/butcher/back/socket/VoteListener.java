@@ -16,7 +16,7 @@ public class VoteListener extends AbstractSocketIOEventListener<VoteEvent> {
 
   private final Voter voter;
 
-  public VoteListener(SocketIOServer socketIOServer,Voter voter) {
+  public VoteListener(SocketIOServer socketIOServer, Voter voter) {
     super(socketIOServer);
 
     this.voter = voter;
@@ -35,6 +35,6 @@ public class VoteListener extends AbstractSocketIOEventListener<VoteEvent> {
 
     // TODO: Security checK!
 
-    voter.vote(voteEvent.getTeamId(),voteEvent.getVoteId());
+    voter.vote(voteEvent.getTeamId(), voteEvent.getVoteId());
   }
 }

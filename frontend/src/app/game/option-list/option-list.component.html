@@ -2,7 +2,8 @@
   <span class="h4 primary-text">{{teamName}} Voting</span>
   <span class="h4 right light-text">Chance</span>
 </div>
-<div class="option" [class.unselected]="this.selectedOption > -1 && this.selectedOption !== i" *ngFor="let option of options; let i = index" (click)="vote(i)">
+<div class="option" [class.unselected]="this.selectedOption > -1 && this.selectedOption !== i"
+     *ngFor="let option of options; let i = index" (click)="vote(i)">
   <div class="left">
     <div class="top"><span class="letter h4 bold">{{optionLetters[i]}}</span>
       <span class="name right h4">{{option.name}}</span>
@@ -11,7 +12,8 @@
   </div>
   <div class="right">
     <div class="chance h4 light-bg">
-      <span>{{option.chance}}<small>%</small></span>
+      <span>{{option.chance}}
+        <small>%</small></span>
     </div>
 
   </div>

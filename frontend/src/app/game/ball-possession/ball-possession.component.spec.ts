@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BallPossessionComponent } from './ball-possession.component';
+import {BallPossessionComponent} from './ball-possession.component';
 
 describe('BallPossessionComponent', () => {
   let component: BallPossessionComponent;
@@ -8,7 +8,7 @@ describe('BallPossessionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BallPossessionComponent ]
+      declarations: [BallPossessionComponent]
     })
     .compileComponents();
   });

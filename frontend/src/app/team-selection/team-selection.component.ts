@@ -7,7 +7,6 @@ import {forkJoin} from 'rxjs';
 import {TeamModel} from '../../model/rest/team/team.model';
 import {AuthService} from '../../services/common/auth.service';
 import {Router} from '@angular/router';
-import {GameSocketService} from '../../services/socket/game/game-socket.service';
 
 @Component({
   selector: 'app-team-selection',
@@ -28,15 +27,16 @@ export class TeamSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     forkJoin([this.teamRestService.getAll(), this.gameRestService.getGame()])
-      .subscribe(([teams, game]) => {
-        this.gameObject = game;
-        this.teams = teams;
-      });
+    .subscribe(([teams, game]) => {
+      this.gameObject = game;
+      this.teams = teams;
+    });
   }
 
   selectTeam(teamId: number) {
-    const playerUUID = this.authService.getUUID();
-    this.playerRestService.selectTeam(playerUUID, teamId).subscribe((a)=> {
+    const playerUUID = this.authService.createUUID();
+    console.log("Generated UUID: " + playerUUID);
+    this.playerRestService.selectTeam(playerUUID, teamId).subscribe((a) => {
       console.warn(a)
       this.router.navigateByUrl('countdown');
     });

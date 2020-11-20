@@ -4,8 +4,8 @@ import {PlayerModel} from '../../model/rest/player/player.model';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {LoginModel} from '../../model/rest/login/login.model';
-import {Observable, pipe} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,12 @@ export class AuthService {
   }
 
   public createUUID() {
-    let uuid = uuidv4();
-    localStorage.setItem('uuid-code-butcher', uuid);
-    return uuid;
+    if (!this.isAuthenticated()) {
+      let uuid = uuidv4();
+      localStorage.setItem('uuid-code-butcher', uuid);
+      return uuid
+    }
+    return this.getUUID();
   }
 
   public isAuthenticated() {

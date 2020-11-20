@@ -26,20 +26,13 @@ public class PlayerService {
     this.teamMapper = teamMapper;
   }
 
-  public PlayerDTO createPlayer(String uid) {
-    Optional<Player> player = playerRepository.findByUid(uid);
-
-    if (!player.isPresent()) {
-      Player newPlayer = new Player();
-      newPlayer.setTeam(teamMapper.convert(teamService.findById(0L)));
-      newPlayer.setUid(uid);
-      newPlayer.setUsername("geyoungboyst");
-      playerRepository.save(newPlayer);
-
-      return playerMapper.convertToDTO(newPlayer);
-    }
-
-    return playerMapper.convertToDTO(player.get());
+  private Player createPlayer(String uuid, Long teamId) {
+    Player newPlayer = new Player();
+    newPlayer.setTeam(teamMapper.convert(teamService.findById(teamId)));
+    newPlayer.setUid(uuid);
+    newPlayer.setUsername(uuid);
+    newPlayer = playerRepository.save(newPlayer);
+    return newPlayer;
   }
 
   public PlayerDTO findById(Long id) {
@@ -58,8 +51,8 @@ public class PlayerService {
   }
 
   public PlayerDTO selectTeam(String playerUUID, Long teamId) {
-    Player player = playerRepository.findByUid(playerUUID).get();
-
+    Optional<Player> playerOptional = playerRepository.findByUid(playerUUID);
+    Player player = playerOptional.isEmpty() ? createPlayer(playerUUID,teamId) : playerOptional.get();
     player.setTeam(teamMapper.convert(teamService.findById(teamId)));
     player = playerRepository.save(player);
 

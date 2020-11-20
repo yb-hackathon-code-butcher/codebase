@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { OptionRestService } from './option-rest.service';
+import {OptionRestService} from './option-rest.service';
 
 describe('OptionRestService', () => {
   let service: OptionRestService;

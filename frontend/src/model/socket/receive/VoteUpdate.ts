@@ -1,3 +1,3 @@
-export interface VoteUpdate{
- update: Map<number, number>
+export interface VoteUpdate {
+  update: Map<number, number>
 }

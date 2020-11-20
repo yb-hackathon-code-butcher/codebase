@@ -23,6 +23,6 @@ export class PlayerRestService {
   }
 
   selectTeam(playerUUID: string, teamId: number): Observable<PlayerModel> {
-    return this.httpClient.post<PlayerModel>(environment.backend_api + this.apiSubRoute +"/" + playerUUID+ "/select-team", teamId);
+    return this.httpClient.post<PlayerModel>(environment.backend_api + this.apiSubRoute + "/" + playerUUID + "/select-team", teamId);
   }
 }

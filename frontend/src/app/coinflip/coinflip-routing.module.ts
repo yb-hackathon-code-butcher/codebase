@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { CoinflipComponent } from './coinflip.component';
+import {CoinflipComponent} from './coinflip.component';
 
-const routes: Routes = [{ path: '', component: CoinflipComponent }];
+const routes: Routes = [{path: '', component: CoinflipComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CoinflipRoutingModule { }
+export class CoinflipRoutingModule {
+}

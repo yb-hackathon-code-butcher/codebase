@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import lottie from "lottie-web";
+
 @Component({
   selector: 'app-round-end',
   templateUrl: './round-end.component.html',
@@ -7,13 +8,14 @@ import lottie from "lottie-web";
 })
 export class RoundEndComponent implements OnInit {
 
-  winner:number;
+  winner: number;
 
-  constructor() {}
+  constructor() {
+  }
 
 
   ngOnInit(): void {
-    this.winner=2;
+    this.winner = 2;
 
     let animation = lottie.loadAnimation({
       container: document.getElementById('field'),

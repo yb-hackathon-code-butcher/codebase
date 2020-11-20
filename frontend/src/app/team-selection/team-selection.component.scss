@@ -1,6 +1,6 @@
 @import "../../styles";
 
-.team-selection-separator{
+.team-selection-separator {
   border: 8px solid $primary-color;
   border-radius: 5px;
   margin: 10px;
@@ -8,16 +8,19 @@
   position: relative;
   bottom: calc(50% - 4px);
 }
-.image-team-selection{
+
+.image-team-selection {
   height: 80%;
   margin: 10%;
   width: auto;
-  cursor:pointer;
+  cursor: pointer;
 }
-.team-selection-header{
+
+.team-selection-header {
   height: 20vh;
 }
-.team-selection-container{
+
+.team-selection-container {
   height: 80vh;
   overflow: hidden;
 }

@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { RoundEndRoutingModule } from './round-end-routing.module';
-import { RoundEndComponent } from './round-end.component';
+import {RoundEndRoutingModule} from './round-end-routing.module';
+import {RoundEndComponent} from './round-end.component';
 
 
 @NgModule({
@@ -12,4 +12,5 @@ import { RoundEndComponent } from './round-end.component';
     RoundEndRoutingModule
   ]
 })
-export class RoundEndModule { }
+export class RoundEndModule {
+}

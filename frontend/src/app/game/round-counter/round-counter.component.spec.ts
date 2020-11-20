@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RoundCounterComponent } from './round-counter.component';
+import {RoundCounterComponent} from './round-counter.component';
 
 describe('RoundCounterComponent', () => {
   let component: RoundCounterComponent;
@@ -8,7 +8,7 @@ describe('RoundCounterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoundCounterComponent ]
+      declarations: [RoundCounterComponent]
     })
     .compileComponents();
   });

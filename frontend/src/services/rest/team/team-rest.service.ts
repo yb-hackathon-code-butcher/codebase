@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
@@ -11,9 +11,10 @@ export class TeamRestService {
 
   private readonly apiSubRoute: string = "/teams";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  getAll():Observable<TeamModel[]>{
-    return this.httpClient.get<TeamModel[]>(environment.backend_api+this.apiSubRoute+"/");
+  getAll(): Observable<TeamModel[]> {
+    return this.httpClient.get<TeamModel[]>(environment.backend_api + this.apiSubRoute + "/");
   }
 }

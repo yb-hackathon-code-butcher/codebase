@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CoinflipRoutingModule } from './coinflip-routing.module';
-import { CoinflipComponent } from './coinflip.component';
+import {CoinflipRoutingModule} from './coinflip-routing.module';
+import {CoinflipComponent} from './coinflip.component';
 
 
 @NgModule({
@@ -12,4 +12,5 @@ import { CoinflipComponent } from './coinflip.component';
     CoinflipRoutingModule
   ]
 })
-export class CoinflipModule { }
+export class CoinflipModule {
+}

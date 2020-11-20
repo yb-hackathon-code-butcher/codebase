@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { VoteResultBarComponent } from './vote-result-bar.component';
+import {VoteResultBarComponent} from './vote-result-bar.component';
 
 describe('VoteResultBarComponent', () => {
   let component: VoteResultBarComponent;
@@ -8,7 +8,7 @@ describe('VoteResultBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VoteResultBarComponent ]
+      declarations: [VoteResultBarComponent]
     })
     .compileComponents();
   });

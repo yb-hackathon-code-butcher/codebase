@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CountdownRoutingModule } from './countdown-routing.module';
-import { CountdownComponent } from './countdown.component';
-import { TimerComponent } from './timer/timer.component';
+import {CountdownRoutingModule} from './countdown-routing.module';
+import {CountdownComponent} from './countdown.component';
+import {TimerComponent} from './timer/timer.component';
 
 
 @NgModule({
@@ -13,4 +13,5 @@ import { TimerComponent } from './timer/timer.component';
     CountdownRoutingModule
   ]
 })
-export class CountdownModule { }
+export class CountdownModule {
+}
