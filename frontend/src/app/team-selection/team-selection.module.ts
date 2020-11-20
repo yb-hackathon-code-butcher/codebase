@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { TeamSelectionRoutingModule } from './team-selection-routing.module';
-import { TeamSelectionComponent } from './team-selection.component';
+import {TeamSelectionRoutingModule} from './team-selection-routing.module';
+import {TeamSelectionComponent} from './team-selection.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 
 
@@ -14,4 +14,5 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatGridListModule
   ]
 })
-export class TeamSelectionModule { }
+export class TeamSelectionModule {
+}

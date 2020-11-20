@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RoundEndComponent } from './round-end.component';
+import {RoundEndComponent} from './round-end.component';
 
 describe('RoundEndComponent', () => {
   let component: RoundEndComponent;
@@ -8,7 +8,7 @@ describe('RoundEndComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoundEndComponent ]
+      declarations: [RoundEndComponent]
     })
     .compileComponents();
   });

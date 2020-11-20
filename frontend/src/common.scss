@@ -12,34 +12,34 @@
   background-size: 200px;
 }
 
-.h1, .h2, .h3, .h4, .ct{
+.h1, .h2, .h3, .h4, .ct {
   font-family: "Roboto", sans-serif;
 }
 
 .h1 {
   font-weight: 400;
   @include font-size(4rem);
-  text-transform: uppercase!important;
+  text-transform: uppercase !important;
 }
 
 
 .h2 {
-  font-weight: 400!important;
+  font-weight: 400 !important;
   @include font-size(3rem);
   line-height: 3.5rem;
-  text-transform: uppercase!important;
+  text-transform: uppercase !important;
 }
 
 .h3 {
   font-weight: 400;
   @include font-size(1.75rem);
-  text-transform: uppercase!important;
+  text-transform: uppercase !important;
 }
 
 .h4 {
-  font-weight: 300!important;
+  font-weight: 300 !important;
   @include font-size(1rem);
-  text-transform: uppercase!important;
+  text-transform: uppercase !important;
 }
 
 .ct {
@@ -49,59 +49,61 @@
   margin: 0;
 }
 
-.bold{
-  font-weight: 900!important;
+.bold {
+  font-weight: 900 !important;
 }
 
 .center {
   text-align: center;
 }
 
-.right{
+.right {
   text-align: right;
 }
 
-.left{
+.left {
   text-align: left;
 }
 
-.primary-bg{
+.primary-bg {
   background-color: $primary-color;
 }
 
-.primary-text{
+.primary-text {
   color: $primary-color;
 }
 
-.secondary-bg{
+.secondary-bg {
   background-color: $secondary-color;
 }
 
-.secondary-text{
+.secondary-text {
   color: $secondary-color;
 }
 
-.light-text{
+.light-text {
   color: $light;
 }
 
-.light-bg{
+.light-bg {
   background-color: $light;
 }
 
-.dark-text{
+.dark-text {
   color: $dark;
 }
-.dark-bg{
+
+.dark-bg {
   background-color: $dark;
 }
 
-.header{
+.header {
   padding: 30px 0;
   background-color: $dark;
   border-bottom: 3px solid $primary-color;
 }
-.border-bottom{
+
+.border-bottom {
   border-bottom: 1px solid $primary-color;
 }
 

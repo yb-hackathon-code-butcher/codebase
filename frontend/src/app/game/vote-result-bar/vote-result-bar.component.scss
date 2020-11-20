@@ -1,23 +1,27 @@
 @import "../../../vars";
 
-.heading{
+.heading {
   display: flex;
   margin-bottom: $small-border-size;
   justify-content: space-between;
-  .h4{
+
+  .h4 {
     flex: 1;
   }
 }
-.bar{
+
+.bar {
   display: flex;
   height: 18px;
   border: solid $small-border-size $primary-color;
   border-radius: 2em;
-  .item{
+
+  .item {
 
     flex: 1;
   }
-  .item:not(:last-child){
+
+  .item:not(:last-child) {
     border-right: solid $small-border-size $primary-color;
   }
 

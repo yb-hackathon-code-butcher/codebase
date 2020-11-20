@@ -34,7 +34,8 @@ export class GameComponent implements OnInit {
   allAvailableOptions: OptionModel[];
 
   constructor(private optionService: OptionRestService,
-              private gameRestService: GameRestService) { }
+              private gameRestService: GameRestService) {
+  }
 
   ngOnInit(): void {
     this.gameRestService.getGame().subscribe((gameState) => {

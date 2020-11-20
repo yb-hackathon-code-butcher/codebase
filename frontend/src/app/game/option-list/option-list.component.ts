@@ -10,7 +10,7 @@ export class OptionListComponent implements OnInit {
   @Input()
   teamName: string;
   @Input()
-  options: {name: string, chance: number}[];
+  options: { name: string, chance: number }[];
   @Input()
   tempResults: { percent: number; }[];
   @Output()
@@ -25,7 +25,7 @@ export class OptionListComponent implements OnInit {
   }
 
   vote(optionIndex: number) {
-    if(this.selectedOption === -1){
+    if (this.selectedOption === -1) {
       this.selectedOption = optionIndex;
       this.onVote.next(optionIndex)
     }

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { OptionListComponent } from './option-list.component';
+import {OptionListComponent} from './option-list.component';
 
 describe('OptionListComponent', () => {
   let component: OptionListComponent;
@@ -8,7 +8,7 @@ describe('OptionListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OptionListComponent ]
+      declarations: [OptionListComponent]
     })
     .compileComponents();
   });

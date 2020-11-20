@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
@@ -6,7 +6,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
 })
 export class CountdownService {
 
-  constructor() { }
+  constructor() {
+  }
 
   private getTimeUntilDate(date: Date): Time {
     const now = new Date().getTime();
@@ -20,10 +21,10 @@ export class CountdownService {
     return {days, hours, minutes, seconds, distance};
   }
 
-  getCountdown(date: Date): Observable<Time>{
+  getCountdown(date: Date): Observable<Time> {
     const initTime = this.getTimeUntilDate(date);
     const subject = new BehaviorSubject<Time>(initTime);
-    if(initTime.distance < 0){
+    if (initTime.distance < 0) {
       subject.complete();
     }
 
@@ -41,7 +42,7 @@ export class CountdownService {
 
 }
 
-export interface Time{
+export interface Time {
   days: number
   hours: number
   minutes: number

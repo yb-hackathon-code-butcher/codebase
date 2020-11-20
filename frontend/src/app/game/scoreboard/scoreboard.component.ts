@@ -7,9 +7,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ScoreboardComponent implements OnInit {
   @Input()
-  score: {teamA: number, teamB: number};
+  score: { teamA: number, teamB: number };
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {OptionModel} from "../../../model/rest/option/option.model";
@@ -11,9 +11,10 @@ export class OptionRestService {
 
   private readonly apiSubRoute: string = "/option";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  getAll():Observable<OptionModel[]>{
+  getAll(): Observable<OptionModel[]> {
     return this.httpClient.get<OptionModel[]>(environment.backend_api + this.apiSubRoute + "/");
   }
 }

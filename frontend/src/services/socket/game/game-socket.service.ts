@@ -28,31 +28,31 @@ export class GameSocketService {
     });
   }*/
 
-  onGameEnd(): Promise<GameEnd>{
+  onGameEnd(): Promise<GameEnd> {
     return this.socket.fromOneTimeEvent<GameEnd>(ServerMessage.GAME_END);
   }
 
-  onGameStarts(): Promise<GameStarts>{
+  onGameStarts(): Promise<GameStarts> {
     return this.socket.fromOneTimeEvent(ServerMessage.GAME_STARTS);
   }
 
-  onNextRound(): Observable<NextRound>{
+  onNextRound(): Observable<NextRound> {
     return this.socket.fromEvent(ServerMessage.NEXT_ROUND);
   }
 
-  onRoundEnded(): Observable<RoundEnded>{
+  onRoundEnded(): Observable<RoundEnded> {
     return this.socket.fromEvent(ServerMessage.ROUND_ENDED);
   }
 
-  onVoteUpdate(): Observable<VoteUpdate>{
+  onVoteUpdate(): Observable<VoteUpdate> {
     return this.socket.fromEvent(ServerMessage.VOTE_UPDATE);
   }
 
-  sendVote(vote: Vote){
-      this.socket.emit(ClientMessage.VOTE, vote);
+  sendVote(vote: Vote) {
+    this.socket.emit(ClientMessage.VOTE, vote);
   }
 
-  sendJoin(){
+  sendJoin() {
     console.log('Hit send')
     this.socket.emit(ClientMessage.JOIN, {});
   }

@@ -4,12 +4,13 @@
   </p>
   <div class="coinflip-container">
     <div class="coinflip">
-      <div class="coinflip-inner" [ngClass]="{'animate-coin-team1' : winner===1, 'animate-coin-team2' : winner===2}" >
+      <div class="coinflip-inner"
+           [ngClass]="{'animate-coin-team1' : winner===1, 'animate-coin-team2' : winner===2}">
         <div class="coin-front">
           <img src="../../assets/img/teams/1.png">
         </div>
         <div class="coin-back">
-          <img  src="../../assets/img/teams/2.png">
+          <img src="../../assets/img/teams/2.png">
         </div>
       </div>
     </div>

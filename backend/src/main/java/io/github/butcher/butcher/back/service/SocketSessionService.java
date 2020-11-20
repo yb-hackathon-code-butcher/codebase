@@ -14,8 +14,8 @@ public class SocketSessionService {
 
   private final PlayerService playerService;
 
-  public SocketSessionService(PlayerService playerService){
-    this.playerService  = playerService;
+  public SocketSessionService(PlayerService playerService) {
+    this.playerService = playerService;
   }
 
   public void registerConnection(SocketIOClient socketIOClient) {

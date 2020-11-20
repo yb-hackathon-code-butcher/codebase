@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CoinflipComponent } from './coinflip.component';
+import {CoinflipComponent} from './coinflip.component';
 
 describe('CoinflipComponent', () => {
   let component: CoinflipComponent;
@@ -8,7 +8,7 @@ describe('CoinflipComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoinflipComponent ]
+      declarations: [CoinflipComponent]
     })
     .compileComponents();
   });

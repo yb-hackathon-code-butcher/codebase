@@ -52,7 +52,7 @@ public class PlayerService {
 
   public PlayerDTO selectTeam(String playerUUID, Long teamId) {
     Optional<Player> playerOptional = playerRepository.findByUid(playerUUID);
-    Player player = playerOptional.isEmpty() ?createPlayer(playerUUID,teamId) : playerOptional.get();
+    Player player = playerOptional.isEmpty() ? createPlayer(playerUUID,teamId) : playerOptional.get();
     player.setTeam(teamMapper.convert(teamService.findById(teamId)));
     player = playerRepository.save(player);
 

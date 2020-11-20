@@ -9,7 +9,8 @@ export class BallPossessionComponent implements OnInit {
   @Input()
   teamName: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -7,15 +7,15 @@ import {GameRunningGuard} from "./game.running.guard";
 export class NegateAuthGuard implements CanActivate {
   constructor(private router: Router,
               private authGuard: AuthGuard,
-              private gameRunningGuard: GameRunningGuard) {}
+              private gameRunningGuard: GameRunningGuard) {
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(!this.gameRunningGuard.canActivate(route,state)){
-      this.router.navigate(['/countdown'], { queryParams: { returnUrl: state.url }});
+    if (!this.gameRunningGuard.canActivate(route, state)) {
+      this.router.navigate(['/countdown'], {queryParams: {returnUrl: state.url}});
+    } else {
+      this.router.navigate(['/game'], {queryParams: {returnUrl: state.url}});
     }
-    else{
-      this.router.navigate(['/game'], { queryParams: { returnUrl: state.url }});
-    }
-    return !this.authGuard.canActivate(route,state);
+    return !this.authGuard.canActivate(route, state);
   }
 }

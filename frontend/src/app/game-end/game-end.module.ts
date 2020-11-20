@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { GameEndRoutingModule } from './game-end-routing.module';
-import { GameEndComponent } from './game-end.component';
+import {GameEndRoutingModule} from './game-end-routing.module';
+import {GameEndComponent} from './game-end.component';
 
 
 @NgModule({
@@ -12,4 +12,5 @@ import { GameEndComponent } from './game-end.component';
     GameEndRoutingModule
   ]
 })
-export class GameEndModule { }
+export class GameEndModule {
+}

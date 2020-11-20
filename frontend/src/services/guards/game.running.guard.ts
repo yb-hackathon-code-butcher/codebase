@@ -5,7 +5,8 @@ import {GameRestService} from "../rest/game/game-rest.service";
 @Injectable()
 export class GameRunningGuard implements CanActivate {
 
-  constructor(private router: Router, private gameRestService: GameRestService) { }
+  constructor(private router: Router, private gameRestService: GameRestService) {
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return new Promise<boolean>((resolve, reject) => {

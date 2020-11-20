@@ -20,12 +20,14 @@
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  &.unselected{
+
+  &.unselected {
     opacity: 0.4;
   }
 
-  .left{
+  .left {
     flex-grow: 1;
+
     .top {
       display: flex;
       align-items: center;
